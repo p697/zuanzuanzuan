@@ -307,3 +307,143 @@ test("救援只奖励一次，所有物品表至少具备中文与韩文数据",
   assert.equal(e.s.money, 100000);
   for (const i of data.items) assert.ok(i.name["zh-CN"] && i.name.ko);
 });
+
+test("九种矿物拾取按原售价加积分和数字事件，钻探深度另计；出售只加金币", () => {
+  for (const [code, price] of [
+    [1, 50],
+    [2, 100],
+    [3, 150],
+    [4, 250],
+    [5, 400],
+    [6, 800],
+    [7, 1500],
+    [8, 2500],
+    [9, 5000],
+  ]) {
+    const e = fresh();
+    const i = e.source.tiles.findIndex((t) => t === 80),
+      x = i % e.source.width,
+      y = Math.floor(i / e.source.width);
+    e.world.changes[i] = [79 + code, 0];
+    place(e, x, y - 1);
+    const depth = e.depth;
+    assert.equal(e.breakTile(x, y, true), true);
+    assert.equal(e.s.score, price + depth);
+    assert.equal(e.s.money, 0);
+    assert.equal(e.s.inventory[code], 1);
+    assert.deepEqual(
+      e
+        .drain()
+        .filter((v) => v.type === "score")
+        .map((v) => v.amount),
+      [price],
+    );
+    assert.equal(e.breakTile(x, y, true), false);
+    assert.equal(e.s.score, price + depth);
+    const shop = e.source.entities.find((v) => v.type === "Shop");
+    place(e, shop.x, shop.y);
+    assert.equal(e.sell(), price);
+    assert.equal(e.s.money, price);
+    assert.equal(e.s.score, price + depth);
+    assert.equal(e.sell(), 0);
+    const saved = e.serialize(),
+      restored = fresh();
+    restored.restore(saved);
+    assert.equal(restored.s.score, price + depth);
+  }
+});
+test("满包矿物保留且不加分，腾出空间后只奖励一次，补给与购买不计拾取积分", () => {
+  const e = fresh();
+  e.s.inventory = { 1: 90 };
+  e.world.drops = [{ code: 1, x: e.s.p.x, y: e.s.p.y }];
+  e.updateDrops();
+  assert.equal(e.world.drops.length, 1);
+  assert.equal(e.s.score, 0);
+  assert.equal(e.drain().filter((v) => v.type === "score").length, 0);
+  e.takeItem(1);
+  e.updateDrops();
+  e.updateDrops();
+  assert.equal(e.world.drops.length, 0);
+  assert.equal(e.s.score, 50);
+  assert.equal(e.s.inventory[1], 90);
+  assert.equal(e.drain().filter((v) => v.type === "score").length, 1);
+  e.takeItem(1, 5);
+  e.world.drops = [{ code: 21, x: e.s.p.x, y: e.s.p.y }];
+  e.updateDrops();
+  assert.equal(e.s.inventory[21], 1);
+  assert.equal(e.s.score, 50);
+  e.takeItem(21);
+  e.s.money = 1000;
+  const shop = e.source.entities.find((v) => v.type === "Shop");
+  place(e, shop.x, shop.y);
+  assert.equal(e.buy(21).ok, true);
+  assert.equal(e.s.score, 50);
+});
+test("普通土层按当前深度计分且不飘矿物数字；特殊矿石各奖励一次", () => {
+  const e = fresh();
+  const i = e.source.tiles.findIndex((t) => t === 80),
+    x = i % e.source.width,
+    y = Math.floor(i / e.source.width);
+  e.world.changes[i] = [0, 0];
+  place(e, x, y - 1);
+  const depth = e.depth;
+  e.breakTile(x, y, true);
+  assert.equal(e.s.score, depth);
+  assert.equal(e.drain().filter((v) => v.type === "score").length, 0);
+  for (let index = 0; index < 3; index++) {
+    e.collectSpecial(index);
+    e.collectSpecial(index);
+  }
+  assert.equal(e.s.score, depth + 60000);
+  assert.equal(e.s.money, 0);
+  assert.deepEqual(
+    e
+      .drain()
+      .filter((v) => v.type === "score")
+      .map((v) => v.amount),
+    [10000, 20000, 30000],
+  );
+});
+test("怪物积分还原：普通300、大型和守门怪1000、首领10000，首领召唤小怪不加分", () => {
+  for (const [kind, bossRoom, points] of [
+    ["Dragon", false, 300],
+    ["Dragon2", false, 300],
+    ["Dragon3", false, 300],
+    ["BigDragon", false, 1000],
+    ["BigDragon2", false, 1000],
+    ["ItemDragon", false, 1000],
+    ["SubBoss", true, 10000],
+    ["Boss", true, 10000],
+    ["Dragon", true, 0],
+  ]) {
+    const e = fresh();
+    if (bossRoom) e.loadMap("boss_map", { bossFor: 2 });
+    e.drain();
+    const enemy = { id: 999, kind, x: e.s.p.x, y: e.s.p.y, hp: 1, dead: false };
+    e.hitEnemy(enemy, 1);
+    e.hitEnemy(enemy, 1);
+    assert.equal(e.s.score, points, kind);
+    assert.deepEqual(
+      e
+        .drain()
+        .filter((v) => v.type === "score")
+        .map((v) => v.amount),
+      points ? [points] : [],
+    );
+  }
+});
+test("超威力炸弹成功放置时加5000，失败或爆炸不会重复加分", () => {
+  const e = fresh();
+  e.s.inventory = { 23: 2 };
+  const x = e.source.start.x,
+    y = e.source.start.y + 1;
+  e.world.changes[y * e.source.width + x] = [16, 0];
+  place(e, x, y - 1);
+  assert.equal(e.use(23).ok, true);
+  assert.equal(e.s.score, 5000);
+  assert.equal(e.use(23).ok, false);
+  for (let n = 0; n < 80; n++) e.updateBombs();
+  assert.equal(e.s.score, 5000);
+  assert.equal(e.use(23).ok, false);
+  assert.equal(e.s.score, 5000);
+});

@@ -360,6 +360,20 @@ export class Engine {
       this.dig = null;
     }
   }
+  awardScore(amount, x, y) {
+    if (amount <= 0) return;
+    this.s.score += amount;
+    if (Number.isFinite(x) && Number.isFinite(y))
+      this.emit("score", { amount, x, y });
+  }
+  collectItem(code, x, y) {
+    if (!this.addItem(code)) return false;
+    // Buying or restoring inventory must never award pickup points.
+    if (code >= 1 && code <= 9)
+      this.awardScore(this.catalog.get(code).price, x, y);
+    this.emit("collected", { code, x, y });
+    return true;
+  }
   breakTile(x, y, collect = false, rock = false) {
     const t = this.tile(x, y);
     if (t.index < 0 || t.prop1 >= 20 || (t.tile === 16 && !rock)) return false;
@@ -367,14 +381,11 @@ export class Engine {
     if (collect && mineral && !this.canAdd(mineral)) return false;
     this.world.changes[t.index] = [45, 20];
     this.s.stats.mined++;
+    // MapData.dig awards current depth on completed drilling, without a popup.
+    if (collect) this.awardScore(this.depth);
     if (mineral) {
       if (collect) {
-        this.addItem(mineral);
-        this.emit("collected", {
-          code: mineral,
-          x: x * TILE + 21,
-          y: y * TILE,
-        });
+        this.collectItem(mineral, x * TILE + 21, y * TILE);
       } else
         this.world.drops.push({
           code: mineral,
@@ -396,7 +407,9 @@ export class Engine {
     return true;
   }
   collectSpecial(index) {
+    if (this.s.special[index]) return;
     this.s.special[index] = true;
+    this.awardScore(this.catalog.get(index + 10).price, this.s.p.x, this.s.p.y);
     this.emit("special", { index });
     this.emit("sound", { name: "special" });
     this.emit("checkpoint");
@@ -519,6 +532,8 @@ export class Engine {
         code,
         ttl: Math.round((((code === 23 ? 41 : 48) / 30) * 1000) / STEP),
       });
+      // Original Dinamite awards points when successfully planted, not on blast.
+      if (code === 23) this.awardScore(5000);
       this.emit("sound", { name: "bombinstall" });
     } else if (code === 24) {
       if (this.s.hp >= 100) return { ok: false, key: "healthFull" };
@@ -568,7 +583,7 @@ export class Engine {
       if (b.code === 23) {
         const cx = Math.floor(b.x / TILE),
           cy = Math.floor((b.y + 1) / TILE);
-        if (this.breakTile(cx, cy, false, true)) this.s.score += 5000;
+        this.breakTile(cx, cy, false, true);
       }
       this.emit("explosion", { x: b.x, y: b.y, radius });
       this.emit("sound", { name: b.code === 22 ? "bomb2" : "bomb1" });
@@ -675,11 +690,14 @@ export class Engine {
     if (e.hp > 0) return;
     e.dead = true;
     this.s.stats.kills++;
-    this.s.score += e.kind.includes("Boss")
+    const points = e.kind.includes("Boss")
       ? 10000
-      : e.kind.startsWith("Big")
+      : e.kind.startsWith("Big") || e.kind === "ItemDragon"
         ? 1000
-        : 100;
+        : this.s.map === "boss_map"
+          ? 0
+          : 300;
+    this.awardScore(points, e.x, e.y);
     this.emit("sound", { name: "enemydie" });
     this.emit("enemyDeath", { x: e.x, y: e.y });
     if (e.kind === "ItemDragon" && !this.s.inventory[82])
@@ -721,10 +739,9 @@ export class Engine {
       if (d.taken) continue;
       if (
         Math.hypot(d.x - this.s.p.x, d.y - this.s.p.y) < 48 &&
-        this.addItem(d.code)
+        this.collectItem(d.code, d.x, d.y)
       ) {
         d.taken = true;
-        this.emit("collected", { code: d.code, x: d.x, y: d.y });
       }
     }
     this.world.drops = this.world.drops.filter((d) => !d.taken);

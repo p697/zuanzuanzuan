@@ -462,8 +462,15 @@ export class Renderer {
     }
     if (e.type === "damage") this.shake = 3;
   }
-  text(text, x, y, color = "#e7d084") {
-    this.floating.push({ text, x, y, color, life: 1.5 });
+  score(amount, x, y) {
+    // ScoreBox: 50 frames at 30 fps, rises 1px/frame, alpha starts at 150%.
+    this.floating.push({
+      text: `+${amount}`,
+      x,
+      y,
+      color: "#e7d084",
+      life: 50 / 30,
+    });
   }
   effects(dt, cam) {
     const c = this.ctx;
@@ -492,8 +499,8 @@ export class Renderer {
     c.textAlign = "center";
     for (const f of this.floating) {
       f.life -= dt;
-      f.y -= 24 * dt;
-      c.globalAlpha = Math.min(1, f.life);
+      f.y -= 30 * dt;
+      c.globalAlpha = clamp(f.life * 0.9, 0, 1);
       c.fillStyle = "#1a2119";
       c.fillText(f.text, f.x - cam.x + 1, f.y - cam.y + 1);
       c.fillStyle = f.color;

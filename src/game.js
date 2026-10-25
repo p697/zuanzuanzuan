@@ -173,11 +173,20 @@ async function boot() {
           break;
         case "collected":
           audio.sound("mineral");
-          renderer.text(`+ ${ui.name(e.code)}`, e.x, e.y);
-          if (e.code === 82) ui.toast(ui.t("keyFound"));
+          if (e.code > 9)
+            ui.toast(
+              ui.t(e.code === 82 ? "keyFound" : "acquired", {
+                name: ui.name(e.code),
+              }),
+            );
+          break;
+        case "score":
+          renderer.score(e.amount, e.x, e.y);
           break;
         case "money":
-          renderer.text(`+${e.amount}`, e.x, e.y);
+          ui.toast(
+            ui.t("coinsAcquired", { amount: e.amount.toLocaleString() }),
+          );
           break;
         case "special":
           ui.toast(

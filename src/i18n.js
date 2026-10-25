@@ -122,6 +122,7 @@ export const messages = {
     airRestored: "氧气已补满",
     sell: "出售全部矿物",
     sold: "出售获得 {money} 金币",
+    coinsAcquired: "获得 {amount} 金币",
     nothingToSell: "还没有可以出售的矿物。",
     buy: "购买",
     owned: "已装备",
