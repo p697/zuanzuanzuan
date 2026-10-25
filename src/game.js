@@ -1,3 +1,4 @@
+import { assetURL, resolveAssetPaths } from "./paths.js";
 import { Engine, STEP } from "./core.js";
 import { Assets, Renderer } from "./renderer.js";
 import { UI } from "./ui.js";
@@ -5,15 +6,17 @@ import { AudioManager } from "./audio.js";
 
 const canvas = document.querySelector("#game");
 async function boot() {
-  const [data, manifest, movies] = await Promise.all(
+  const [data, rawManifest, rawMovies] = await Promise.all(
     ["/data/original.json", "/assets/manifest.json", "/data/movies.json"].map(
       async (url) => {
-        const r = await fetch(url);
+        const r = await fetch(assetURL(url));
         if (!r.ok) throw new Error(url);
         return r.json();
       },
     ),
   );
+  const manifest = resolveAssetPaths(rawManifest),
+    movies = resolveAssetPaths(rawMovies);
   const assets = new Assets(manifest);
   await assets.load((r) => {
     document.querySelector("#load-progress").style.width =
