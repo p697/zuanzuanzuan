@@ -46,46 +46,65 @@
           <div class="load-track"><i id="load-progress"></i></div>
         </div>
         <div id="hud" class="hud" hidden>
-          <div class="hud-top">
-            <div class="gauges">
-              <div class="gauge health">
-                <span>生命</span>
-                <div><i id="hp-bar"></i></div>
-                <b id="hp-value">100</b>
-              </div>
-              <div class="gauge oxygen">
-                <span>氧气</span>
-                <div><i id="ap-bar"></i></div>
-                <b id="ap-value">100</b>
-              </div>
-            </div>
-            <div class="hud-money">
-              <span>◆</span> <b id="money-value">0</b><small>金币</small>
-            </div>
-            <button class="hud-pause" data-action="pause" aria-label="暂停">
-              Ⅱ
-            </button>
-          </div>
-          <div class="quest-ribbon">
-            <span id="sector-label"></span><span id="depth-value">0 m</span>
+          <canvas
+            id="instrument-hud"
+            width="1280"
+            height="960"
+            aria-hidden="true"
+          ></canvas>
+          <div id="quick-slots" class="quick-slots"></div>
+          <button
+            class="map-hit"
+            data-action="map"
+            aria-label="展开地图 M"
+            title="展开地图 M"
+          ></button>
+          <button
+            class="inventory-hit"
+            data-action="inventory"
+            aria-label="背包 B"
+            title="背包 B"
+          ></button>
+          <div class="hud-readout">
+            <span id="sector-label"></span
+            ><span>◆ <b id="money-value">0</b></span>
           </div>
           <div class="objective">
             <span id="objective-text"></span
             ><small id="objective-progress"></small>
           </div>
+          <div
+            id="hp-meter"
+            class="instrument-meter health-meter"
+            role="meter"
+            aria-label="生命"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="100"
+          >
+            <span class="sr-only" id="hp-value"></span>
+          </div>
+          <div
+            id="ap-meter"
+            class="instrument-meter air-meter"
+            role="meter"
+            aria-label="氧气"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="100"
+          >
+            <span class="sr-only" id="ap-value"></span>
+          </div>
+          <span class="sr-only" id="depth-value"></span>
           <button
             id="interact-button"
             class="interact"
             data-action="interact"
             hidden
           ></button>
-          <div class="hud-bottom">
-            <div id="quick-slots" class="quick-slots"></div>
-            <div class="hud-tools">
-              <button data-action="inventory">背包 <kbd>B</kbd></button
-              ><button data-action="map">地图 <kbd>M</kbd></button
-              ><button data-action="save">保存</button>
-            </div>
+          <div class="hud-tools">
+            <button data-action="save">保存</button
+            ><button data-action="pause" aria-label="暂停 Esc">Ⅱ</button>
           </div>
         </div>
         <div

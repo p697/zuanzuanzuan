@@ -34,6 +34,7 @@ export class Assets {
         });
     };
     visit(this.manifest.sprites);
+    visit(this.manifest.hud);
     visit(this.manifest.cutscenes);
     for (const [key, v] of Object.entries(this.manifest.images))
       if (
@@ -84,8 +85,8 @@ export class Renderer {
   }
   reset(engine) {
     this.camera = {
-      x: engine.s.p.x - 320,
-      y: engine.s.p.y - (engine.s.map === "boss_map" ? 340 : 270),
+      x: engine.s.p.x - 340,
+      y: engine.s.p.y - (engine.s.map === "boss_map" ? 340 : 300),
     };
     this.particles = [];
     this.floating = [];
@@ -149,11 +150,11 @@ export class Renderer {
       p = s.p,
       m = engine.source,
       cam = this.camera;
-    const tx = clamp(p.x - 320, 0, Math.max(0, m.width * TILE - 640)),
+    const tx = clamp(p.x - 340, 0, Math.max(0, m.width * TILE - 640)),
       ty = clamp(
-        p.y - (s.map === "boss_map" ? 340 : 275),
+        p.y - (s.map === "boss_map" ? 340 : 300),
         0,
-        Math.max(0, m.height * TILE - 420),
+        Math.max(0, m.height * TILE - 480),
       );
     const lerp = 1 - Math.exp(-delta * 12);
     cam.x += (tx - cam.x) * lerp;
@@ -198,7 +199,7 @@ export class Renderer {
     const startX = Math.max(0, Math.floor(cam.x / TILE)),
       endX = Math.min(m.width - 1, Math.ceil((cam.x + 640) / TILE)),
       startY = Math.max(0, Math.floor(cam.y / TILE)),
-      endY = Math.min(m.height - 1, Math.ceil((cam.y + 420) / TILE));
+      endY = Math.min(m.height - 1, Math.ceil((cam.y + 480) / TILE));
     const atlas = this.assets.image(
       s.stage === 2 ? "tilemap2" : s.stage === 3 ? "tilemap3" : "tilemap",
     );
@@ -400,7 +401,7 @@ export class Renderer {
       v.addColorStop(0, "transparent");
       v.addColorStop(1, `rgba(130,35,28,${0.25 + 0.1 * Math.sin(time * 4)})`);
       c.fillStyle = v;
-      c.fillRect(0, 0, 640, 420);
+      c.fillRect(0, 0, 640, 480);
     }
     c.restore();
   }

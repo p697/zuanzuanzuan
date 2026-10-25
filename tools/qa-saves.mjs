@@ -6,7 +6,7 @@ const data = JSON.parse(
 );
 const out = new URL("../test/fixtures/", import.meta.url);
 await mkdir(out, { recursive: true });
-for (const name of ["shop", "ice", "lava", "boss", "ending"]) {
+for (const name of ["shop", "ice", "lava", "boss", "ending", "hud"]) {
   const e = new Engine(data);
   e.newGame({ tutorial: false, seed: 1928 });
   e.s.money = 150000;
@@ -41,6 +41,13 @@ for (const name of ["shop", "ice", "lava", "boss", "ending"]) {
     const p = e.source.entities.find((x) => x.type === "Shop");
     e.s.p.x = p.x * 42 + 21;
     e.s.p.y = (p.y + 1) * 42;
+  }
+  if (name === "hud") {
+    for (let i = 0; i < 100; i++) e.tick({ right: true });
+    for (let i = 0; i < 160; i++) e.tick({ down: true });
+    e.s.hp = 64;
+    e.s.ap = 35;
+    e.s.score = 12345;
   }
   await writeFile(new URL(name + ".json", out), e.serialize());
 }

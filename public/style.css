@@ -172,131 +172,118 @@ canvas#game {
 .hud button {
   pointer-events: auto;
 }
-.hud-top {
-  height: 8.1%;
-  display: flex;
-  gap: 1cqw;
-  align-items: center;
-  padding: 0.9cqw 1.5cqw;
-  background: linear-gradient(#302f26f5, #181f1cf2);
-  border-bottom: 2px solid #685a39;
-  box-shadow: 0 2px 8px #0007;
-}
-.gauges {
-  display: flex;
-  gap: 1.5cqw;
-  flex: 1;
-}
-.gauge {
-  display: flex;
-  gap: 0.5cqw;
-  align-items: center;
-  width: 24cqw;
-}
-.gauge > span {
-  font-size: 1.4cqw;
-  letter-spacing: 0.1em;
-  color: #c5c7ad;
-}
-.gauge > div {
-  height: 1.6cqw;
-  flex: 1;
-  background: #0f1512;
-  border: 1px solid #7c7151;
-  border-radius: 3px;
-  overflow: hidden;
-  box-shadow: inset 0 2px 2px #000;
-}
-.gauge i {
-  height: 100%;
-  display: block;
-  width: 100%;
-  transition: width 0.1s linear;
-  background: linear-gradient(#ca796a, #873d39);
-}
-.gauge.oxygen i {
-  background: linear-gradient(#9ccbc3, #438d88);
-}
-.gauge b {
-  font-size: 1.3cqw;
-  min-width: 3.4cqw;
-  font-variant-numeric: tabular-nums;
-}
-.hud-money {
-  display: flex;
-  align-items: center;
-  gap: 0.6cqw;
-  font-size: 1.8cqw;
-  font-variant-numeric: tabular-nums;
-}
-.hud-money > span {
-  color: #e8c66b;
-}
-.hud-money small {
-  font-size: 1.2cqw;
-  color: #afab8c;
-  margin-right: 1cqw;
-}
-.hud-pause {
-  background: #4a4d36;
-  border: 1px solid #777756;
-  border-radius: 4px;
-  width: 3.5cqw;
-  height: 3.5cqw;
-}
-.quest-ribbon {
+#instrument-hud {
   position: absolute;
-  top: 9.5%;
-  left: 2%;
-  right: 2%;
-  display: flex;
-  justify-content: space-between;
-  text-shadow: 0 1px 4px #000;
-  color: #fff3c8;
-  font-size: 1.65cqw;
+  inset: 0;
+  width: 100%;
+  height: 100%;
 }
-.quest-ribbon span {
-  padding: 0.4cqw 1cqw;
-  background: #222a22bd;
-  border-radius: 4px;
+.quick-slots {
+  position: absolute;
+  left: 33.67%;
+  top: 0.2%;
+  display: flex;
+}
+.quick-slot {
+  position: relative;
+  width: 5.46cqw;
+  height: 6.2cqw;
+  background: none;
+  border: 0;
+  padding: 0.4cqw;
+}
+.quick-slot img {
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+}
+.quick-slot b {
+  position: absolute;
+  top: 0;
+  left: 0.2cqw;
+  color: white;
+  font: bold 1.4cqw monospace;
+  text-shadow:
+    1px 1px #000,
+    -1px -1px #000;
+}
+.map-hit,
+.inventory-hit {
+  position: absolute;
+  border: 0;
+  background: transparent;
+}
+.map-hit {
+  left: 80.3%;
+  top: 3.75%;
+  width: 16.7%;
+  height: 21.5%;
+}
+.inventory-hit {
+  left: 93.1%;
+  top: 58.3%;
+  width: 6.9%;
+  height: 15.4%;
+  border-radius: 50% 0 0 50%;
+}
+.instrument-meter {
+  position: absolute;
+  pointer-events: auto;
+}
+.health-meter {
+  left: 81.5%;
+  top: 28.5%;
+  width: 15.5%;
+  height: 6%;
+}
+.air-meter {
+  left: 80%;
+  top: 36%;
+  width: 17%;
+  height: 11%;
+}
+.map-hit:hover,
+.inventory-hit:hover {
+  box-shadow: inset 0 0 12px #fff6;
+}
+.hud-readout {
+  position: absolute;
+  left: 1.4%;
+  top: 5.7%;
+  display: flex;
+  gap: 1.4cqw;
+  font-size: 1.4cqw;
+  color: #fff3bb;
+  text-shadow:
+    0 1px 2px #171b1a,
+    1px 0 2px #171b1a;
 }
 .objective {
   position: absolute;
-  top: 15%;
-  left: 2%;
-  padding: 0.6cqw 1cqw;
-  background: #20221fc9;
-  border-left: 2px solid #c9ad6a;
-  max-width: 69%;
-  color: #e1dfbf;
+  left: 34%;
+  top: 11%;
+  max-width: 31%;
+  text-align: center;
+  color: #fff5d1;
   font-size: 1.45cqw;
-  border-radius: 0 4px 4px 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.3cqw;
+  line-height: 1.6;
+  text-shadow:
+    0 1px 3px #202519,
+    1px 0 2px #202519;
 }
 .objective small {
+  display: block;
+  color: #ffeb98;
   font-size: 1.3cqw;
-  color: #ccb888;
 }
-.hud-bottom {
+.sr-only {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 14%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.9cqw 1.6cqw;
-  background: linear-gradient(#44432f, #232a22 15%, #1c231d);
-  border-top: 3px solid #827047;
-  box-shadow: 0 -3px 10px #0007;
-  gap: 1cqw;
-}
-.quick-slots {
-  display: flex;
-  gap: 0.8cqw;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 .slot {
   position: relative;
@@ -313,13 +300,6 @@ canvas#game {
   object-fit: contain;
   image-rendering: auto;
 }
-.slot kbd {
-  position: absolute;
-  left: 0.3cqw;
-  top: 0.1cqw;
-  color: #d8c48e;
-  font: 600 1.2cqw monospace;
-}
 .slot b {
   position: absolute;
   bottom: 0.2cqw;
@@ -328,30 +308,24 @@ canvas#game {
   color: #e2d7bc;
   text-shadow: 1px 1px #000;
 }
-.slot.empty img {
-  opacity: 0.25;
-}
 .hud-tools {
+  position: absolute;
+  bottom: 1.5%;
+  right: 1.5%;
   display: flex;
   gap: 0.7cqw;
 }
 .hud-tools button {
-  border: 1px solid #77684b;
-  background: linear-gradient(#555740, #333b2e);
-  padding: 1.2cqw 1.1cqw;
+  background: #25291ec4;
+  border: 1px solid #a08a61;
   border-radius: 4px;
-  font-size: 1.6cqw;
-  white-space: nowrap;
-  box-shadow: 0 2px 0 #12170e;
-}
-.hud-tools kbd {
-  font-size: 1.15cqw;
-  color: #b5b896;
-  margin-left: 0.5cqw;
+  padding: 0.65cqw 1.2cqw;
+  color: #ece1b9;
+  font-size: 1.4cqw;
 }
 .interact {
   position: absolute;
-  bottom: 19%;
+  bottom: 8%;
   left: 50%;
   transform: translateX(-50%);
   background: #e9c87b;
@@ -376,7 +350,7 @@ canvas#game {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 17%;
+  bottom: 13%;
   max-width: 86%;
   background: #17251bf5;
   border: 1px solid #9d955f;

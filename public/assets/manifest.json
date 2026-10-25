@@ -5641,5 +5641,53 @@
         "height": 480
       }
     ]
+  },
+  "hud": {
+    "panel": {
+      "src": "/assets/hud/panel.png",
+      "width": 320,
+      "height": 355
+    },
+    "quick": {
+      "src": "/assets/hud/quick.png",
+      "width": 241,
+      "height": 53
+    },
+    "inventory": {
+      "src": "/assets/hud/inventory.png",
+      "width": 74,
+      "height": 74
+    },
+    "score-label": {
+      "src": "/assets/hud/score-label.png",
+      "width": 59,
+      "height": 17
+    },
+    "hp": {
+      "src": "/assets/hud/hp.png",
+      "width": 86,
+      "height": 12
+    },
+    "air": {
+      "src": "/assets/hud/air.png",
+      "width": 114,
+      "height": 63,
+      "columns": 11,
+      "count": 101
+    },
+    "score-digits": {
+      "src": "/assets/hud/score-digits.png",
+      "width": 15,
+      "height": 17,
+      "columns": 11,
+      "count": 11
+    },
+    "depth-digits": {
+      "src": "/assets/hud/depth-digits.png",
+      "width": 17,
+      "height": 20,
+      "columns": 10,
+      "count": 10
+    }
   }
 }

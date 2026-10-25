@@ -1,3 +1,4 @@
+import { InstrumentHUD } from "./hud.js";
 import { translate, itemName, stories } from "./i18n.js";
 const profile =
   new URLSearchParams(location.search).get("profile") === "qa" ? ".qa" : "";
@@ -22,6 +23,10 @@ export class UI {
     this.menuContext = true;
     this.modal = document.querySelector("#modal");
     this.hud = document.querySelector("#hud");
+    this.instruments = new InstrumentHUD(
+      document.querySelector("#instrument-hud"),
+      assets,
+    );
     this.selected = 0;
     this.shopTab = "supplies";
     this.pending = null;
@@ -490,11 +495,19 @@ export class UI {
       const n = document.getElementById(id);
       if (n.textContent !== String(v)) n.textContent = v;
     };
-    document.querySelector("#hp-bar").style.width = `${Math.max(0, s.hp)}%`;
-    document.querySelector("#ap-bar").style.width =
-      `${(s.ap / e.maxAp) * 100}%`;
-    set("hp-value", Math.ceil(s.hp));
-    set("ap-value", `${Math.ceil(s.ap)}/${e.maxAp}`);
+    if (!this.hud.hidden) this.instruments.draw(e);
+    set("hp-value", `${this.t("life")} ${Math.ceil(s.hp)}/${e.maxHp}`);
+    set("ap-value", `${this.t("air")} ${Math.ceil(s.ap)}/${e.maxAp}`);
+    for (const [id, key, value, max] of [
+      ["hp", "life", s.hp, e.maxHp],
+      ["ap", "air", s.ap, e.maxAp],
+    ]) {
+      const meter = document.getElementById(`${id}-meter`);
+      meter.setAttribute("aria-label", this.t(key));
+      meter.setAttribute("aria-valuemax", max);
+      meter.setAttribute("aria-valuenow", Math.ceil(value));
+      meter.title = `${this.t(key)} ${Math.ceil(value)}/${max}`;
+    }
     set("money-value", s.money.toLocaleString());
     set("depth-value", `${e.depth} m`);
     set("sector-label", this.sector());
@@ -520,7 +533,7 @@ export class UI {
       document.querySelector("#quick-slots").innerHTML = s.quick
         .map(
           (code, i) =>
-            `<button class="slot ${s.inventory[code] || 0 ? "" : "empty"}" data-action="use" data-code="${code}" aria-label="${["A", "S", "D", "F", "G"][i]} ${esc(this.name(code))} ${s.inventory[code] || 0}"><kbd>${["A", "S", "D", "F", "G"][i]}</kbd>${this.icon(code)}<b>${s.inventory[code] || 0}</b></button>`,
+            `<button class="quick-slot" data-action="use" data-code="${code}" aria-label="${["A", "S", "D", "F", "G"][i]} ${esc(this.name(code))} ${s.inventory[code] || 0}">${this.icon(code)}<b>${s.inventory[code] || 0}</b></button>`,
         )
         .join("");
     }
