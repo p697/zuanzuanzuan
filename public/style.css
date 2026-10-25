@@ -1417,3 +1417,55 @@ canvas#game {
     transition: none !important;
   }
 }
+
+/* Full 640×480 original timelines retain their composition and embedded Chinese dialogue. */
+.modal.cinema-modal {
+  padding: 0;
+  background: #080807;
+  overflow: hidden;
+}
+.cinema {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+.cinema video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.cinema-heading {
+  position: absolute;
+  left: 12px;
+  top: 8px;
+  margin: 0;
+  font-size: 13px;
+  color: #fff0bc;
+  text-shadow: 0 2px 3px #000;
+  z-index: 1;
+}
+.cinema-controls {
+  position: absolute;
+  right: 10px;
+  top: 9px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+}
+.cinema-controls .btn {
+  min-height: 28px;
+  padding: 4px 10px;
+  font-size: 12px;
+}
+.cinema-progress,
+.cinema-status {
+  font-size: 12px;
+  color: #fff1c5;
+  text-shadow: 0 1px 3px #000;
+}
+.cinema-status:empty {
+  display: none;
+}

@@ -5,12 +5,14 @@ import { AudioManager } from "./audio.js";
 
 const canvas = document.querySelector("#game");
 async function boot() {
-  const [data, manifest] = await Promise.all(
-    ["/data/original.json", "/assets/manifest.json"].map(async (url) => {
-      const r = await fetch(url);
-      if (!r.ok) throw new Error(url);
-      return r.json();
-    }),
+  const [data, manifest, movies] = await Promise.all(
+    ["/data/original.json", "/assets/manifest.json", "/data/movies.json"].map(
+      async (url) => {
+        const r = await fetch(url);
+        if (!r.ok) throw new Error(url);
+        return r.json();
+      },
+    ),
   );
   const assets = new Assets(manifest);
   await assets.load((r) => {
@@ -20,7 +22,7 @@ async function boot() {
   const engine = new Engine(data),
     renderer = new Renderer(canvas, assets),
     audio = new AudioManager(manifest),
-    ui = new UI(engine, assets, renderer, audio);
+    ui = new UI(engine, assets, renderer, audio, movies);
   const input = {};
   let last = performance.now(),
     accumulator = 0,
@@ -48,6 +50,7 @@ async function boot() {
     if (key === "Escape") {
       event.preventDefault();
       clear();
+      if (ui.mode === "cinematic") ui.cinematics.pause();
       if (ui.mode === "play") ui.pause();
       else if (
         [
@@ -97,6 +100,7 @@ async function boot() {
   });
   window.addEventListener("blur", () => {
     clear();
+    if (ui.mode === "cinematic") ui.cinematics.pause();
     if (ui.mode === "play") ui.pause();
     audio.suspend();
   });
@@ -104,6 +108,7 @@ async function boot() {
   document.addEventListener("visibilitychange", () => {
     if (document.hidden) {
       clear();
+      if (ui.mode === "cinematic") ui.cinematics.pause();
       if (ui.mode === "play") ui.pause();
       audio.suspend();
     } else {

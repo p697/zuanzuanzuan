@@ -6,7 +6,16 @@ const data = JSON.parse(
 );
 const out = new URL("../test/fixtures/", import.meta.url);
 await mkdir(out, { recursive: true });
-for (const name of ["shop", "ice", "lava", "boss", "ending", "hud"]) {
+for (const name of [
+  "shop",
+  "ice",
+  "lava",
+  "boss",
+  "ending",
+  "hud",
+  "opening",
+  "subboss",
+]) {
   const e = new Engine(data);
   e.newGame({ tutorial: false, seed: 1928 });
   e.s.money = 150000;
@@ -37,6 +46,9 @@ for (const name of ["shop", "ice", "lava", "boss", "ending", "hud"]) {
         3000,
       );
   }
+  if (name === "ending") for (let i = 0; i < 186; i++) e.finishTransition();
+  if (name === "opening") e.s.cutscene = { id: "opening", index: 0, time: 0 };
+  if (name === "subboss") e.loadMap("boss_map", { bossFor: 1 });
   if (name === "shop") {
     const p = e.source.entities.find((x) => x.type === "Shop");
     e.s.p.x = p.x * 42 + 21;

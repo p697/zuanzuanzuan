@@ -16,9 +16,13 @@ export class AudioManager {
     this.select(this.wanted);
   }
   select(name) {
-    if (name === null) return;
+    if (name === null || this.cinematic) return;
     this.wanted = name;
-    if (!this.ready || name === this.name) return;
+    if (!this.ready) return;
+    if (name === this.name) {
+      this.resume();
+      return;
+    }
     if (this.music) {
       this.music.pause();
       this.music.src = "";
@@ -56,6 +60,6 @@ export class AudioManager {
     for (const a of this.voices) a.pause();
   }
   resume() {
-    if (this.ready) this.music?.play().catch(() => {});
+    if (this.ready && !this.cinematic) this.music?.play().catch(() => {});
   }
 }

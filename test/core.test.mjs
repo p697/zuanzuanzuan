@@ -167,6 +167,7 @@ test("钥匙可靠掉落，满背包可稍后拾取，Boss重试不重复收费"
   e.updateDrops();
   assert.equal(e.s.inventory[82], undefined);
   e.takeItem(1, 5);
+  e.s.tick = e.world.drops.at(-1).readyAt;
   e.updateDrops();
   assert.equal(e.s.inventory[82], 1);
   const door = e.source.entities.find((x) => x.type === "BossRoom");
@@ -200,6 +201,7 @@ test("完整关键流程：教程→矿区1→守关Boss→矿区2→矿区3→�
   const g = e.world.entities.find((x) => x.kind === "ItemDragon");
   e.hitEnemy(g, 200);
   Object.assign(e.s.p, { x: g.x, y: g.y });
+  e.s.tick = e.world.drops.at(-1).readyAt;
   e.updateDrops();
   const door = e.source.entities.find((x) => x.type === "BossRoom");
   place(e, door.x, door.y);
@@ -207,6 +209,8 @@ test("完整关键流程：教程→矿区1→守关Boss→矿区2→矿区3→�
   const boss = e.world.entities.find((x) => x.kind === "SubBoss");
   assert.equal(boss.hp, 1000);
   e.hitEnemy(boss, 1000);
+  assert.ok(!e.drain().some((x) => x.type === "advance"));
+  for (let i = 0; i < 186; i++) e.finishTransition();
   assert.ok(e.drain().some((x) => x.type === "advance" && x.stage === 2));
   e.advance(2);
   const point = e.world.special;
@@ -220,6 +224,8 @@ test("完整关键流程：教程→矿区1→守关Boss→矿区2→矿区3→�
   const final = e.world.entities.find((x) => x.kind === "Boss");
   assert.equal(final.hp, 3000);
   e.hitEnemy(final, 3000);
+  assert.equal(e.s.complete, false);
+  for (let i = 0; i < 186; i++) e.finishTransition();
   assert.equal(e.s.ending, "happy");
   assert.equal(e.s.complete, true);
 });
@@ -231,6 +237,7 @@ test("缺少特殊矿石时保留普通结局分支", () => {
     e.world.entities.find((x) => x.kind === "Boss"),
     3000,
   );
+  for (let i = 0; i < 186; i++) e.finishTransition();
   assert.equal(e.s.ending, "normal");
 });
 
@@ -248,13 +255,17 @@ test("真实逻辑时钟下使用有限炸弹与急救箱可击败最终Boss，�
     const boss = e.world.entities.find((x) => x.kind === "Boss");
     if (e.s.hp < 50 && e.s.inventory[24]) e.use(24);
     if (e.s.ap < 200 && e.s.inventory[26]) e.use(26);
+    const input = {};
+    if (e.s.p.x < boss.x + 35) input.right = true;
+    else if (e.s.p.x > boss.x + 47) input.left = true;
     if (
-      Math.abs(boss.x - e.s.p.x) < 90 &&
-      !e.world.bombs.length &&
+      !boss.dead &&
+      Math.abs(boss.x - e.s.p.x) < 70 &&
+      !e.world.bombs.some((b) => b.blastAge === undefined) &&
       e.use(e.s.inventory[22] ? 22 : 21).ok
     )
       bombs++;
-    e.tick({});
+    e.tick(input);
     e.drain();
   }
   assert.equal(e.s.ending, "happy");

@@ -40,10 +40,18 @@ class assetsRender {
   var root=Path.of(args[2]);Files.createDirectories(root);
   Files.writeString(root.resolve("meta.json"),"{\"originX\":"+(-r.Xmin/20.0)+",\"originY\":"+(-r.Ymin/20.0)+",\"width\":"+(r.getWidth()/20.0)+",\"height\":"+(r.getHeight()/20.0)+"}");
   int sub=Integer.parseInt(args[3]);
-  for(int f=0;f<tl.getFrameCount();f++)for(int t=0;t<sub;t++){
+  for(int f=0;f<tl.getFrameCount();f++){
+   int limit=sub;
+   if(sub<0){limit=1;for(var layer:tl.getFrame(f).layers.values())
+    if(layer.instanceName==null || "boss_mc".equals(layer.instanceName) || "ex_mc".equals(layer.instanceName))
+     if(swf.getCharacter(layer.characterId) instanceof DefineSpriteTag child)limit=Math.max(limit,child.getTimeline().getFrameCount());
+   }
+   for(int t=0;t<limit;t++){
    var out=Path.of(args[2],String.valueOf(f+1));Files.createDirectories(out);
    var image=SWF.frameToImageGet(tl,f,t,null,0,r,new Matrix(),new ColorTransform(),null,1.0,true,0);
    ImageIO.write(image.getBufferedImage(),"png",out.resolve((t+1)+".png").toFile());
+   }
   }
+  System.exit(0);
  }
 }

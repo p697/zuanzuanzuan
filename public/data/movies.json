@@ -1,0 +1,119 @@
+{
+  "opening": {
+    "zh-CN": {
+      "src": "/movies/zh-CN/opening.mp4",
+      "frames": 1476,
+      "fps": 30.0,
+      "duration": 49.2,
+      "audio": true
+    }
+  },
+  "quest1": {
+    "zh-CN": {
+      "src": "/movies/zh-CN/quest1.mp4",
+      "frames": 165,
+      "fps": 30.0,
+      "duration": 5.5,
+      "audio": true
+    }
+  },
+  "quest2": {
+    "zh-CN": {
+      "src": "/movies/zh-CN/quest2.mp4",
+      "frames": 393,
+      "fps": 30.0,
+      "duration": 13.1,
+      "audio": true
+    }
+  },
+  "quest3": {
+    "zh-CN": {
+      "src": "/movies/zh-CN/quest3.mp4",
+      "frames": 279,
+      "fps": 30.0,
+      "duration": 9.3,
+      "audio": true
+    }
+  },
+  "quest4": {
+    "zh-CN": {
+      "src": "/movies/zh-CN/quest4.mp4",
+      "frames": 172,
+      "fps": 30.0,
+      "duration": 5.733333333333333,
+      "audio": true
+    }
+  },
+  "quest5": {
+    "zh-CN": {
+      "src": "/movies/zh-CN/quest5.mp4",
+      "frames": 439,
+      "fps": 30.0,
+      "duration": 14.633333333333333,
+      "audio": true
+    }
+  },
+  "quest6": {
+    "zh-CN": {
+      "src": "/movies/zh-CN/quest6.mp4",
+      "frames": 573,
+      "fps": 30.0,
+      "duration": 19.1,
+      "audio": true
+    }
+  },
+  "quest7": {
+    "zh-CN": {
+      "src": "/movies/zh-CN/quest7.mp4",
+      "frames": 232,
+      "fps": 30.0,
+      "duration": 7.733333333333333,
+      "audio": true
+    }
+  },
+  "loading1": {
+    "zh-CN": {
+      "src": "/movies/zh-CN/loading1.mp4",
+      "frames": 89,
+      "fps": 30.0,
+      "duration": 2.966666666666667,
+      "audio": true
+    }
+  },
+  "loading2": {
+    "zh-CN": {
+      "src": "/movies/zh-CN/loading2.mp4",
+      "frames": 81,
+      "fps": 30.0,
+      "duration": 2.7,
+      "audio": true
+    }
+  },
+  "loading3": {
+    "zh-CN": {
+      "src": "/movies/zh-CN/loading3.mp4",
+      "frames": 176,
+      "fps": 30.0,
+      "duration": 5.866666666666666,
+      "audio": false
+    }
+  },
+  "ending_happy": {
+    "zh-CN": {
+      "src": "/movies/zh-CN/ending_happy.mp4",
+      "frames": 358,
+      "fps": 30.0,
+      "duration": 11.933333333333334,
+      "audio": true
+    }
+  },
+  "ending_not": {
+    "zh-CN": {
+      "src": "/movies/zh-CN/ending_not.mp4",
+      "frames": 960,
+      "fps": 30.0,
+      "duration": 32.0,
+      "audio": true
+    }
+  }
+}

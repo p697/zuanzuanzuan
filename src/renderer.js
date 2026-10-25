@@ -77,20 +77,16 @@ export class Renderer {
     this.camera = { x: 0, y: 0 };
     this.particles = [];
     this.floating = [];
-    this.flashes = [];
     this.shake = 0;
     this.time = 0;
     this.mapCache = null;
     this.motion = true;
   }
   reset(engine) {
-    this.camera = {
-      x: engine.s.p.x - 340,
-      y: engine.s.p.y - (engine.s.map === "boss_map" ? 340 : 300),
-    };
+    if (!engine.s.camera) engine.resetCamera();
+    this.camera = { ...engine.s.camera };
     this.particles = [];
     this.floating = [];
-    this.flashes = [];
   }
   sprite(
     key,
@@ -101,7 +97,9 @@ export class Renderer {
       time = this.time,
       face = 1,
       scale = 1,
+      flipY = 1,
       alpha = 1,
+      filter = "none",
       helmet = 0,
       rotation = 0,
     } = {},
@@ -113,15 +111,22 @@ export class Renderer {
           ] || this.assets.sprite(key, state)
         : this.assets.sprite(key, state);
     if (!a?.frames?.length) return;
-    const frame = a.frames[Math.floor(time * (a.fps || 30)) % a.frames.length],
+    const index = Math.floor(time * (a.fps || 30));
+    const frame =
+        a.frames[
+          a.loop === false
+            ? Math.min(index, a.frames.length - 1)
+            : index % a.frames.length
+        ],
       im = this.assets.ensure(frame);
     if (!im) return;
     const c = this.ctx;
     c.save();
     c.translate(Math.round(x), Math.round(y));
     c.rotate(rotation);
-    c.scale(face * scale, scale);
+    c.scale(face * scale, flipY * scale);
     c.globalAlpha = alpha;
+    c.filter = filter;
     c.drawImage(im, -a.anchor.x, -a.anchor.y);
     c.restore();
   }
@@ -150,15 +155,8 @@ export class Renderer {
       p = s.p,
       m = engine.source,
       cam = this.camera;
-    const tx = clamp(p.x - 340, 0, Math.max(0, m.width * TILE - 640)),
-      ty = clamp(
-        p.y - (s.map === "boss_map" ? 340 : 300),
-        0,
-        Math.max(0, m.height * TILE - 480),
-      );
-    const lerp = 1 - Math.exp(-delta * 12);
-    cam.x += (tx - cam.x) * lerp;
-    cam.y += (ty - cam.y) * lerp;
+    if (engine.s.camera) Object.assign(cam, engine.s.camera);
+    if (!engine.running) delta = 0;
     c.setTransform(2, 0, 0, 2, 0, 0);
     c.fillStyle = "#57442c";
     c.fillRect(0, 0, 640, 480);
@@ -212,8 +210,8 @@ export class Renderer {
         let tile = t.tile;
         if (engine.world.changes[t.index] && t.prop1 === 20)
           tile = this.edgeTile(engine, x, y);
-        if (engine.dig?.index === t.index)
-          tile = 73 + Math.min(5, Math.floor(engine.dig.progress * 6));
+        if (engine.world.drilling?.[t.index])
+          tile = 73 + Math.min(5, engine.world.drilling[t.index] - 1);
         if (atlas && tile < 96)
           c.drawImage(
             atlas,
@@ -292,66 +290,69 @@ export class Renderer {
       );
     }
     for (const e of engine.world.entities) {
-      if (e.dead || Math.abs(e.y - p.y) > 650) continue;
-      const key = e.kind[0].toLowerCase() + e.kind.slice(1),
-        boss = e.kind.includes("Boss");
-      const assetKey = e.kind === "ItemDragon" ? "bigDragon2" : key;
-      this.sprite(assetKey, e.x - cam.x, e.y - cam.y, {
+      if (Math.abs(e.y - p.y) > 650) continue;
+      const key =
+        e.kind === "ItemDragon"
+          ? "bigDragon2"
+          : e.kind[0].toLowerCase() + e.kind.slice(1);
+      const state = e.dead ? "dead" : e.state || "move";
+      const clip = this.assets.sprite(key, state);
+      if (e.dead && (e.animTime || 0) > clip.frames.length / (clip.fps || 30))
+        continue;
+      const hitAge = (s.tick - e.hitAt) * 0.027;
+      const flash = Math.floor(hitAge / 0.1) % 2 === 1;
+      const boss = e.kind.includes("Boss");
+      this.sprite(key, e.x - cam.x, e.y - cam.y, {
         face: e.face,
-        state: boss
-          ? e.attacking
-            ? e.summoning
-              ? "summon"
-              : "attack"
-            : Math.abs(e.x - p.x) > 50
-              ? "move"
-              : "idle"
-          : "walk",
-        alpha: s.tick - e.hitAt < 5 ? 0.5 : 1,
+        state,
+        time: e.animTime || 0,
+        alpha: !e.dead && !boss && hitAge < 2 && flash ? 0.5 : 1,
+        filter:
+          !e.dead && boss && hitAge < 1 && !flash ? "brightness(0.5)" : "none",
       });
-      if (!boss && e.hp < e.maxHp) {
-        c.fillStyle = "#18221c";
-        c.fillRect(e.x - cam.x - 18, e.y - cam.y - 55, 36, 4);
-        c.fillStyle = "#cf7864";
-        c.fillRect(
-          e.x - cam.x - 18,
-          e.y - cam.y - 55,
-          (36 * e.hp) / e.maxHp,
-          4,
+      if (e.kind.includes("Boss") && !e.dead && e.hp < e.maxHp * 0.4) {
+        const final = e.kind === "Boss";
+        this.sprite(
+          "bossRage",
+          e.x - cam.x + e.face * (final ? 41.05 : 29.05),
+          e.y - cam.y - (final ? 156.05 : 126.05),
+          { face: -e.face, time: s.tick * 0.027 },
         );
-      }
-      if (boss && e.phase % 162 > 101 && e.phase % 162 < 115) {
-        c.fillStyle = "#ef715844";
-        c.fillRect(e.x - cam.x - 90, e.y - cam.y - 12, 180, 12);
-        c.strokeStyle = "#ffb37d";
-        c.strokeRect(e.x - cam.x - 90, e.y - cam.y - 12, 180, 12);
       }
     }
     for (const d of engine.world.drops) {
-      const im = this.assets.image(`item${d.code}`);
-      if (im) {
-        c.save();
-        c.shadowColor = "#ffeab2";
-        c.shadowBlur = 6;
-        c.drawImage(
-          im,
-          d.x - cam.x - 14,
-          d.y - cam.y - 31 + Math.sin(time * 4) * 3,
-          28,
-          28,
-        );
-        c.restore();
+      if (s.tick < (d.readyAt || 0)) continue;
+      if (d.loot) {
+        this.sprite("bonusBox", d.x - cam.x, d.y - cam.y, { time: 0 });
+        continue;
       }
+      const im = this.assets.image(`item${d.code}`);
+      if (im) c.drawImage(im, d.x - cam.x - 14, d.y - cam.y - 31, 28, 28);
     }
-    for (const b of engine.world.bombs)
-      this.sprite(
-        b.code === 22 ? "superBomb" : b.code === 23 ? "dynamite" : "bomb",
-        b.x - cam.x,
-        b.y - cam.y,
-        { time: (80 - b.ttl) * 0.027 },
-      );
+    for (const b of engine.world.bombs) {
+      if (b.blastAge !== undefined) {
+        const scale = b.code === 22 ? 1.2 : 1;
+        this.sprite(
+          "explosion",
+          b.x - cam.x - (b.code === 22 ? 37 : 31),
+          b.y - cam.y - (b.code === 22 ? 59 : 53),
+          { time: b.blastAge, scale },
+        );
+      } else
+        this.sprite(
+          b.code === 22 ? "superBomb" : b.code === 23 ? "dynamite" : "bomb",
+          b.x - cam.x,
+          b.y - cam.y,
+          { time: b.age || 0 },
+        );
+    }
     for (const a of engine.world.projectiles || [])
-      this.sprite("bossArm", a.x - cam.x, a.y - cam.y, { rotation: a.angle });
+      this.sprite("bossArm", a.x - cam.x, a.y - cam.y, {
+        state: a.state === "dead" ? "dead" : "move",
+        time: a.animTime || 0,
+        rotation: a.angle,
+        flipY: a.flipY || 1,
+      });
     {
       const state =
         {
@@ -360,42 +361,24 @@ export class Renderer {
           run: "run",
           boost: "boost",
           idle: "idle",
+          hurt: "hurt",
+          dead: "dead",
+          revive: "revive",
         }[p.anim] || "idle";
       this.sprite("player", p.x - cam.x, p.y - cam.y, {
         state,
         face: p.face,
         helmet: s.gear.head,
+        time: p.animTime || 0,
         alpha: p.invulnerable > 0 && Math.floor(s.tick / 3) % 2 ? 0.4 : 1,
       });
     }
-    if (p.anim === "boost") {
-      c.fillStyle = "#eacb8555";
-      c.beginPath();
-      c.moveTo(p.x - cam.x - 7, p.y - cam.y);
-      c.lineTo(p.x - cam.x, p.y - cam.y + 12 + Math.sin(time * 60) * 6);
-      c.lineTo(p.x - cam.x + 7, p.y - cam.y);
-      c.fill();
-    }
     this.effects(delta, cam);
-    const boss = engine.world.entities.find(
-      (e) => !e.dead && e.kind.includes("Boss"),
-    );
-    if (boss) {
-      c.fillStyle = "#17221de8";
-      c.fillRect(110, 370, 420, 27);
-      c.strokeStyle = "#a58953";
-      c.strokeRect(110, 370, 420, 27);
-      c.fillStyle = "#8f3f39";
-      c.fillRect(115, 385, 410 * clamp(boss.hp / boss.maxHp, 0, 1), 7);
-      c.font = "11px system-ui";
-      c.fillStyle = "#e9d6a6";
-      c.textAlign = "center";
-      c.fillText(
-        `${boss.kind === "Boss" ? "魔兽帝王" : "守关巨兽"}  ${Math.ceil(Math.max(0, boss.hp))} / ${boss.maxHp}`,
-        320,
-        381,
-      );
-    }
+    const boss = engine.world.entities.find((e) => e.kind.includes("Boss"));
+    if (boss)
+      this.sprite("bossHp", 40, 410, {
+        time: Math.round((1 - clamp(boss.hp / boss.maxHp, 0, 1)) * 49) / 30,
+      });
     if (s.ap < this.maxWarning(engine) && surface < 0) {
       const v = c.createRadialGradient(320, 240, 150, 320, 240, 410);
       v.addColorStop(0, "transparent");
@@ -445,7 +428,6 @@ export class Renderer {
     }
     if (e.type === "explosion") {
       this.shake = 6;
-      this.flashes.push({ x: e.x, y: e.y, age: 0, life: 0.6 });
     }
     if (e.type === "slam") {
       this.shake = 8;
@@ -485,16 +467,6 @@ export class Renderer {
     }
     c.globalAlpha = 1;
     this.particles = this.particles.filter((p) => p.life > 0);
-    for (const f of this.flashes) {
-      f.life -= dt;
-      f.age += dt;
-      this.sprite("explosion", f.x - cam.x, f.y - cam.y, {
-        time: f.age,
-        scale: 1.6,
-        alpha: Math.min(1, f.life * 3),
-      });
-    }
-    this.flashes = this.flashes.filter((f) => f.life > 0);
     c.font = "bold 12px system-ui";
     c.textAlign = "center";
     for (const f of this.floating) {

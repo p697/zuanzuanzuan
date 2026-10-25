@@ -7,6 +7,6 @@
     "dev": "node tools/server.mjs",
     "start": "node tools/server.mjs",
     "test": "node --test test/*.test.mjs",
-    "check": "node --check src/core.js && node --check src/game.js && node --check src/ui.js && node --check src/renderer.js && node --check src/audio.js && node --check src/i18n.js && node --check src/hud.js"
+    "check": "node --check src/actor-geometry.js && node --check src/audio.js && node --check src/cinematics.js && node --check src/core.js && node --check src/game.js && node --check src/hud.js && node --check src/i18n.js && node --check src/native-mechanics.js && node --check src/renderer.js && node --check src/story-flow.js && node --check src/ui.js && node --check tools/server.mjs"
   }
 }

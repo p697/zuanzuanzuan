@@ -1,3 +1,5 @@
+import { Cinematics } from "./cinematics.js";
+import { storyQueues } from "./story-flow.js";
 import { InstrumentHUD } from "./hud.js";
 import { translate, itemName, itemDescription, stories } from "./i18n.js";
 const profile =
@@ -13,12 +15,13 @@ const esc = (s) =>
       ],
   );
 export class UI {
-  constructor(engine, assets, renderer, audio) {
+  constructor(engine, assets, renderer, audio, movies) {
     this.engine = engine;
     this.assets = assets;
     this.renderer = renderer;
     this.audio = audio;
     this.locale = "zh-CN";
+    this.cinematics = new Cinematics(this, movies);
     this.mode = "title";
     this.menuContext = true;
     this.modal = document.querySelector("#modal");
@@ -57,6 +60,7 @@ export class UI {
     document.querySelector("#sound-toggle").onclick = () => {
       this.audio.muted = !this.audio.muted;
       this.audio.apply();
+      if (this.cinematics.video) this.cinematics.video.muted = this.audio.muted;
       document.querySelector("#sound-toggle").textContent = this.audio.muted
         ? "♪̸"
         : "♫";
@@ -75,7 +79,8 @@ export class UI {
         this.engine.restore(text);
         this.menuContext = false;
         this.save(false);
-        if (this.engine.s.complete) this.ending();
+        if (this.engine.s.cutscene) this.cinematics.show();
+        else if (this.engine.s.complete) this.ending();
         else this.close();
         this.toast(this.t("imported"));
       } catch {
@@ -189,6 +194,7 @@ export class UI {
     return `<button class="btn ${kind}" data-action="${action}" ${extra}>${esc(this.t(label))}</button>`;
   }
   open(mode, html, { className = "" } = {}) {
+    this.cinematics.dispose();
     const previousControl =
       this.mode === mode && this.modal.contains(document.activeElement)
         ? { ...document.activeElement.dataset }
@@ -223,6 +229,10 @@ export class UI {
   close() {
     if (!this.engine.s || this.menuContext) {
       this.title();
+      return;
+    }
+    if (this.engine.s.cutscene) {
+      this.cinematics.show();
       return;
     }
     this.mode = "play";
@@ -280,11 +290,15 @@ export class UI {
       if (!text) throw new Error();
       this.engine.restore(text);
       this.menuContext = false;
+      if (this.engine.s.cutscene) {
+        this.cinematics.show();
+        return;
+      }
       if (this.engine.s.complete) {
         this.ending();
         return;
       }
-      if (this.engine.s.hp <= 0) {
+      if (this.engine.s.hp <= 0 && !this.engine.s.p.deathMs) {
         this.dead();
         return;
       }
@@ -349,6 +363,10 @@ export class UI {
     );
   }
   story(id) {
+    if (storyQueues[id]) {
+      this.cinematics.start(id);
+      return;
+    }
     const s = stories[id];
     if (!s) return;
     const scene = this.assets.manifest.cutscenes?.[s.image];
@@ -554,6 +572,12 @@ export class UI {
     );
   }
   ending() {
+    if (!this.engine.s.endingWatched) {
+      this.cinematics.start(
+        this.engine.s.ending === "happy" ? "ending_happy" : "ending_not",
+      );
+      return;
+    }
     const e = this.engine,
       s = e.s,
       happy = s.ending === "happy";
@@ -563,7 +587,7 @@ export class UI {
       src = typeof frame === "string" ? frame : frame?.src;
     this.open(
       "ending",
-      `<section class="panel story-panel">${src ? `<img class="story-image" src="${esc(src)}" alt="${this.t("ending")}">` : ""}<div class="story-content"><div class="eyebrow">${this.t(happy ? "happyEnding" : "adventureComplete")}</div><h2 id="modal-title">${this.t(happy ? "perfect" : "normalEnding")}</h2><p>${this.t(happy ? "perfectBody" : "normalBody")}</p><div class="ending-stats"><div>${this.t("minedCount")}<b>${s.stats.mined}</b></div><div>${this.t("killCount")}<b>${s.stats.kills}</b></div><div>${this.t("specialMinerals")}<b>${s.special.filter(Boolean).length} / 3</b></div></div><div class="buttons">${this.button("explore", "explore", "", "primary")}${this.button("export", "export")}${this.button("playAgain", "new", "", "quiet")}</div></div></section>`,
+      `<section class="panel story-panel">${src ? `<img class="story-image" src="${esc(src)}" alt="${this.t("ending")}">` : ""}<div class="story-content"><div class="eyebrow">${this.t(happy ? "happyEnding" : "adventureComplete")}</div><h2 id="modal-title">${this.t(happy ? "perfect" : "normalEnding")}</h2><p>${this.t(happy ? "perfectBody" : "normalBody")}</p><div class="ending-stats"><div>${this.t("minedCount")}<b>${s.stats.mined}</b></div><div>${this.t("killCount")}<b>${s.stats.kills}</b></div><div>${this.t("specialMinerals")}<b>${s.special.filter(Boolean).length} / 3</b></div></div><div class="buttons">${this.button("movieReplay", "replay-ending")}${this.button("explore", "explore", "", "primary")}${this.button("export", "export")}${this.button("playAgain", "new", "", "quiet")}</div></div></section>`,
     );
   }
   toast(text) {
@@ -676,6 +700,11 @@ export class UI {
     const e = this.engine;
     if (name === "new") {
       this.newGame();
+      return;
+    }
+    if (name === "replay-ending") {
+      this.engine.s.endingWatched = false;
+      this.ending();
       return;
     }
     if (name === "start") {
@@ -848,14 +877,14 @@ export class UI {
         break;
       case "travel-to":
         if (+d.stage <= e.s.unlocked && e.depth < 4) {
-          e.advance(+d.stage);
+          e.advance(+d.stage, { playStory: false });
           this.close();
         }
         break;
       case "explore":
         e.s.complete = false;
         this.close();
-        e.advance(3);
+        e.advance(3, { playStory: false });
         break;
     }
     this.update();

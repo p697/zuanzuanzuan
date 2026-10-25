@@ -1,3 +1,12 @@
+import { validCutscene } from "./story-flow.js";
+import {
+  updateNativeEnemies,
+  updateNativeProjectiles,
+  overlaps,
+  hitRects,
+  blastRect,
+  state as actorState,
+} from "./native-mechanics.js";
 // Independently implemented simulation. Source data is read-only; saves contain deltas.
 export const TILE = 42;
 export const STEP = 27; // Original TileView timer, distinct from its 30 fps animation clock.
@@ -48,6 +57,7 @@ export class Engine {
     this.s = {
       version: SAVE_VERSION,
       seed,
+      randomState: seed || 1,
       stage: tutorial ? -1 : 1,
       tutorial: tutorial ? 1 : 0,
       map: "",
@@ -156,7 +166,11 @@ export class Engine {
           x: e.x * TILE + 21,
           y: (e.y + 1) * TILE,
           homeX: e.x * TILE + 21,
-          face: random() < 0.5 ? -1 : 1,
+          face: 1,
+          direction: 1,
+          aiVersion: 2,
+          state: "idle",
+          animTime: 0,
           hp: ENEMY_HP[kind] || 100,
           maxHp: ENEMY_HP[kind] || 100,
           vy: 0,
@@ -166,6 +180,7 @@ export class Engine {
       });
     return {
       changes: {},
+      drilling: {},
       special,
       entities,
       bombs: [],
@@ -191,6 +206,12 @@ export class Engine {
         grounded: false,
         invulnerable: 50,
         anim: "idle",
+        animTime: 0,
+        lastAnim: "idle",
+        stunMs: 0,
+        deathMs: 0,
+        reviveMs: 0,
+        rebirthPending: false,
       });
     }
     this.s.hp = 100;
@@ -199,6 +220,8 @@ export class Engine {
     this.dig = null;
     this.effects = [];
     this.s.visited[key] = true;
+    this.s.transition = null;
+    this.resetCamera();
     this.emit("map", { name });
   }
   tile(x, y) {
@@ -217,12 +240,15 @@ export class Engine {
   solid(x, y) {
     return this.tile(x, y).prop1 < 20;
   }
-  fits(x, y, half = 14, height = 29) {
+  fits(x, y, half = 15, height = 29) {
     return (
-      !this.solid(Math.floor((x - half) / TILE), Math.floor((y - 1) / TILE)) &&
+      !this.solid(
+        Math.floor((x - half - 1) / TILE),
+        Math.floor((y - 1) / TILE),
+      ) &&
       !this.solid(Math.floor((x + half) / TILE), Math.floor((y - 1) / TILE)) &&
       !this.solid(
-        Math.floor((x - half) / TILE),
+        Math.floor((x - half - 1) / TILE),
         Math.floor((y - height) / TILE),
       ) &&
       !this.solid(
@@ -231,7 +257,7 @@ export class Engine {
       )
     );
   }
-  move(body, dx, dy, half = 14, height = 29) {
+  move(body, dx, dy, half = 15, height = 29) {
     let blockedX = false,
       blockedY = false;
     const advance = (delta, axis) => {
@@ -254,12 +280,101 @@ export class Engine {
     advance(dy, "y");
     return { blockedX, blockedY };
   }
+  randomInt(max) {
+    let x = this.s.randomState ?? (this.s.seed || 1);
+    x ^= x << 13;
+    x ^= x >>> 17;
+    x ^= x << 5;
+    this.s.randomState = x >>> 0;
+    return Math.floor((this.s.randomState / 4294967296) * max);
+  }
+  nextEntityId() {
+    return (
+      1 +
+      Math.max(
+        0,
+        ...this.world.entities.map((e) => e.id),
+        ...this.world.projectiles.map((e) => e.id || 0),
+      )
+    );
+  }
+  resetCamera() {
+    this.s.camera = {
+      x: clamp(
+        this.s.p.x - 340,
+        0,
+        Math.max(0, this.source.width * TILE - 640),
+      ),
+      y: Math.max(0, this.s.p.y - 300),
+    };
+  }
+  updateCamera() {
+    if (!this.s.camera) this.resetCamera();
+    const c = this.s.camera,
+      p = this.s.p,
+      width = this.source.width * TILE;
+    if (p.x < 150) c.x = 0;
+    else if (p.x > width - 300) c.x = width - 640;
+    else if (p.x - c.x > 340) c.x = p.x - 340;
+    else if (p.x - c.x < 150) c.x = p.x - 150;
+    const dy = Math.trunc(p.y - 300 - c.y);
+    if (p.y > 200 && dy) c.y += Math.trunc(dy / 10) || Math.sign(dy);
+    c.y = Math.max(0, c.y);
+    c.x = clamp(c.x, 0, Math.max(0, width - 640));
+  }
+  finishTransition() {
+    const transition = this.s.transition;
+    if (!transition) return;
+    transition.remaining -= STEP;
+    if (transition.remaining > 0) return;
+    this.s.transition = null;
+    if (transition.kind === "ending") {
+      this.s.complete = true;
+      this.s.ending = this.s.special.every(Boolean) ? "happy" : "normal";
+      this.running = false;
+      this.emit("ending", { kind: this.s.ending });
+    } else this.emit("advance", { stage: 2, story: "quest3" });
+    this.emit("checkpoint");
+  }
   tick(input = {}) {
     if (!this.running || !this.s || this.s.complete) return;
     const s = this.s,
       p = s.p,
       w = this.world;
     s.tick++;
+    if (p.deathMs > 0) {
+      p.animTime = (p.animTime || 0) + STEP / 1000;
+      p.deathMs = Math.max(0, p.deathMs - STEP);
+      if (!p.deathMs) {
+        if (p.rebirthPending) {
+          p.rebirthPending = false;
+          s.hp = 100;
+          s.ap = this.maxAp;
+          p.invulnerable = 110;
+          p.anim = "revive";
+          p.animTime = 0;
+          p.reviveMs = (34 / 30) * 1000;
+          this.emit("sound", { name: "rebirth" });
+          this.emit("hint", { key: "revived" });
+        } else {
+          this.running = false;
+          this.emit("dead");
+        }
+        this.emit("checkpoint");
+      }
+      return;
+    }
+    if (p.reviveMs > 0) {
+      p.reviveMs = Math.max(0, p.reviveMs - STEP);
+      p.animTime += STEP / 1000;
+      return;
+    }
+    this.updateCamera();
+    if ((p.stunMs || 0) > 0) {
+      p.stunMs = Math.max(0, p.stunMs - STEP);
+      input = {};
+      p.vx = 0;
+    }
     p.invulnerable = Math.max(0, p.invulnerable - 1);
     const wasGrounded = p.grounded;
     p.grounded = !this.fits(p.x, p.y + 1);
@@ -267,6 +382,10 @@ export class Engine {
     this.currentInput = input;
     let dir = (input.right ? 1 : 0) - (input.left ? 1 : 0),
       dx = dir * 7;
+    if (input.down && p.grounded && !input.up) {
+      dir = 0;
+      dx = 0;
+    }
     if (dir) p.face = dir;
     if (input.up) {
       p.vy = p.grounded
@@ -276,7 +395,7 @@ export class Engine {
           : p.vy - this.boost / 20;
       p.anim = "boost";
     } else p.vy = Math.min(21, p.vy + 1);
-    if (s.stage === 2 && p.grounded && !input.down) {
+    if (s.stage === 2 && p.grounded && !input.down && !input.up) {
       p.vx = dir ? clamp(p.vx + dir * 0.5, -10.5, 10.5) : p.vx * 0.95;
       dx = p.vx;
     } else p.vx = dx;
@@ -315,12 +434,27 @@ export class Engine {
     if (p.anim !== "digside" && p.anim !== "digdown") this.dig = null;
     if (input.up && p.y < this.source.start.y * TILE - 80)
       p.vy = Math.max(p.vy, 0);
+    if (p.stunMs > 0) p.anim = "hurt";
+    if (p.lastAnim !== p.anim) {
+      p.lastAnim = p.anim;
+      p.animTime = 0;
+    } else p.animTime = (p.animTime || 0) + STEP / 1000;
     this.updateOxygen();
     this.updateBombs();
     this.updateEnemies();
     this.updateProjectiles();
     this.updateDrops();
     this.reveal();
+    this.finishTransition();
+    if (
+      s.stage === 2 &&
+      this.depth >= 200 &&
+      !s.visited.rescueIntro &&
+      !s.rescued
+    ) {
+      s.visited.rescueIntro = true;
+      this.emit("story", { id: "rescueIntro" });
+    }
     s.stats.depth = Math.max(s.stats.depth, this.depth);
     if (this.inTutorial) {
       s.tutorialTime = Math.max(0, s.tutorialTime - STEP / 1000);
@@ -350,15 +484,44 @@ export class Engine {
       this.dig = { index: t.index, progress: 0, oldTile: t.tile };
       this.emit("sound", { name: "drill" });
     }
+    this.advanceDrilling(t, this.digSpeed, this.dig, true);
+  }
+  advanceDrilling(tile, power, tool, collect) {
+    const y = Math.floor(tile.index / this.source.width),
+      x = tile.index % this.source.width;
     const hardness =
       (this.s.stage === 3 ? 6 : this.s.stage === 2 ? 4 : 2) +
       (y >= 300 ? 2 : y >= 150 ? 1 : 0);
-    const duration = 6 * Math.max(1, hardness - this.digSpeed + 1);
-    this.dig.progress += 1 / duration;
-    if (this.dig.progress >= 1) {
-      this.breakTile(x, y, true);
-      this.dig = null;
+    if (tool.counter === undefined) {
+      tool.counter = 0;
+      tool.landLife = 2;
+      return;
     }
+    if (tool.counter++ < Math.max(0, (tool.landLife ?? 2) - power)) return;
+    tool.counter = 0;
+    tool.landLife = hardness;
+    this.world.drilling ??= {};
+    const strokes = (this.world.drilling[tile.index] || 0) + 1;
+    this.world.drilling[tile.index] = strokes;
+    tool.progress = strokes / 7;
+    if (strokes >= 7) {
+      this.breakTile(x, y, collect);
+      if (!collect) this.awardScore(this.depth);
+      delete this.world.drilling[tile.index];
+      if (collect) this.dig = null;
+    }
+  }
+  digEnemy(enemy, x, y) {
+    const tile = this.tile(x, y);
+    if (
+      tile.index < 0 ||
+      tile.prop1 >= 20 ||
+      tile.tile === 16 ||
+      tile.tile === 50
+    )
+      return;
+    enemy.tool ??= {};
+    this.advanceDrilling(tile, 3, enemy.tool, false);
   }
   awardScore(amount, x, y) {
     if (amount <= 0) return;
@@ -380,6 +543,7 @@ export class Engine {
     const mineral = t.tile >= 80 && t.tile <= 88 ? t.tile - 79 : 0;
     if (collect && mineral && !this.canAdd(mineral)) return false;
     this.world.changes[t.index] = [45, 20];
+    if (this.world.drilling) delete this.world.drilling[t.index];
     this.s.stats.mined++;
     // MapData.dig awards current depth on completed drilling, without a popup.
     if (collect) this.awardScore(this.depth);
@@ -513,9 +677,12 @@ export class Engine {
     return total;
   }
   use(code) {
+    if (this.s.p.deathMs > 0 || this.s.p.reviveMs > 0)
+      return { ok: false, key: "actionLocked" };
     if (!(this.s.inventory[code] > 0)) return { ok: false, key: "noItem" };
     if ([21, 22, 23].includes(code)) {
-      if (this.world.bombs.length >= 1) return { ok: false, key: "bombLimit" };
+      if (this.world.bombs.some((b) => b.blastAge === undefined))
+        return { ok: false, key: "bombLimit" };
       if (code === 23) {
         const y = Math.floor((this.s.p.y + 1) / TILE),
           t = this.tile(Math.floor(this.s.p.x / TILE), y);
@@ -527,8 +694,10 @@ export class Engine {
           return { ok: false, key: "dynamiteRock" };
       }
       this.world.bombs.push({
-        x: this.s.p.x,
-        y: this.s.p.y,
+        x: Math.floor(this.s.p.x / TILE) * TILE + 21,
+        y: Math.floor(this.s.p.y / TILE) * TILE + (code === 23 ? TILE : 0),
+        vy: 0,
+        age: 0,
         code,
         ttl: Math.round((((code === 23 ? 41 : 48) / 30) * 1000) / STEP),
       });
@@ -561,127 +730,50 @@ export class Engine {
   updateBombs() {
     const w = this.world;
     for (const b of w.bombs) {
-      b.ttl--;
-      if (b.ttl > 0) continue;
-      const radius = b.code === 23 ? 90 : b.code === 22 ? 130 : 95,
-        damage = b.code === 22 ? 200 : 100;
-      if (b.code !== 23) {
-        const target = w.entities
-          .filter(
-            (e) =>
-              !e.dead &&
-              Math.hypot(e.x - b.x, e.y - b.y) <
-                radius + (e.kind.includes("Boss") ? 45 : 10),
-          )
-          .sort(
-            (a, c) =>
-              Math.hypot(a.x - b.x, a.y - b.y) -
-              Math.hypot(c.x - b.x, c.y - b.y),
-          )[0];
-        if (target) this.hitEnemy(target, damage);
+      b.age = (b.age || 0) + STEP / 1000;
+      if (b.blastAge === undefined) {
+        if (b.code !== 23) {
+          b.vy = Math.min(21, (b.vy || 0) + 1);
+          if (this.move(b, 0, b.vy).blockedY) b.vy = 0;
+        }
+        b.ttl--;
+        if (b.ttl > 0) continue;
+        b.blastAge = 0;
+        if (b.code === 23) {
+          const x = Math.floor(b.x / TILE),
+            y = Math.floor((b.y - 1) / TILE);
+          this.breakTile(x, y, false, true);
+        }
+        this.emit("explosion", { x: b.x, y: b.y });
+        this.emit("sound", { name: b.code === 22 ? "bomb2" : "bomb1" });
+      } else b.blastAge += STEP / 1000;
+      if (!b.hit) {
+        const rect = blastRect(b);
+        const targets = [
+          ...w.entities,
+          ...w.projectiles.filter((p) => p.state !== "dead"),
+        ].sort((a, b) => b.id - a.id);
+        for (const target of targets)
+          if (
+            !target.dead &&
+            hitRects(target).some((hit) => overlaps(rect, hit))
+          ) {
+            b.hit = true;
+            if (target.kind === "BossArm") actorState(target, "dead");
+            else this.hitEnemy(target, b.code === 22 ? 200 : 100);
+            break;
+          }
       }
-      if (b.code === 23) {
-        const cx = Math.floor(b.x / TILE),
-          cy = Math.floor((b.y + 1) / TILE);
-        this.breakTile(cx, cy, false, true);
-      }
-      this.emit("explosion", { x: b.x, y: b.y, radius });
-      this.emit("sound", { name: b.code === 22 ? "bomb2" : "bomb1" });
     }
-    w.bombs = w.bombs.filter((b) => b.ttl > 0);
+    w.bombs = w.bombs.filter(
+      (b) => b.blastAge === undefined || b.blastAge < 34 / 30,
+    );
   }
   updateEnemies() {
-    const p = this.s.p;
-    for (const e of this.world.entities) {
-      if (e.dead || Math.abs(e.y - p.y) > 650 || Math.abs(e.x - p.x) > 1000)
-        continue;
-      e.phase++;
-      const boss = e.kind === "Boss" || e.kind === "SubBoss";
-      if (boss) {
-        e.face = p.x > e.x ? 1 : -1;
-        const cycle = e.phase % 162,
-          active = this.world.entities.filter(
-            (x) => !x.dead && !x.kind.includes("Boss"),
-          ).length;
-        e.attacking = cycle > 101;
-        if (!e.attacking && Math.abs(p.x - e.x) > 50)
-          this.move(e, e.face * 3, 0, 45, 70);
-        if (
-          !e.attacking &&
-          e.y > p.y + 100 &&
-          this.move(e, 0, 1, 45, 70).blockedY
-        )
-          e.vy = -21;
-        if (cycle === 102) {
-          e.summoning = e.kind === "Boss" && e.hp < e.maxHp * 0.7 && active < 3;
-          this.emit("bossWarning", { x: e.x, y: e.y });
-        }
-        if (e.attacking && e.summoning && cycle % 4 === 0 && active < 8) {
-          this.world.entities.push({
-            id: 1000 + e.phase,
-            kind: ["Dragon", "Dragon2", "Dragon3"][e.phase % 3],
-            x: e.x + ((e.phase % 3) - 1) * 42,
-            y: e.y - 210,
-            homeX: e.x,
-            face: e.phase % 2 ? 1 : -1,
-            hp: 100,
-            maxHp: 100,
-            vy: -14,
-            phase: 0,
-            dead: false,
-          });
-        }
-        if (e.attacking && !e.summoning && cycle === 115) {
-          this.world.projectiles ??= [];
-          this.world.projectiles.push({
-            x: e.x + e.face * 35,
-            y: e.y - 91,
-            angle: e.face === 1 ? 0 : Math.PI,
-            age: 0,
-            speed: 3 + (e.phase % 2),
-            turn: ((1 + (e.phase % 4)) * Math.PI) / 180,
-            life: 220,
-          });
-        }
-        e.x = clamp(e.x, 160, 1090);
-      } else {
-        const speed = 2;
-        const hit = this.move(e, e.face * speed, 0);
-        if (hit.blockedX || Math.abs(e.x - e.homeX) > 200) e.face *= -1;
-      }
-      e.vy = Math.min(21, e.vy + 1);
-      if (this.move(e, 0, e.vy, boss ? 45 : 14, boss ? 70 : 29).blockedY)
-        e.vy = 0;
-      if (
-        Math.abs(p.x - e.x) < (boss ? 68 : 30) &&
-        Math.abs(p.y - e.y) < (boss ? 65 : 36)
-      )
-        this.damage(boss ? 40 : 30, "enemy", e.x);
-    }
+    updateNativeEnemies(this);
   }
   updateProjectiles() {
-    const list = this.world.projectiles || [],
-      p = this.s.p;
-    for (const a of list) {
-      const dt = STEP / (1000 / 30);
-      a.age += dt;
-      a.life -= dt;
-      if (a.age < 30) {
-        const target = Math.atan2(p.y - 15 - a.y, p.x - a.x),
-          diff = Math.atan2(
-            Math.sin(target - a.angle),
-            Math.cos(target - a.angle),
-          );
-        a.angle += clamp(diff, -a.turn * dt, a.turn * dt);
-      }
-      a.x += Math.cos(a.angle) * a.speed * dt;
-      a.y += Math.sin(a.angle) * a.speed * dt;
-      if (Math.hypot(p.x - a.x, p.y - 15 - a.y) < 25) {
-        this.damage(30, "enemy", a.x);
-        a.life = 0;
-      }
-    }
-    this.world.projectiles = list.filter((a) => a.life > 0);
+    updateNativeProjectiles(this);
   }
   hitEnemy(e, damage) {
     if (e.dead) return;
@@ -689,6 +781,8 @@ export class Engine {
     e.hitAt = this.s.tick;
     if (e.hp > 0) return;
     e.dead = true;
+    actorState(e, "dead");
+    e.animTime = 0;
     this.s.stats.kills++;
     const points = e.kind.includes("Boss")
       ? 10000
@@ -701,7 +795,14 @@ export class Engine {
     this.emit("sound", { name: "enemydie" });
     this.emit("enemyDeath", { x: e.x, y: e.y });
     if (e.kind === "ItemDragon" && !this.s.inventory[82])
-      this.world.drops.push({ code: 82, x: e.x, y: e.y }); // Guaranteed drop fixes the original probability edge case.
+      this.world.drops.push({
+        code: 82,
+        x: e.x,
+        y: e.y,
+        readyAt: this.s.tick + Math.ceil(((31 / 30) * 1000) / STEP),
+        loot: true,
+      });
+    // Guaranteed drop fixes the original probability edge case.
     else if (this.data.loot[e.kind]) {
       const loot = this.data.loot[e.kind],
         r = rng(this.s.seed + e.id + this.s.tick)() * 100;
@@ -710,10 +811,14 @@ export class Engine {
         total += loot.weights[i];
         if (r < total) {
           const reward = loot.rewards[i];
-          if (reward.money) {
-            this.s.money += reward.money;
-            this.emit("money", { amount: reward.money, x: e.x, y: e.y });
-          } else this.world.drops.push({ code: reward.item, x: e.x, y: e.y });
+          this.world.drops.push({
+            code: reward.item || 0,
+            money: reward.money || 0,
+            x: e.x,
+            y: e.y,
+            readyAt: this.s.tick + Math.ceil(((31 / 30) * 1000) / STEP),
+            loot: true,
+          });
           break;
         }
       }
@@ -722,25 +827,30 @@ export class Engine {
       this.s.tutorialProgress++;
       this.checkTutorial();
     }
-    if (e.kind === "SubBoss") {
-      this.s.unlocked = Math.max(this.s.unlocked, 2);
-      this.emit("advance", { stage: 2, story: "quest3" });
-    }
-    if (e.kind === "Boss") {
-      this.s.complete = true;
-      this.s.ending = this.s.special.every(Boolean) ? "happy" : "normal";
-      this.running = false;
-      this.emit("ending", { kind: this.s.ending });
-      this.emit("checkpoint");
+    if (e.kind === "SubBoss" || e.kind === "Boss") {
+      for (const summoned of this.world.entities)
+        if (summoned.summoner === e.id && !summoned.dead) {
+          summoned.dead = true;
+          actorState(summoned, "dead");
+        }
+      if (e.kind === "SubBoss") this.s.unlocked = Math.max(this.s.unlocked, 2);
+      this.s.transition = {
+        kind: e.kind === "Boss" ? "ending" : "advance",
+        remaining: 5000,
+      };
     }
   }
   updateDrops() {
     for (const d of this.world.drops) {
-      if (d.taken) continue;
+      if (d.taken || this.s.tick < (d.readyAt || 0)) continue;
       if (
         Math.hypot(d.x - this.s.p.x, d.y - this.s.p.y) < 48 &&
-        this.collectItem(d.code, d.x, d.y)
+        (d.money > 0 || this.collectItem(d.code, d.x, d.y))
       ) {
+        if (d.money > 0) {
+          this.s.money += d.money;
+          this.emit("money", { amount: d.money, x: d.x, y: d.y });
+        }
         d.taken = true;
       }
     }
@@ -752,23 +862,23 @@ export class Engine {
     this.s.p.invulnerable = kind === "fall" ? 19 : 95;
     if (kind === "enemy") {
       this.s.p.vy = -7;
-      this.move(this.s.p, (this.s.p.x > fromX ? 1 : -1) * 14, 0);
+      this.s.p.stunMs = 500;
+      this.s.p.anim = "hurt";
     }
     this.emit("damage", { amount });
     this.emit("sound", { name: "hit" });
   }
   die() {
-    if (this.takeItem(83)) {
-      this.s.hp = 100;
-      this.s.ap = this.maxAp;
-      this.s.p.invulnerable = 110;
-      this.emit("hint", { key: "revived" });
-      this.emit("sound", { name: "rebirth" });
-      return;
-    }
-    this.running = false;
-    this.emit("dead");
+    const p = this.s.p;
+    if (p.deathMs > 0) return;
+    p.rebirthPending = !!this.takeItem(83);
+    p.deathMs = 2000;
+    p.anim = "dead";
+    p.animTime = 0;
+    p.face = 1;
+    p.invulnerable = 0;
     this.emit("sound", { name: "playerdie" });
+    this.emit("checkpoint");
   }
   rescue() {
     // Recovery costs a tenth of the carried minerals, never equipment or story items.
@@ -806,6 +916,7 @@ export class Engine {
     );
   }
   interact() {
+    if (this.s.p.deathMs > 0 || this.s.p.reviveMs > 0) return;
     if (this.world.portal) {
       const portal = this.world.portal,
         nearPortal =
@@ -836,7 +947,7 @@ export class Engine {
         delete this.s.worlds[key];
       const bossFor = this.s.stage === 1 ? 1 : 2;
       this.loadMap("boss_map", { bossFor });
-      this.emit("story", { id: bossFor === 1 ? "subboss" : "boss" });
+
       this.emit("checkpoint");
       return "boss";
     }
@@ -899,14 +1010,15 @@ export class Engine {
     if (this.s.tutorial === 3) this.s.inventory[21] = 3;
     this.running = true;
   }
-  advance(stage) {
+  advance(stage, { playStory = !this.s.visited[`stage${stage}_map`] } = {}) {
     this.s.tutorial = 0;
     this.s.stage = stage;
     this.s.unlocked = Math.max(stage, this.s.unlocked);
     this.loadMap(`stage${stage}_map`);
-    this.emit("story", {
-      id: stage === 1 ? "opening" : stage === 2 ? "quest3" : "quest4",
-    });
+    if (playStory)
+      this.emit("story", {
+        id: stage === 1 ? "opening" : stage === 2 ? "quest3" : "quest4",
+      });
     this.emit("checkpoint");
   }
   reveal() {
@@ -1036,6 +1148,21 @@ export class Engine {
           v[1] > 255
         )
           throw new Error("saveInvalid");
+      if (
+        w.drilling !== undefined &&
+        (!w.drilling ||
+          typeof w.drilling !== "object" ||
+          Array.isArray(w.drilling) ||
+          Object.entries(w.drilling).some(
+            ([key, value]) =>
+              !/^\d+$/.test(key) ||
+              +key >= map.width * map.height ||
+              !Number.isInteger(value) ||
+              value < 1 ||
+              value > 6,
+          ))
+      )
+        throw new Error("saveInvalid");
       for (const e of w.entities)
         if (
           !ENEMY_HP[e.kind] ||
@@ -1051,7 +1178,18 @@ export class Engine {
         )
           throw new Error("saveInvalid");
       for (const d of w.drops)
-        if (!this.catalog.has(d.code) || ![d.x, d.y].every(Number.isFinite))
+        if (
+          (!this.catalog.has(d.code) &&
+            !(
+              d.code === 0 &&
+              Number.isFinite(d.money) &&
+              d.money > 0 &&
+              d.money <= 1e7
+            )) ||
+          ![d.x, d.y].every(Number.isFinite) ||
+          (d.readyAt !== undefined &&
+            (!Number.isFinite(d.readyAt) || d.readyAt < 0))
+        )
           throw new Error("saveInvalid");
       if (w.portal && ![w.portal.x, w.portal.y].every(Number.isFinite))
         throw new Error("saveInvalid");
@@ -1077,6 +1215,51 @@ export class Engine {
       throw new Error("saveInvalid");
     const wk = s.map === "boss_map" ? `boss${s.bossFor}` : s.map;
     if (!s.worlds[wk]) throw new Error("saveInvalid");
+    if (
+      s.transition &&
+      (!["ending", "advance"].includes(s.transition.kind) ||
+        !Number.isFinite(s.transition.remaining) ||
+        s.transition.remaining < 0 ||
+        s.transition.remaining > 5000)
+    )
+      throw new Error("saveInvalid");
+    if (s.camera && ![s.camera.x, s.camera.y].every(Number.isFinite))
+      throw new Error("saveInvalid");
+    for (const w of Object.values(s.worlds))
+      for (const e of w.entities) {
+        for (const key of [
+          "animTime",
+          "attackDelay",
+          "attackTimer",
+          "spawnCount",
+          "turnClock",
+          "nextTurnAt",
+          "direction",
+          "jumpDir",
+          "summoner",
+        ])
+          if (
+            e[key] !== undefined &&
+            (!Number.isFinite(e[key]) || Math.abs(e[key]) > 1e10)
+          )
+            throw new Error("saveInvalid");
+        if (e.aiVersion !== 2) {
+          e.aiVersion = 2;
+          e.attacking = false;
+          e.attackDelay = 0;
+          e.state = e.dead ? "dead" : "idle";
+          e.animTime = 0;
+          e.direction = e.face || 1;
+          delete e.spawnCount;
+        }
+      }
+    if (!validCutscene(s.cutscene)) throw new Error("saveInvalid");
+    for (const key of ["animTime", "stunMs", "deathMs", "reviveMs"])
+      if (
+        s.p[key] !== undefined &&
+        (!Number.isFinite(s.p[key]) || s.p[key] < 0 || s.p[key] > 1e10)
+      )
+        throw new Error("saveInvalid");
     this.events = [];
     this.s = s;
     this.dig = null;

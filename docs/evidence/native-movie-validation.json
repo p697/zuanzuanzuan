@@ -1,0 +1,132 @@
+[
+  {
+    "id": "opening",
+    "frames": 1476,
+    "duration": 49.2,
+    "size": 2502966,
+    "video": "h264",
+    "audio": "aac",
+    "sha256": "ea6cf4c1537e8118cef97aeaa03807b99b7c2c7c2aaa600c7c1155784c0c8e2d",
+    "sourceSha256": "5272709bb28d743f9d8a67b0b73ab59f3903cbf4f257674491eb8281b98d98db"
+  },
+  {
+    "id": "quest1",
+    "frames": 165,
+    "duration": 5.5,
+    "size": 282525,
+    "video": "h264",
+    "audio": "aac",
+    "sha256": "37a0c52bde6bdc87a20e3a86971155304b7e018294ef8ffa53f9d3a233ee4898",
+    "sourceSha256": "706623d44b5984f05da9975ea4e7b7b52662aa555d3c34fdd8a53268790310fc"
+  },
+  {
+    "id": "quest2",
+    "frames": 393,
+    "duration": 13.1,
+    "size": 666387,
+    "video": "h264",
+    "audio": "aac",
+    "sha256": "9acb7f388df0c2b6078187d056fae31f302935ac99d705025caa915d173aaaa4",
+    "sourceSha256": "5f59a010be6c847cbb595ec410291224d095ac86dec54983fe5aacd58797e313"
+  },
+  {
+    "id": "quest3",
+    "frames": 279,
+    "duration": 9.3,
+    "size": 506718,
+    "video": "h264",
+    "audio": "aac",
+    "sha256": "50f59d3a7a23f68bd0151d646340a44a73a8b6e5534d3a6c0fd098b31b11f8f9",
+    "sourceSha256": "40aabe8b5a70fe6e2fc6a55ad157c1d000c734bc241a2472d7895fafdbfda600"
+  },
+  {
+    "id": "quest4",
+    "frames": 172,
+    "duration": 5.733333333333333,
+    "size": 296125,
+    "video": "h264",
+    "audio": "aac",
+    "sha256": "de40c12108012b37840189a81a9019378552ca5ffd4a28948b33fea50c07d19f",
+    "sourceSha256": "df4a174f33da6f228ee6d526d1325a85fe25b2ccffcda2ae90d70b676c8107af"
+  },
+  {
+    "id": "quest5",
+    "frames": 439,
+    "duration": 14.633333333333333,
+    "size": 722260,
+    "video": "h264",
+    "audio": "aac",
+    "sha256": "ad4f54aef2b3066744566e75b9795a35252c80a5fb543c45cbd2a2dbc06d3cc0",
+    "sourceSha256": "d926e5e42e2b070431baf1ee95fee0572b51359fcb37b1a527365afc22516c37"
+  },
+  {
+    "id": "quest6",
+    "frames": 573,
+    "duration": 19.1,
+    "size": 823682,
+    "video": "h264",
+    "audio": "aac",
+    "sha256": "9c199f2aee9d5b6a01298f5db8d2d441e0bc67bd9865466b6a7b549eb9cb87d8",
+    "sourceSha256": "9b3a45ea920c792c3ea0f7cbb09e805e2a27ea2bb975e4e513472b4c3e108af2"
+  },
+  {
+    "id": "quest7",
+    "frames": 232,
+    "duration": 7.733333333333333,
+    "size": 367598,
+    "video": "h264",
+    "audio": "aac",
+    "sha256": "9427ed5cfe0a392badcc7ca6977c8a7682a332f2eda56903bdc15145659f1838",
+    "sourceSha256": "73b34d91883f7a17cc8ef51d4af4e085a115df35965b6e210e0e5dc2b8763873"
+  },
+  {
+    "id": "loading1",
+    "frames": 89,
+    "duration": 2.966666666666667,
+    "size": 222328,
+    "video": "h264",
+    "audio": "aac",
+    "sha256": "600fcd30606e513bb2143865ee6bb80dd84b7b09d523c47a6eb00287da90dd8b",
+    "sourceSha256": "d2b0fbfc290b4cefb384c012e8fd3f8cc6ad9b6176b778d07c0518b65bfb112a"
+  },
+  {
+    "id": "loading2",
+    "frames": 81,
+    "duration": 2.7,
+    "size": 241043,
+    "video": "h264",
+    "audio": "aac",
+    "sha256": "b2f073e67092191a441bf708691c2e89ec59403d583386fa435c47a922e7e0d2",
+    "sourceSha256": "03e283835e5d1cf2a5df34a827728ee11eafe89d9729044c259d2b16b7bf2798"
+  },
+  {
+    "id": "loading3",
+    "frames": 176,
+    "duration": 5.866666666666666,
+    "size": 406335,
+    "video": "h264",
+    "audio": null,
+    "sha256": "a08d5abc04210db08e936e793c4851ff06e39255dc5fa992c513677643509594",
+    "sourceSha256": "2c4e9553fe17117e23e09685e062a97c4f44e3fbdd60d2613a004378f55449ed"
+  },
+  {
+    "id": "ending_happy",
+    "frames": 358,
+    "duration": 11.933333333333334,
+    "size": 737535,
+    "video": "h264",
+    "audio": "aac",
+    "sha256": "96d83fe964664209d5d9d74314cbb5a2570d15f36f351da95f3cb546c9e50901",
+    "sourceSha256": "07f683352e4a8ae6c0396dd0cb20067a808ec5e5b50f49d7a9965405e12a6f24"
+  },
+  {
+    "id": "ending_not",
+    "frames": 960,
+    "duration": 32.0,
+    "size": 1751671,
+    "video": "h264",
+    "audio": "aac",
+    "sha256": "164a040d3a3a87553e4d5b45b8dc9ef7a1dfeb0c0978de17702d2fe583f0eccd",
+    "sourceSha256": "ee59cad76807e8c30f4c532911ac48464e53b798c702443f2cdd47bee3427169"
+  }
+]
