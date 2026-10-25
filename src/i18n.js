@@ -4,6 +4,80 @@ export const DEFAULT_LOCALE = "zh-CN";
 export const messages = {
   "zh-CN": {
     title: "挖地小子",
+    minerName: "阿空",
+    doctor: "博士",
+    itemDetails: "物品说明",
+    inventorySlots: "背包物品格",
+    lockedSlot: "尚未解锁，可在商店扩容",
+    digPower: "挖掘力",
+    boostPower: "喷气力",
+    defence: "防御力",
+    helmet: "头盔",
+    drill: "钻头",
+    boots: "喷气靴",
+    level: "{level} 级",
+    doctorWelcome: "准备好再下矿吧！",
+    doctorShopHint: "卖掉矿物，补足氧气。装备买下后会自动穿戴。",
+    shopCategories: "商品分类",
+    sellableMinerals: "可售矿物总价",
+    sellHint: "仅出售普通矿物，保留特殊矿石。",
+    backShop: "返回商店",
+    leaveShop: "离开商店",
+    currentEquipment: "当前 / 所选",
+    capacity: "背包容量",
+    ownedCount: "持有数量",
+    slotCount: "{count} 格",
+    itemCount: "{count} 件",
+    mineralCount: "{count} 块",
+    price: "售价",
+    buyOne: "购买一件",
+    equippedOrBetter: "已装备同级或更好的装备。",
+    coinsShort: "还差 {amount} 金币",
+    purchaseBagFull: "背包已满，请先出售矿物或整理道具。",
+    equipHint: "购买后立即装备，不占背包格。",
+    buyHint: "每次购买一件，放入背包。",
+    expandHint: "购买后增加 6 格容量，最多 36 格。",
+    expandBagHint: "打叉的格子尚未解锁，可在商店扩容。",
+    bagExpanded: "背包已扩容至 36 格。",
+    passiveHint: "这件道具会在需要时自动使用。",
+    emptyBagTitle: "背包还是空的",
+    emptyBagBody:
+      "向下开采矿物，带回商店换取金币。点击右侧物品格，即可查看用途或使用道具。",
+    specialMinerals: "特殊矿石",
+    found: "已找到",
+    notFound: "未找到",
+    exploredMap: "矿区已探索地图",
+    currentDepth: "当前深度",
+    chinese: "简体中文",
+    ending: "结局画面",
+    happyEnding: "圆满结局",
+    adventureComplete: "冒险完成",
+    minedCount: "开采矿块",
+    killCount: "击败怪物",
+    explorationProgress: "背包 {used}/{max} · 特殊矿石 {count}/3",
+    savedAt: "已保存 · {time}",
+    newGameBody: "带上钻头，从博士的训练开始。穿过三个矿区，把小雪带回地面。",
+    helmetDescription: "最大氧气 {air}，防御力 {defence}。购买后自动装备。",
+    drillDescription:
+      "挖掘力 {power}。钻头越强，挖开土层越快。购买后自动装备。",
+    bootsDescription:
+      "喷气力 {power}。按住 ↑ 上升，返回地面更快。购买后自动装备。",
+    mineralDescription: "出售单价 {price} 金币。同种矿物每 5 个占一格。",
+    rareDescription: "影响最终结局的特殊矿石，单独保存，不占背包格。",
+    itemNames: { 81: "背包扩容", 82: "秘门钥匙" },
+    itemDescriptions: {
+      21: "放置后约 1.6 秒爆炸，攻击附近一只怪物。不会伤害自己。",
+      22: "比普通炸弹伤害更高、攻击范围更大。放置后约 1.6 秒爆炸，不会伤害自己。",
+      23: "站在岩石上使用，可炸开脚下岩层。不能破坏矿区边界或首领房间。",
+      24: "恢复全部生命。生命全满时不会消耗。",
+      25: "恢复 100 点氧气，不超过当前上限。氧气全满时不会消耗。",
+      26: "恢复全部氧气。氧气全满时不会消耗。",
+      27: "立即返回当前矿区地面。首领战中无法使用。",
+      28: "在当前位置留下往返传送门，并返回地面。靠近入口按 E 往返；首领战中无法使用。",
+      81: "背包增加一行，共 6 格。最多扩展到 36 格，购买后立即生效。",
+      82: "首次进入首领房间时自动消耗一把。击败门口守卫也可获得。",
+      83: "生命耗尽时自动消耗一本，恢复生命和氧气。无需手动使用。",
+    },
     subtitle: "地下深处，还有一个约定。",
     newGame: "新的冒险",
     continue: "继续冒险",
@@ -42,15 +116,16 @@ export const messages = {
     passiveItem: "这件道具会在需要时自动使用。",
     rock: "坚硬岩石需要超威力炸弹。向左右寻找通路也可以。",
     dynamiteRock: "站在坚硬岩石上，才能使用超威力炸弹。",
-    lowAir: "氧气不足！按 S 使用氧气胶囊，或返回地面。",
+    lowAir: "氧气不足！使用氧气胶囊，或尽快返回地面。",
     revived: "复活之书生效！",
-    needKey: "需要 Boss 房钥匙。击败门口的守卫可以获得。",
+    needKey: "需要秘门钥匙。击败门口的守卫可以获得。",
     airRestored: "氧气已补满",
     sell: "出售全部矿物",
     sold: "出售获得 {money} 金币",
     nothingToSell: "还没有可以出售的矿物。",
     buy: "购买",
     owned: "已装备",
+    betterEquipped: "已有更好",
     use: "使用",
     equip: "购买并装备",
     money: "金币",
@@ -62,17 +137,17 @@ export const messages = {
     interact: "交互",
     talk: "与博士交谈",
     enterShop: "进入商店",
-    enterBoss: "进入 Boss 房",
+    enterBoss: "进入首领房间",
     read: "查看",
     returnPortal: "通过传送门",
     mine: "矿物",
     supplies: "补给",
     equipment: "装备",
-    special: "特殊",
+    special: "特殊道具",
     collected: "收集到 {name}",
     acquired: "取得 {name}",
     specialFound: "发现特殊矿石",
-    keyFound: "取得 Boss 房钥匙",
+    keyFound: "取得秘门钥匙",
     checkpoint: "检查点已保存",
     retry: "重新挑战",
     rescue: "接受救援",
@@ -92,7 +167,7 @@ export const messages = {
     skipTutorial: "我玩过，跳过训练",
     openMap: "展开地图",
     surface: "地面",
-    bossRoom: "Boss 房",
+    bossRoom: "首领房间",
     airStation: "氧气站",
     rescuer: "受困的矿工",
     you: "你的位置",
@@ -124,9 +199,9 @@ export const messages = {
     tip1: "上方不能挖掘。记住挖过的通道，用喷气靴返回地面。",
     tip2: "地面与氧气站自动补氧；越深、挖掘时耗氧越快。",
     tip3: "普通炸弹对付怪物，超威力炸弹破开脚下岩石。自己的炸弹不会伤害自己。",
-    tip4: "三种特殊矿石关系到最终结局。门口守卫携带进入 Boss 房的钥匙。",
+    tip4: "三种特殊矿石关系到最终结局。门口守卫携带进入首领房间的钥匙。",
     tip5: "购买装备会自动穿戴。保存无需登录，也可以导出文件备份。",
-    quickHint: "在背包里为道具选择 A–G 槽位",
+    quickHint: "设到快捷栏：选择 A、S、D、F 或 G",
     assign: "设为 {key}",
     bag: "背包 {used}/{max}",
     slots: "格",
@@ -182,8 +257,8 @@ export const messages = {
     scan: "特殊矿物探测",
     scanHint: "特殊矿石位于更深的土层。地图上的金色菱形显示它的方位。",
     continueLocked: "还没有存档",
-    fullBagDelete: "丢弃一件",
-    discardConfirm: "丢弃 {name}？此操作只影响当前背包。",
+    fullBagDelete: "丢弃 1 件",
+    discardConfirm: "确定丢弃 1 件「{name}」吗？丢弃后无法找回。",
     shiftTutorial: "训练通过，回到博士身边或直接继续下一项。",
   },
   ko: {
@@ -231,10 +306,42 @@ export function itemName(data, code, locale = DEFAULT_LOCALE) {
     return translate(locale, "mineralNames")[code - 1];
   if (code >= 10 && code <= 12)
     return translate(locale, "specialNames")[code - 10];
+  const localizedName = messages[locale]?.itemNames?.[code];
+  if (localizedName) return localizedName;
   return (
     data.items.find((i) => i.code === code)?.name[locale] ??
+    messages[DEFAULT_LOCALE].itemNames?.[code] ??
     data.items.find((i) => i.code === code)?.name[DEFAULT_LOCALE] ??
     String(code)
+  );
+}
+export function itemDescription(data, item, locale = DEFAULT_LOCALE) {
+  const level = item.code % 10;
+  if (item.type === 4) {
+    const gear = data.equipment.helmet[level - 1];
+    return translate(locale, "helmetDescription", {
+      air: gear.maxAp,
+      defence: gear.defence,
+    });
+  }
+  if (item.type === 5)
+    return translate(locale, "drillDescription", {
+      power: data.equipment.drill[level].digSpeed,
+    });
+  if (item.type === 6)
+    return translate(locale, "bootsDescription", {
+      power: data.equipment.boots[level - 1].boost,
+    });
+  if (item.type === 1)
+    return translate(locale, "mineralDescription", {
+      price: item.price.toLocaleString(locale),
+    });
+  if (item.type === 7) return translate(locale, "rareDescription");
+  return (
+    messages[locale]?.itemDescriptions?.[item.code] ??
+    messages[DEFAULT_LOCALE].itemDescriptions[item.code] ??
+    item.description[locale] ??
+    item.description[DEFAULT_LOCALE]
   );
 }
 export const stories = {

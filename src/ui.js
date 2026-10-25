@@ -1,5 +1,5 @@
 import { InstrumentHUD } from "./hud.js";
-import { translate, itemName, stories } from "./i18n.js";
+import { translate, itemName, itemDescription, stories } from "./i18n.js";
 const profile =
   new URLSearchParams(location.search).get("profile") === "qa" ? ".qa" : "";
 export const SAVE_KEY = "digger-boy-native.save.v1" + profile,
@@ -125,21 +125,58 @@ export class UI {
     return itemName(this.engine.data, code, this.locale);
   }
   description(item) {
-    const level = item.code % 10,
-      params = this.engine.data.equipment;
-    if (item.type === 4) {
-      const x = params.helmet[level - 1];
-      return `最大氧气 ${x.maxAp} · 防御 ${x.defence}`;
+    return itemDescription(this.engine.data, item, this.locale);
+  }
+  closeButton() {
+    return `<button class="close-modal" data-action="close" aria-label="${esc(this.t("close"))}">×</button>`;
+  }
+  equipmentGroup(item) {
+    return { 4: "head", 5: "drill", 6: "boots" }[item.type];
+  }
+  portrait(kind = "player") {
+    const level = this.engine.s?.gear.head || 0;
+    const sprite =
+      kind === "player"
+        ? this.assets.manifest.sprites.player.helmetVariants?.[level]?.idle ||
+          this.assets.manifest.sprites.player.states.idle
+        : this.assets.manifest.sprites.doctor;
+    return `<img class="character-portrait" src="${esc(sprite.frames[0])}" alt="${esc(this.t(kind === "player" ? "minerName" : "doctor"))}">`;
+  }
+  equipmentSummary() {
+    const e = this.engine,
+      gear = e.s.gear;
+    return `<div class="miner-profile"><div class="profile-readings">
+      <div><span>${this.t("life")}</span><b class="life-value">${Math.ceil(e.s.hp)} / ${e.maxHp}</b></div>
+      <div><span>${this.t("air")}</span><b class="air-value">${Math.ceil(e.s.ap)} / ${e.maxAp}</b></div>
+      <div><span>${this.t("digPower")}</span><b>${e.digSpeed}</b></div>
+      <div><span>${this.t("boostPower")}</span><b>${e.boost}</b></div>
+      <div><span>${this.t("defence")}</span><b>${e.defence}</b></div>
+      </div><div class="miner-avatar">${this.portrait()}</div>
+      <div class="equipped-items">${[
+        ["head", 50, "helmet"],
+        ["drill", 60, "drill"],
+        ["boots", 40, "boots"],
+      ]
+        .map(
+          ([key, base, label]) =>
+            `<div title="${esc(this.t(label))}">${gear[key] ? this.icon(base + gear[key]) : `<span>${this.t(label)}</span>`}<b>${this.t("level", { level: gear[key] })}</b></div>`,
+        )
+        .join("")}</div></div>`;
+  }
+  inventorySlots() {
+    const e = this.engine,
+      stacks = [];
+    for (const [code, count] of Object.entries(e.s.inventory)) {
+      const size = +code < 10 ? 5 : 1;
+      for (let left = count; left > 0; left -= size)
+        stacks.push({ code: +code, count: Math.min(size, left) });
     }
-    if (item.type === 5)
-      return `挖掘力 ${params.drill[level].digSpeed} · 购买后自动装备`;
-    if (item.type === 6)
-      return `喷气力 ${params.boots[level - 1].boost} · 上升更快`;
-    return (
-      item.description[this.locale] ||
-      item.description["zh-CN"] ||
-      `出售价格：${item.price.toLocaleString()} 金币`
-    );
+    return Array.from({ length: 36 }, (_, n) => {
+      const stack = stacks[n];
+      if (stack)
+        return `<button class="slot ${stack.code === this.selected ? "selected" : ""}" data-action="select-item" data-code="${stack.code}" aria-pressed="${stack.code === this.selected}" aria-label="${esc(this.name(stack.code))} × ${stack.count}" title="${esc(this.name(stack.code))}">${this.icon(stack.code)}<b>${stack.count}</b></button>`;
+      return `<div class="slot ${n >= e.capacity ? "locked" : "empty"}" ${n >= e.capacity ? `title="${esc(this.t("lockedSlot"))}"` : ""}></div>`;
+    }).join("");
   }
   image(code) {
     return this.assets.manifest.images[`item${code}`]?.src || "";
@@ -152,23 +189,36 @@ export class UI {
     return `<button class="btn ${kind}" data-action="${action}" ${extra}>${esc(this.t(label))}</button>`;
   }
   open(mode, html, { className = "" } = {}) {
+    const previousControl =
+      this.mode === mode && this.modal.contains(document.activeElement)
+        ? { ...document.activeElement.dataset }
+        : null;
     this.mode = mode;
     this.engine.running = false;
     this.modal.className = `modal ${className}`;
+    this.modal.dataset.mode = mode;
     this.modal.innerHTML = html;
     if (["dead", "tutorial-retry", "tutorial-complete"].includes(mode))
       this.modal.querySelector(".close-modal")?.remove();
     this.modal.hidden = false;
     document.querySelector("#touch-controls").style.visibility = "hidden";
-    this.modal
-      .querySelector("button:not(:disabled)")
-      ?.focus({ preventScroll: true });
+    const restoredControl = previousControl?.action
+      ? [...this.modal.querySelectorAll("button:not(:disabled)")].find(
+          (button) =>
+            Object.entries(previousControl).every(
+              ([key, value]) => button.dataset[key] === value,
+            ),
+        )
+      : null;
+    (
+      restoredControl || this.modal.querySelector("button:not(:disabled)")
+    )?.focus({ preventScroll: true });
     this.audio.select(
       mode === "shop" ? "shopbgm" : mode === "title" ? "startMenu" : null,
     );
   }
   panel(title, body, buttons = "", extra = "") {
-    return `<section class="panel ${extra}"><button class="close-modal" data-action="close" aria-label="关闭">×</button><h2 id="modal-title">${esc(this.t(title))}</h2>${body}${buttons ? `<div class="buttons">${buttons}</div>` : ""}</section>`;
+    return `<section class="panel ${extra}">${this.closeButton()}<h2 id="modal-title">${esc(this.t(title))}</h2>${body}${buttons ? `<div class="buttons">${buttons}</div>` : ""}</section>`;
   }
   close() {
     if (!this.engine.s || this.menuContext) {
@@ -184,6 +234,7 @@ export class UI {
     this.music();
   }
   title() {
+    this.inventoryFromShop = false;
     this.menuContext = true;
     this.engine.running = false;
     this.hud.hidden = true;
@@ -193,7 +244,7 @@ export class UI {
     } catch {}
     this.open(
       "title",
-      `<div class="title-card"><h1 id="modal-title">${this.t("title")}</h1><p class="tagline">${this.t("subtitle")}</p><div class="title-actions">${this.button("continue", "continue", hasSave ? "" : "disabled", "primary")}${this.button("newGame", "new", "", "")}${this.button("howTo", "help", "", "quiet")}${this.button("settings", "settings", "", "quiet")}</div><p class="menu-hint">${this.t("menuHint")}</p></div>`,
+      `<div class="title-card"><h1 id="modal-title">${this.t("title")}</h1><p class="tagline">${this.t("subtitle")}</p><div class="title-actions">${this.button("newGame", "new", "", "primary")}${this.button("continue", "continue", hasSave ? "" : "disabled", "")}${this.button("howTo", "help", "", "quiet")}</div><div class="title-settings">${this.button("settings", "settings", "", "quiet")}</div><p class="menu-hint">${this.t("menuHint")}</p></div>`,
       { className: "title-screen" },
     );
   }
@@ -206,7 +257,7 @@ export class UI {
       "new",
       this.panel(
         saved ? "newConfirm" : "newGame",
-        `<p>${saved ? this.t("newConfirmBody") : "带上钻头，从博士的训练开始，穿过三个矿区，把小雪带回地面。"}</p><label class="small-note"><input type="checkbox" id="skip-tutorial"> ${this.t("skipTutorial")}</label>`,
+        `<p>${saved ? this.t("newConfirmBody") : this.t("newGameBody")}</p><label class="small-note"><input type="checkbox" id="skip-tutorial"> ${this.t("skipTutorial")}</label>`,
         this.button("start", "start", "", "primary") +
           this.button("cancel", "title", "", "quiet"),
       ),
@@ -249,8 +300,12 @@ export class UI {
         old = localStorage.getItem(SAVE_KEY);
       if (old && old !== data) localStorage.setItem(BACKUP_KEY, old);
       localStorage.setItem(SAVE_KEY, data);
-      document.querySelector("#save-status").textContent =
-        `已保存 · ${new Date().toLocaleTimeString("zh-CN", { hour: "2-digit", minute: "2-digit" })}`;
+      document.querySelector("#save-status").textContent = this.t("savedAt", {
+        time: new Date().toLocaleTimeString(this.locale, {
+          hour: "2-digit",
+          minute: "2-digit",
+        }),
+      });
       if (notify) this.toast(this.t("saved"));
       return true;
     } catch {
@@ -279,12 +334,12 @@ export class UI {
   }
   pause() {
     if (!this.engine.s) return;
-    this.save(false);
+    const saved = this.save(false);
     this.open(
       "pause",
       this.panel(
         "paused",
-        `<p>${this.t("safetySave")}</p>`,
+        `<p>${this.t(saved ? "safetySave" : "saveFailed")}</p>`,
         this.button("resume", "close", "", "primary") +
           this.button("save", "save") +
           this.button("settings", "settings") +
@@ -340,7 +395,7 @@ export class UI {
       ),
     );
   }
-  shop(tab = this.shopTab) {
+  shop(tab = this.shopTab, selected = this.shopSelected) {
     this.shopTab = tab;
     const e = this.engine,
       s = e.s;
@@ -350,58 +405,98 @@ export class UI {
       special: (i) => i.type === 3,
     };
     const items = e.data.items.filter(groups[tab] || groups.supplies);
+    const item = items.find((i) => i.code === +selected) || items[0];
+    this.shopSelected = item.code;
+    const group = this.equipmentGroup(item);
+    const owned = group && s.gear[group] >= item.code % 10;
+    const full = !group && item.code !== 81 && !e.canAdd(item.code);
+    const maxBag = item.code === 81 && s.bagRows >= 6;
+    const short = Math.max(0, item.price - s.money);
+    const blocked = owned || maxBag || short || full;
+    const reason = owned
+      ? this.t("equippedOrBetter")
+      : maxBag
+        ? this.t("bagMax")
+        : short
+          ? this.t("coinsShort", { amount: short.toLocaleString() })
+          : full
+            ? this.t("purchaseBagFull")
+            : group
+              ? this.t("equipHint")
+              : item.code === 81
+                ? this.t("expandHint")
+                : this.t("buyHint");
     const grid = items
       .map((i) => {
-        const group =
-            i.type === 4
-              ? "head"
-              : i.type === 5
-                ? "drill"
-                : i.type === 6
-                  ? "boots"
-                  : null,
-          owned = group && s.gear[group] >= i.code % 10;
-        return `<div class="shop-item"><div class="item-image">${this.icon(i.code)}</div><div><h3>${esc(this.name(i.code))}</h3><small>${esc(this.description(i))}</small><span class="price">◆ ${i.price.toLocaleString()}</span></div>${this.button(owned ? "owned" : group ? "equip" : "buy", "buy", `data-code="${i.code}" ${owned || s.money < i.price ? "disabled" : ""}`)}</div>`;
+        const g = this.equipmentGroup(i),
+          equipped = g && s.gear[g] >= i.code % 10;
+        return `<button class="shop-item ${i.code === item.code ? "selected" : ""}" data-action="shop-select" data-code="${i.code}" aria-pressed="${i.code === item.code}"><span class="item-image">${this.icon(i.code)}</span><span class="shop-item-name">${esc(this.name(i.code))}</span><span class="price">${equipped ? this.t(s.gear[g] === i.code % 10 ? "owned" : "betterEquipped") : `◆ ${i.price.toLocaleString()}`}</span></button>`;
       })
       .join("");
     const total = Object.entries(s.inventory)
-      .filter(([c]) => +c < 10)
-      .reduce((a, [c, n]) => a + e.catalog.get(+c).price * n, 0);
+      .filter(([code]) => +code < 10)
+      .reduce((sum, [code, n]) => sum + e.catalog.get(+code).price * n, 0);
+    const comparison = group
+      ? `<div class="equipment-comparison"><span>${this.t("currentEquipment")}</span><strong>${this.t("level", { level: s.gear[group] })} / ${this.t("level", { level: item.code % 10 })}</strong></div>`
+      : `<div class="equipment-comparison"><span>${this.t(item.code === 81 ? "capacity" : "ownedCount")}</span><strong>${item.code === 81 ? this.t("slotCount", { count: e.capacity }) : this.t("itemCount", { count: s.inventory[item.code] || 0 })}</strong></div>`;
     this.open(
       "shop",
-      `<section class="panel shop-panel"><button class="close-modal" data-action="close" aria-label="关闭">×</button><div class="panel-head"><h2 id="modal-title">${this.t("shop")}</h2><span class="wallet">◆ ${s.money.toLocaleString()}</span></div><div class="tabs">${["supplies", "equipment", "special"].map((k) => `<button class="tab ${tab === k ? "active" : ""}" data-action="shop-tab" data-tab="${k}">${this.t(k)}</button>`).join("")}</div><div class="shop-grid">${grid}</div><div class="shop-summary"><span>${this.t("bag", { used: e.usedSlots, max: e.capacity })}<br>可售矿物：${total.toLocaleString()} 金币</span>${this.button("sell", "sell", total ? "" : "disabled", "primary")}</div><div class="buttons">${this.button("resume", "close")}${this.button("inventory", "inventory")}${this.button("save", "save")}${s.stage > 0 && e.depth < 4 ? this.button("travel", "travel", "", "quiet") : ""}</div></section>`,
+      `<section class="panel shop-panel">${this.closeButton()}
+      <div class="shop-case"><h2 id="modal-title" class="case-title">${this.t("shop")}</h2>
+        <div class="shop-welcome">${this.portrait("doctor")}<div><b>${this.t("doctorWelcome")}</b><p>${this.t("doctorShopHint")}</p></div></div>
+        <div class="tabs" aria-label="${this.t("shopCategories")}">${["supplies", "equipment", "special"].map((key) => `<button class="tab ${tab === key ? "active" : ""}" data-action="shop-tab" data-tab="${key}" aria-pressed="${tab === key}">${this.t(key)}</button>`).join("")}</div>
+        <div class="shop-grid">${grid}</div>
+        <div class="shop-summary"><div><span>${this.t("sellableMinerals")}</span><b>◆ ${total.toLocaleString()}</b><small>${this.t("sellHint")}</small></div>${this.button("sell", "sell", total ? "" : "disabled", "primary")}</div>
+        <div class="buttons case-footer">${this.button("inventory", "inventory")}${s.stage > 0 && e.depth < 4 ? this.button("travel", "travel") : ""}</div>
+      </div>
+      <aside class="shop-inspector metal-card"><h3 class="plate-title">${this.t("itemDetails")}</h3>
+        <div class="wallet"><span>${this.t("money")}</span><b>◆ ${s.money.toLocaleString()}</b></div>
+        <div class="item-detail"><div class="product-heading"><div class="item-image featured">${this.icon(item.code)}</div><h3>${esc(this.name(item.code))}</h3></div><p>${esc(this.description(item))}</p>${comparison}<div class="purchase-price"><span>${this.t("price")}</span><strong>◆ ${item.price.toLocaleString()}</strong></div>
+        ${this.button(owned ? (s.gear[group] === item.code % 10 ? "owned" : "betterEquipped") : group ? "equip" : "buyOne", "buy", `data-code="${item.code}" ${blocked ? "disabled" : ""}`, "primary")}
+        <p class="purchase-hint ${blocked ? "unavailable" : ""}">${reason}</p></div>
+        <div class="inspector-footer"><span>${this.t("bag", { used: e.usedSlots, max: e.capacity })}</span>${this.button("leaveShop", "close", "", "exit")}</div>
+      </aside></section>`,
+      { className: "equipment-screen" },
     );
   }
   inventory(selected = this.selected) {
-    this.selected = +selected;
+    if (this.mode !== "inventory" && this.mode !== "confirm")
+      this.inventoryFromShop = this.mode === "shop";
     const e = this.engine,
       s = e.s;
-    const stacks = [];
-    for (const [code, count] of Object.entries(s.inventory)) {
-      const max = +code < 10 ? 5 : 1;
-      for (let left = count; left > 0; left -= max)
-        stacks.push({ code: +code, n: Math.min(max, left) });
-    }
-    let grid = stacks
-      .map(
-        ({ code, n }) =>
-          `<button class="slot ${code === this.selected ? "selected" : ""}" data-action="select-item" data-code="${code}" aria-label="${esc(this.name(code))} ${n}">${this.icon(code)}<b>${n}</b></button>`,
-      )
-      .join("");
-    for (let n = stacks.length; n < e.capacity; n++)
-      grid += '<div class="slot empty"></div>';
+    this.selected = s.inventory[+selected]
+      ? +selected
+      : Number(Object.keys(s.inventory)[0] || 0);
     const item = e.catalog.get(this.selected),
       canUse = item?.type === 2;
+    const discardButton =
+      item && item.code !== 82 && item.code !== 83
+        ? this.button(
+            "fullBagDelete",
+            "discard",
+            `data-code="${item.code}"`,
+            "quiet",
+          )
+        : "";
     const detail = item
-      ? `<div class="item-image">${this.icon(item.code)}</div><h3>${esc(this.name(item.code))}</h3><p>${esc(this.description(item))}</p>${canUse ? `<div class="buttons">${this.button("use", "use", `data-code="${item.code}"`, "primary")}</div><p class="small-note">${this.t("quickHint")}</p><div class="buttons">${["A", "S", "D", "F", "G"].map((k, i) => `<button class="btn quiet" data-action="assign" data-slot="${i}" data-code="${item.code}">${k}</button>`).join("")}</div>` : ""}${item.code !== 82 && item.code !== 83 ? `<div class="buttons">${this.button("fullBagDelete", "discard", `data-code="${item.code}"`, "quiet")}</div>` : ""}`
-      : `<h3>${this.t("inventory")}</h3><p>选择道具查看说明。普通矿物每 5 个占一格，特殊矿石单独保存。</p>`;
+      ? `<div class="product-heading"><div class="item-image featured">${this.icon(item.code)}</div><h3>${esc(this.name(item.code))}</h3></div><p>${esc(this.description(item))}</p><div class="equipment-comparison"><span>${this.t("ownedCount")}</span><strong>${this.t(item.type === 1 ? "mineralCount" : "itemCount", { count: s.inventory[item.code] })}</strong></div>
+      ${canUse ? `<div class="item-actions">${this.button("use", "use", `data-code="${item.code}"`, "primary")}${discardButton}</div><p class="quick-label">${this.t("quickHint")}</p><div class="assign-slots">${["A", "S", "D", "F", "G"].map((key, i) => `<button class="${s.quick[i] === item.code ? "assigned" : ""}" data-action="assign" data-slot="${i}" data-code="${item.code}" aria-label="${this.t("assign", { key })}" aria-pressed="${s.quick[i] === item.code}">${key}</button>`).join("")}</div>` : item.type === 1 ? "" : `<p class="small-note">${this.t("passiveHint")}</p>`}
+      ${!canUse && discardButton ? `<div class="discard-action">${discardButton}</div>` : ""}`
+      : `<div class="empty-bag-icon">${this.icon(81)}</div><h3>${this.t("emptyBagTitle")}</h3><p>${this.t("emptyBagBody")}</p>`;
     this.open(
       "inventory",
-      `<section class="panel inventory-panel"><button class="close-modal" data-action="close" aria-label="关闭">×</button><div class="panel-head"><h2 id="modal-title">${this.t("inventory")}</h2><span class="wallet">${e.usedSlots} / ${e.capacity} 格</span></div><div class="inventory-layout"><div class="inventory-grid">${grid}</div><div class="item-detail">${detail}</div></div><div class="gear-row"><div class="gear-stat">钻头 Lv.${s.gear.drill}<b>挖掘力 ${e.digSpeed}</b></div><div class="gear-stat">头盔 Lv.${s.gear.head}<b>氧气 ${e.maxAp}</b></div><div class="gear-stat">喷气靴 Lv.${s.gear.boots}<b>喷气力 ${e.boost}</b></div></div>${this.specialRow()}<div class="buttons">${this.button("resume", "close", "", "primary")}${this.button("save", "save")}${this.button("export", "export", "", "quiet")}</div></section>`,
+      `<section class="panel inventory-panel">${this.closeButton()}
+      <aside class="inventory-inspector metal-card"><h3 class="plate-title">${this.t("itemDetails")}</h3><div class="item-detail">${detail}</div>${this.specialRow()}<div class="buttons">${this.button("save", "save")}${this.button("export", "export", "", "quiet")}</div></aside>
+      <div class="inventory-case"><h2 id="modal-title" class="case-title">${this.t("inventory")}</h2>${this.equipmentSummary()}
+        <div class="inventory-summary"><span class="wallet">◆ ${s.money.toLocaleString()}</span><span>${this.t("bag", { used: e.usedSlots, max: e.capacity })}</span></div>
+        <div class="inventory-grid" aria-label="${this.t("inventorySlots")}">${this.inventorySlots()}</div>
+        <div class="inventory-footer"><small>${this.t(s.bagRows < 6 ? "expandBagHint" : "bagExpanded")}</small>${this.button(this.inventoryFromShop ? "backShop" : "resume", this.inventoryFromShop ? "shop" : "close", "", "exit")}</div>
+      </div></section>`,
+      { className: "equipment-screen" },
     );
   }
   specialRow() {
-    return `<div class="special-row">特殊矿石 ${[0, 1, 2].map((i) => `<span class="rare-item ${this.engine.s.special[i] ? "found" : ""}">${this.icon(i + 10)} ${this.t("specialNames")[i]}</span>`).join("")}</div>`;
+    return `<div class="special-collection"><h4>${this.t("specialMinerals")}</h4><div class="special-row">${[0, 1, 2].map((i) => `<span class="rare-item ${this.engine.s.special[i] ? "found" : ""}" title="${this.t(this.engine.s.special[i] ? "found" : "notFound")}">${this.icon(i + 10)}<span>${this.t("specialNames")[i]}<small>${this.t(this.engine.s.special[i] ? "found" : "notFound")}</small></span></span>`).join("")}</div></div>`;
   }
   map() {
     const e = this.engine;
@@ -409,7 +504,7 @@ export class UI {
       "map",
       this.panel(
         "map",
-        `<div class="map-content"><div class="map-scroll"><canvas id="map-canvas" aria-label="矿区已探索地图"></canvas></div><div class="map-legend"><b>${this.sector()}</b><p class="small-note">${this.t("mapLegend")}</p><div>🔴 ${this.t("you")}</div><div>◆ ${this.t("shop")}</div><div>◆ ${this.t("bossRoom")}</div><div>◇ ${this.t("rare")}</div><div>● ${this.t("airStation")}</div><p class="small-note">当前深度<br><b>${e.depth} m</b></p></div></div>`,
+        `<div class="map-content"><div class="map-scroll"><canvas id="map-canvas" aria-label="${this.t("exploredMap")}"></canvas></div><div class="map-legend"><b>${this.sector()}</b><p class="small-note">${this.t("mapLegend")}</p><div>🔴 ${this.t("you")}</div><div>◆ ${this.t("shop")}</div><div>◆ ${this.t("bossRoom")}</div><div>◇ ${this.t("rare")}</div><div>● ${this.t("airStation")}</div><p class="small-note">${this.t("currentDepth")}<br><b>${e.depth} m</b></p></div></div>`,
         this.button("close", "close", "", "primary"),
       ),
     );
@@ -435,8 +530,8 @@ export class UI {
         "howTo",
         `<div class="controls-list">${["keysMove", "keysUp", "keysDown", "keysUse", "keysUi"].map((k) => `<div>${this.t(k)}</div>`).join("")}</div><ol class="help-list">${["tip1", "tip2", "tip3", "tip4", "tip5"].map((k) => `<li>${this.t(k)}</li>`).join("")}</ol>`,
         this.button(
-          this.engine.s ? "resume" : "back",
-          this.engine.s ? "close" : "title",
+          this.engine.s && !this.menuContext ? "resume" : "back",
+          this.engine.s && !this.menuContext ? "close" : "title",
           "",
           "primary",
         ),
@@ -448,8 +543,13 @@ export class UI {
       "settings",
       this.panel(
         "settings",
-        `<div class="settings-row"><span>${this.t("music")}</span><input aria-label="音乐音量" data-setting="music" type="range" min="0" max="1" step=".05" value="${this.settings.music}"></div><div class="settings-row"><span>${this.t("effects")}</span><input aria-label="音效音量" data-setting="effects" type="range" min="0" max="1" step=".05" value="${this.settings.effects}"></div><div class="settings-row"><span>${this.t("motion")}</span><input aria-label="屏幕震动" data-setting="shake" type="checkbox" ${this.settings.shake ? "checked" : ""}></div><div class="settings-row"><span>${this.t("language")}</span><select aria-label="语言"><option>简体中文</option></select></div><p class="small-note">${this.t("autoSaveNote")}</p><div class="buttons">${this.button("export", "export")}${this.button("import", "import")}${this.button("backup", "backup", "", "quiet")}</div>`,
-        this.button("back", this.engine.s ? "pause" : "title", "", "primary"),
+        `<div class="settings-row"><span>${this.t("music")}</span><input aria-label="${this.t("music")}" data-setting="music" type="range" min="0" max="1" step=".05" value="${this.settings.music}"></div><div class="settings-row"><span>${this.t("effects")}</span><input aria-label="${this.t("effects")}" data-setting="effects" type="range" min="0" max="1" step=".05" value="${this.settings.effects}"></div><div class="settings-row"><span>${this.t("motion")}</span><input aria-label="${this.t("motion")}" data-setting="shake" type="checkbox" ${this.settings.shake ? "checked" : ""}></div><div class="settings-row"><span>${this.t("language")}</span><select aria-label="${this.t("language")}"><option>${this.t("chinese")}</option></select></div><p class="small-note">${this.t("autoSaveNote")}</p><div class="buttons">${this.button("export", "export")}${this.button("import", "import")}${this.button("backup", "backup", "", "quiet")}</div>`,
+        this.button(
+          "back",
+          this.engine.s && !this.menuContext ? "pause" : "title",
+          "",
+          "primary",
+        ),
       ),
     );
   }
@@ -463,7 +563,7 @@ export class UI {
       src = typeof frame === "string" ? frame : frame?.src;
     this.open(
       "ending",
-      `<section class="panel story-panel">${src ? `<img class="story-image" src="${esc(src)}" alt="结局">` : ""}<div class="story-content"><div class="eyebrow">${happy ? "圆满结局" : "冒险完成"}</div><h2 id="modal-title">${this.t(happy ? "perfect" : "normalEnding")}</h2><p>${this.t(happy ? "perfectBody" : "normalBody")}</p><div class="ending-stats"><div>开采矿块<b>${s.stats.mined}</b></div><div>击败怪物<b>${s.stats.kills}</b></div><div>特殊矿石<b>${s.special.filter(Boolean).length} / 3</b></div></div><div class="buttons">${this.button("explore", "explore", "", "primary")}${this.button("export", "export")}${this.button("playAgain", "new", "", "quiet")}</div></div></section>`,
+      `<section class="panel story-panel">${src ? `<img class="story-image" src="${esc(src)}" alt="${this.t("ending")}">` : ""}<div class="story-content"><div class="eyebrow">${this.t(happy ? "happyEnding" : "adventureComplete")}</div><h2 id="modal-title">${this.t(happy ? "perfect" : "normalEnding")}</h2><p>${this.t(happy ? "perfectBody" : "normalBody")}</p><div class="ending-stats"><div>${this.t("minedCount")}<b>${s.stats.mined}</b></div><div>${this.t("killCount")}<b>${s.stats.kills}</b></div><div>${this.t("specialMinerals")}<b>${s.special.filter(Boolean).length} / 3</b></div></div><div class="buttons">${this.button("explore", "explore", "", "primary")}${this.button("export", "export")}${this.button("playAgain", "new", "", "quiet")}</div></div></section>`,
     );
   }
   toast(text) {
@@ -525,7 +625,11 @@ export class UI {
       "objective-progress",
       s.tutorial
         ? `${s.tutorialProgress}/${s.tutorial === 1 ? 2 : s.tutorial === 2 ? 10 : 1} · ${this.t("timeLeft", { seconds: Math.ceil(s.tutorialTime) })}`
-        : `背包 ${e.usedSlots}/${e.capacity} · 特殊矿石 ${s.special.filter(Boolean).length}/3`,
+        : this.t("explorationProgress", {
+            used: e.usedSlots,
+            max: e.capacity,
+            count: s.special.filter(Boolean).length,
+          }),
     );
     const hash = JSON.stringify([s.inventory, s.quick]);
     if (hash !== this.lastQuick) {
@@ -667,8 +771,11 @@ export class UI {
       case "shop":
         this.shop();
         break;
+      case "shop-select":
+        this.shop(this.shopTab, +d.code);
+        break;
       case "shop-tab":
-        this.shop(d.tab);
+        this.shop(d.tab, 0);
         break;
       case "buy": {
         const r = e.buy(+d.code);
@@ -701,6 +808,7 @@ export class UI {
       case "assign":
         e.s.quick[+d.slot] = +d.code;
         this.save(false);
+        this.inventory();
         this.toast(
           this.t("assign", { key: ["A", "S", "D", "F", "G"][+d.slot] }),
         );
