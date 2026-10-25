@@ -419,8 +419,8 @@ canvas#game {
   position: relative;
   color: #f0e9d8;
   border: 1.8cqw solid transparent;
-  border-image: url("/assets/menus/frame.png") 16 / 1.8cqw stretch;
-  background: #45463c url("/assets/menus/metal.png") repeat;
+  border-image: url("./assets/menus/frame.png") 16 / 1.8cqw stretch;
+  background: #45463c url("./assets/menus/metal.png") repeat;
   box-shadow: 0 1.5cqw 3cqw #0009;
 }
 .panel {
@@ -458,7 +458,7 @@ canvas#game {
   padding: 0.95cqw 2.2cqw;
   border: 0;
   border-radius: 2.4cqw;
-  background: transparent url("/assets/images/995.png") center / 100% 100%
+  background: transparent url("./assets/images/995.png") center / 100% 100%
     no-repeat;
   color: #292c29;
   font-weight: 650;
@@ -466,7 +466,7 @@ canvas#game {
   text-shadow: 0 1px #fff8;
 }
 .btn.primary {
-  background-image: url("/assets/images/1347.png");
+  background-image: url("./assets/images/1347.png");
   color: #e9fbff;
   text-shadow:
     0 1px 2px #062e3e,
@@ -474,7 +474,7 @@ canvas#game {
 }
 .btn.exit,
 .btn.danger {
-  background-image: url("/assets/images/994.png");
+  background-image: url("./assets/images/994.png");
   color: #fff0d5;
   text-shadow: 0 1px 2px #4d0a09;
 }
@@ -554,7 +554,7 @@ canvas#game {
 .inventory-case {
   right: 0;
   width: 53%;
-  background-image: url("/assets/images/956.png");
+  background-image: url("./assets/images/956.png");
   padding: 3.2cqw 6.7cqw 3cqw 5cqw;
 }
 .panel .case-title {
@@ -634,7 +634,7 @@ canvas#game {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url("/assets/menus/slot.png") center / 100% 100%;
+  background: url("./assets/menus/slot.png") center / 100% 100%;
 }
 .equipped-items img {
   width: 70%;
@@ -684,16 +684,16 @@ canvas#game {
   border: 0;
   border-radius: 0;
   box-shadow: none;
-  background: transparent url("/assets/menus/slot.png") center / 100% 100%;
+  background: transparent url("./assets/menus/slot.png") center / 100% 100%;
 }
 .inventory-grid .slot.selected {
-  background-image: url("/assets/menus/slot.png");
+  background-image: url("./assets/menus/slot.png");
   outline: 1px solid #edcc87;
   outline-offset: -2px;
 }
 .inventory-grid .slot.locked {
   opacity: 0.55;
-  background-image: url("/assets/menus/slot-locked.png");
+  background-image: url("./assets/menus/slot-locked.png");
 }
 .slot b {
   font: 600 1.4cqw monospace;
@@ -725,7 +725,7 @@ canvas#game {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url("/assets/menus/slot.png") center / 100% 100%;
+  background: url("./assets/menus/slot.png") center / 100% 100%;
 }
 .item-image img {
   max-width: 80%;
@@ -788,12 +788,12 @@ canvas#game {
   border: 0;
   width: 4.6cqw;
   height: 4.6cqw;
-  background: url("/assets/menus/slot.png") center / 100% 100%;
+  background: url("./assets/menus/slot.png") center / 100% 100%;
   color: #e3e6d1;
   font: 600 1.7cqw monospace;
 }
 .assign-slots button.assigned {
-  background-image: url("/assets/menus/slot.png");
+  background-image: url("./assets/menus/slot.png");
   color: #ffe5a4;
   outline: 1px solid #c9ac69;
   outline-offset: -2px;
@@ -885,7 +885,7 @@ canvas#game {
 .shop-case {
   left: 0;
   width: 59%;
-  background-image: url("/assets/images/1343.png");
+  background-image: url("./assets/images/1343.png");
   padding: 3.2cqw 4.5cqw 3cqw 6.5cqw;
 }
 .shop-welcome {
@@ -1135,7 +1135,7 @@ canvas#game {
   min-height: 6.25cqw;
   border: 0;
   border-radius: 0;
-  background: #222a18 url("/assets/menus/screen.png") repeat;
+  background: #222a18 url("./assets/menus/screen.png") repeat;
   color: #e8d071;
   font-size: 2.1cqw;
   font-weight: 500;

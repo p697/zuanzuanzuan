@@ -1,8 +1,18 @@
 # 挖地小子 · 原生浏览器版
 
-本地可玩的中文 HTML5 重制。使用原作提取的地图、精灵、图集、音效与物品数据，以独立编写的 JavaScript 模拟和 Canvas 2D 渲染运行。游戏不加载 SWF，也不依赖 Flash、Ruffle、插件或在线服务。
+可直接在浏览器游玩的中文 HTML5 重制。使用原作提取的地图、精灵、图集、音效与物品数据，以独立编写的 JavaScript 模拟和 Canvas 2D 渲染运行。游戏不加载 SWF，也不依赖 Flash、Ruffle、插件或在线服务。
 
-## 启动
+## 在线试玩与发布
+
+地址：[p697.github.io/zuanzuanzuan](https://p697.github.io/zuanzuanzuan/)。使用 GitHub Pages 默认 HTTPS 域名，不依赖自有服务器或域名。
+
+`.github/workflows/pages.yml` 在 PR 中执行语法检查、完整测试与静态构建；合入 `main` 后，由 GitHub Actions 发布通过检查的同一份产物。`npm run build` 只将 `public/` 和 `src/` 打包到 `_site/`，不会发布研究目录、QA 存档及本地工具。`build-info.json` 记录部署提交。
+
+网站与本机预览的存档互相独立。迁移进度：在本机游戏“设置 → 导出存档”，再到线上游戏“设置 → 导入存档”。
+
+当前发布文件约 76 MiB。GitHub Pages 站点限额为 1 GB、每月软流量限额为 100 GB，详见 [GitHub 官方限制](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits)。
+
+## 本机启动
 
 需要 Node.js 22 或更新版本，无 npm 依赖需要安装。
 
@@ -67,4 +77,4 @@ npm test
 
 32 项自动检查覆盖规则、关键流程、有限补给战斗、动画时序、碰撞与存档；浏览器检查完整剧情、续播、结局重播及首领战。尚未完成从新游戏开始全程人工通关与原 Flash 同输入逐帧录像 A/B，因此这些检查不构成整款游戏所有情况的等价证明。鞋和钻头的角色外观仍保持初始档；完整韩英日翻译、手机实机验收不在本轮交付内。
 
-原游戏素材归原权利人所有。本仓库是本地研究与试玩交付，尚未确认公开再发行授权。本次没有部署到公网，也没有创建外部仓库。
+原游戏素材归原权利人所有。这是非官方学习重制，与原作方无关联。原作图片、音效和动画不因本仓库公开而获得新的授权；当前未核实其再发行授权，不将原素材标记为开源或可自由商用。
