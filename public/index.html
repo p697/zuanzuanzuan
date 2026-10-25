@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#171817" />
+    <title>挖地小子 · 地下的约定</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="masthead">
+        <a class="brand" href="/" aria-label="挖地小子首页"
+          ><span class="brand-icon">◆</span
+          ><span>挖地小子<small>地下的约定</small></span></a
+        >
+        <div class="top-actions">
+          <span class="local-label">本地试玩</span
+          ><button id="sound-toggle" class="icon-btn" aria-label="切换声音">
+            ♫</button
+          ><button id="full-toggle" class="icon-btn" aria-label="全屏">
+            ⛶
+          </button>
+        </div>
+      </header>
+      <section
+        id="game-frame"
+        class="game-frame"
+        aria-label="挖地小子游戏"
+        tabindex="-1"
+      >
+        <canvas
+          id="game"
+          width="1280"
+          height="960"
+          tabindex="0"
+          aria-label="游戏画面，使用方向键移动挖掘，E 交互，B 背包，M 地图"
+        ></canvas>
+        <div id="loading" class="loading">
+          <div class="loading-diamond">◆</div>
+          <h1>挖地小子</h1>
+          <p id="load-label">正在整理装备与地图…</p>
+          <div class="load-track"><i id="load-progress"></i></div>
+        </div>
+        <div id="hud" class="hud" hidden>
+          <div class="hud-top">
+            <div class="gauges">
+              <div class="gauge health">
+                <span>生命</span>
+                <div><i id="hp-bar"></i></div>
+                <b id="hp-value">100</b>
+              </div>
+              <div class="gauge oxygen">
+                <span>氧气</span>
+                <div><i id="ap-bar"></i></div>
+                <b id="ap-value">100</b>
+              </div>
+            </div>
+            <div class="hud-money">
+              <span>◆</span> <b id="money-value">0</b><small>金币</small>
+            </div>
+            <button class="hud-pause" data-action="pause" aria-label="暂停">
+              Ⅱ
+            </button>
+          </div>
+          <div class="quest-ribbon">
+            <span id="sector-label"></span><span id="depth-value">0 m</span>
+          </div>
+          <div class="objective">
+            <span id="objective-text"></span
+            ><small id="objective-progress"></small>
+          </div>
+          <button
+            id="interact-button"
+            class="interact"
+            data-action="interact"
+            hidden
+          ></button>
+          <div class="hud-bottom">
+            <div id="quick-slots" class="quick-slots"></div>
+            <div class="hud-tools">
+              <button data-action="inventory">背包 <kbd>B</kbd></button
+              ><button data-action="map">地图 <kbd>M</kbd></button
+              ><button data-action="save">保存</button>
+            </div>
+          </div>
+        </div>
+        <div
+          id="modal"
+          class="modal"
+          hidden
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-title"
+        ></div>
+        <div
+          id="toast"
+          class="toast"
+          role="status"
+          aria-live="polite"
+          hidden
+        ></div>
+        <div id="touch-controls" class="touch-controls">
+          <div class="dpad">
+            <button data-key="up" aria-label="喷气上升">▲</button
+            ><button data-key="left" aria-label="向左">◀</button
+            ><button data-key="down" aria-label="向下挖掘">▼</button
+            ><button data-key="right" aria-label="向右">▶</button>
+          </div>
+          <button class="touch-bomb" data-action="bomb">炸弹</button>
+        </div>
+      </section>
+      <footer class="below">
+        <div>
+          <span class="key-guide"
+            ><kbd>←</kbd><kbd>↓</kbd><kbd>→</kbd> 挖掘
+            <kbd>↑</kbd> 喷气上升</span
+          ><span class="key-guide"
+            ><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><kbd>F</kbd
+            ><kbd>G</kbd> 道具</span
+          >
+        </div>
+        <button id="help-link">操作说明</button
+        ><span id="save-status" role="status">地下深处，还有一个约定。</span>
+      </footer>
+      <p class="attribution">原作 Hangame / NHN · 本地研究与试玩版本</p>
+    </main>
+    <input id="save-file" type="file" accept="application/json,.json" hidden />
+    <script type="module" src="/src/game.js"></script>
+  </body>
+</html>

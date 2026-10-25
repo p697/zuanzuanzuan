@@ -1,0 +1,12 @@
+{
+  "name": "digger-boy-native",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node tools/server.mjs",
+    "start": "node tools/server.mjs",
+    "test": "node --test test/*.test.mjs",
+    "check": "node --check src/core.js && node --check src/game.js && node --check src/ui.js && node --check src/renderer.js && node --check src/audio.js && node --check src/i18n.js"
+  }
+}

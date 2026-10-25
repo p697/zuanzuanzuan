@@ -1,0 +1,5645 @@
+{
+  "version": 1,
+  "source": "Digger Boy Kung preserved Flash assets; local study build",
+  "images": {
+    "348": {
+      "src": "/assets/images/348.png",
+      "width": 60,
+      "height": 60
+    },
+    "412": {
+      "src": "/assets/images/412.png",
+      "width": 40,
+      "height": 27
+    },
+    "360": {
+      "src": "/assets/images/360.png",
+      "width": 60,
+      "height": 60
+    },
+    "406": {
+      "src": "/assets/images/406.png",
+      "width": 40,
+      "height": 27
+    },
+    "610": {
+      "src": "/assets/images/610.png",
+      "width": 66,
+      "height": 40
+    },
+    "604": {
+      "src": "/assets/images/604.png",
+      "width": 118,
+      "height": 33
+    },
+    "189": {
+      "src": "/assets/images/189.png",
+      "width": 322,
+      "height": 24
+    },
+    "1347": {
+      "src": "/assets/images/1347.png",
+      "width": 100,
+      "height": 36
+    },
+    "1353": {
+      "src": "/assets/images/1353.png",
+      "width": 120,
+      "height": 50
+    },
+    "994": {
+      "src": "/assets/images/994.png",
+      "width": 100,
+      "height": 36
+    },
+    "item45": {
+      "src": "/assets/images/72_item45.png",
+      "width": 34,
+      "height": 34
+    },
+    "943": {
+      "src": "/assets/images/943.png",
+      "width": 11,
+      "height": 11
+    },
+    "200": {
+      "src": "/assets/images/200.png",
+      "width": 55,
+      "height": 64
+    },
+    "1024": {
+      "src": "/assets/images/1024.png",
+      "width": 100,
+      "height": 50
+    },
+    "1030": {
+      "src": "/assets/images/1030.png",
+      "width": 100,
+      "height": 50
+    },
+    "1018": {
+      "src": "/assets/images/1018.png",
+      "width": 100,
+      "height": 50
+    },
+    "598": {
+      "src": "/assets/images/598.png",
+      "width": 87,
+      "height": 93
+    },
+    "215": {
+      "src": "/assets/images/215.png",
+      "width": 34,
+      "height": 32
+    },
+    "573": {
+      "src": "/assets/images/573.png",
+      "width": 122,
+      "height": 50
+    },
+    "567": {
+      "src": "/assets/images/567.png",
+      "width": 81,
+      "height": 88
+    },
+    "1540": {
+      "src": "/assets/images/1540.jpg",
+      "width": 72,
+      "height": 25
+    },
+    "956": {
+      "src": "/assets/images/956.png",
+      "width": 328,
+      "height": 452
+    },
+    "995": {
+      "src": "/assets/images/995.png",
+      "width": 132,
+      "height": 45
+    },
+    "759": {
+      "src": "/assets/images/759.png",
+      "width": 178,
+      "height": 135
+    },
+    "981": {
+      "src": "/assets/images/981.png",
+      "width": 93,
+      "height": 105
+    },
+    "1434": {
+      "src": "/assets/images/1434.png",
+      "width": 400,
+      "height": 400
+    },
+    "1420": {
+      "src": "/assets/images/1420.png",
+      "width": 400,
+      "height": 400
+    },
+    "1408": {
+      "src": "/assets/images/1408.png",
+      "width": 400,
+      "height": 400
+    },
+    "836": {
+      "src": "/assets/images/836.png",
+      "width": 330,
+      "height": 450
+    },
+    "1385": {
+      "src": "/assets/images/1385.png",
+      "width": 79,
+      "height": 45
+    },
+    "89": {
+      "src": "/assets/images/89.png",
+      "width": 42,
+      "height": 42
+    },
+    "808": {
+      "src": "/assets/images/808.png",
+      "width": 78,
+      "height": 41
+    },
+    "1422": {
+      "src": "/assets/images/1422.png",
+      "width": 400,
+      "height": 400
+    },
+    "1218": {
+      "src": "/assets/images/1218.png",
+      "width": 13,
+      "height": 14
+    },
+    "968": {
+      "src": "/assets/images/968.png",
+      "width": 66,
+      "height": 83
+    },
+    "1230": {
+      "src": "/assets/images/1230.png",
+      "width": 13,
+      "height": 43
+    },
+    "559": {
+      "src": "/assets/images/559.png",
+      "width": 38,
+      "height": 35
+    },
+    "571": {
+      "src": "/assets/images/571.png",
+      "width": 122,
+      "height": 50
+    },
+    "217": {
+      "src": "/assets/images/217.png",
+      "width": 34,
+      "height": 34
+    },
+    "565": {
+      "src": "/assets/images/565.png",
+      "width": 81,
+      "height": 88
+    },
+    "1026": {
+      "src": "/assets/images/1026.png",
+      "width": 100,
+      "height": 50
+    },
+    "1032": {
+      "src": "/assets/images/1032.png",
+      "width": 100,
+      "height": 50
+    },
+    "1225": {
+      "src": "/assets/images/1225.png",
+      "width": 13,
+      "height": 14
+    },
+    "941": {
+      "src": "/assets/images/941.png",
+      "width": 10,
+      "height": 13
+    },
+    "1345": {
+      "src": "/assets/images/1345.png",
+      "width": 132,
+      "height": 45
+    },
+    "1351": {
+      "src": "/assets/images/1351.png",
+      "width": 72,
+      "height": 20
+    },
+    "612": {
+      "src": "/assets/images/612.png",
+      "width": 48,
+      "height": 62
+    },
+    "606": {
+      "src": "/assets/images/606.png",
+      "width": 118,
+      "height": 33
+    },
+    "389": {
+      "src": "/assets/images/389.png",
+      "width": 28,
+      "height": 7
+    },
+    "376": {
+      "src": "/assets/images/376.png",
+      "width": 34,
+      "height": 34
+    },
+    "410": {
+      "src": "/assets/images/410.png",
+      "width": 40,
+      "height": 27
+    },
+    "404": {
+      "src": "/assets/images/404.png",
+      "width": 40,
+      "height": 27
+    },
+    "362": {
+      "src": "/assets/images/362.png",
+      "width": 60,
+      "height": 60
+    },
+    "438": {
+      "src": "/assets/images/438.png",
+      "width": 13,
+      "height": 8
+    },
+    "366": {
+      "src": "/assets/images/366.png",
+      "width": 60,
+      "height": 60
+    },
+    "item2": {
+      "src": "/assets/images/56_item2.png",
+      "width": 34,
+      "height": 34
+    },
+    "item27": {
+      "src": "/assets/images/78_item27.png",
+      "width": 34,
+      "height": 34
+    },
+    "399": {
+      "src": "/assets/images/399.png",
+      "width": 40,
+      "height": 32
+    },
+    "1396": {
+      "src": "/assets/images/1396.png",
+      "width": 400,
+      "height": 400
+    },
+    "170": {
+      "src": "/assets/images/170.png",
+      "width": 35,
+      "height": 49
+    },
+    "616": {
+      "src": "/assets/images/616.png",
+      "width": 106,
+      "height": 101
+    },
+    "979": {
+      "src": "/assets/images/979.png",
+      "width": 93,
+      "height": 105
+    },
+    "951": {
+      "src": "/assets/images/951.png",
+      "width": 11,
+      "height": 13
+    },
+    "945": {
+      "src": "/assets/images/945.png",
+      "width": 11,
+      "height": 13
+    },
+    "206": {
+      "src": "/assets/images/206.png",
+      "width": 78,
+      "height": 78
+    },
+    "1036": {
+      "src": "/assets/images/1036.png",
+      "width": 100,
+      "height": 50
+    },
+    "1022": {
+      "src": "/assets/images/1022.png",
+      "width": 100,
+      "height": 50
+    },
+    "549": {
+      "src": "/assets/images/549.png",
+      "width": 95,
+      "height": 87
+    },
+    "213": {
+      "src": "/assets/images/213.png",
+      "width": 126,
+      "height": 106
+    },
+    "575": {
+      "src": "/assets/images/575.png",
+      "width": 122,
+      "height": 50
+    },
+    "978": {
+      "src": "/assets/images/978.png",
+      "width": 93,
+      "height": 105
+    },
+    "1220": {
+      "src": "/assets/images/1220.png",
+      "width": 13,
+      "height": 14
+    },
+    "987": {
+      "src": "/assets/images/987.png",
+      "width": 44,
+      "height": 30
+    },
+    "993": {
+      "src": "/assets/images/993.png",
+      "width": 120,
+      "height": 50
+    },
+    "1368": {
+      "src": "/assets/images/1368.png",
+      "width": 39,
+      "height": 28
+    },
+    "1426": {
+      "src": "/assets/images/1426.png",
+      "width": 400,
+      "height": 400
+    },
+    "1432": {
+      "src": "/assets/images/1432.png",
+      "width": 400,
+      "height": 400
+    },
+    "item23": {
+      "src": "/assets/images/82_item23.png",
+      "width": 34,
+      "height": 34
+    },
+    "1383": {
+      "src": "/assets/images/1383.png",
+      "width": 27,
+      "height": 22
+    },
+    "165": {
+      "src": "/assets/images/165.png",
+      "width": 71,
+      "height": 33
+    },
+    "415": {
+      "src": "/assets/images/415.png",
+      "width": 31,
+      "height": 16
+    },
+    "401": {
+      "src": "/assets/images/401.png",
+      "width": 40,
+      "height": 32
+    },
+    "167": {
+      "src": "/assets/images/167.png",
+      "width": 71,
+      "height": 33
+    },
+    "99": {
+      "src": "/assets/images/99.png",
+      "width": 42,
+      "height": 42
+    },
+    "629": {
+      "src": "/assets/images/629.png",
+      "width": 64,
+      "height": 45
+    },
+    "item61": {
+      "src": "/assets/images/65_item61.png",
+      "width": 34,
+      "height": 34
+    },
+    "1424": {
+      "src": "/assets/images/1424.png",
+      "width": 400,
+      "height": 400
+    },
+    "1430": {
+      "src": "/assets/images/1430.png",
+      "width": 400,
+      "height": 400
+    },
+    "1418": {
+      "src": "/assets/images/1418.png",
+      "width": 400,
+      "height": 400
+    },
+    "item82": {
+      "src": "/assets/images/59_item82.png",
+      "width": 34,
+      "height": 34
+    },
+    "198": {
+      "src": "/assets/images/198.png",
+      "width": 66,
+      "height": 81
+    },
+    "985": {
+      "src": "/assets/images/985.png",
+      "width": 44,
+      "height": 30
+    },
+    "563": {
+      "src": "/assets/images/563.png",
+      "width": 140,
+      "height": 104
+    },
+    "577": {
+      "src": "/assets/images/577.png",
+      "width": 122,
+      "height": 50
+    },
+    "1034": {
+      "src": "/assets/images/1034.png",
+      "width": 100,
+      "height": 50
+    },
+    "1020": {
+      "src": "/assets/images/1020.png",
+      "width": 100,
+      "height": 50
+    },
+    "1008": {
+      "src": "/assets/images/1008.png",
+      "width": 100,
+      "height": 50
+    },
+    "588": {
+      "src": "/assets/images/588.png",
+      "width": 87,
+      "height": 93
+    },
+    "238": {
+      "src": "/assets/images/238.png",
+      "width": 87,
+      "height": 79
+    },
+    "1545": {
+      "src": "/assets/images/1545.jpg",
+      "width": 72,
+      "height": 25
+    },
+    "562": {
+      "src": "/assets/images/562.png",
+      "width": 73,
+      "height": 62
+    },
+    "953": {
+      "src": "/assets/images/953.png",
+      "width": 11,
+      "height": 13
+    },
+    "947": {
+      "src": "/assets/images/947.png",
+      "width": 11,
+      "height": 13
+    },
+    "1223": {
+      "src": "/assets/images/1223.png",
+      "width": 13,
+      "height": 14
+    },
+    "1237": {
+      "src": "/assets/images/1237.png",
+      "width": 112,
+      "height": 70
+    },
+    "1343": {
+      "src": "/assets/images/1343.png",
+      "width": 400,
+      "height": 452
+    },
+    "1394": {
+      "src": "/assets/images/1394.png",
+      "width": 400,
+      "height": 400
+    },
+    "1380": {
+      "src": "/assets/images/1380.png",
+      "width": 48,
+      "height": 40
+    },
+    "614": {
+      "src": "/assets/images/614.png",
+      "width": 67,
+      "height": 60
+    },
+    "172": {
+      "src": "/assets/images/172.png",
+      "width": 35,
+      "height": 51
+    },
+    "358": {
+      "src": "/assets/images/358.png",
+      "width": 60,
+      "height": 60
+    },
+    "364": {
+      "src": "/assets/images/364.png",
+      "width": 60,
+      "height": 60
+    },
+    "370": {
+      "src": "/assets/images/370.png",
+      "width": 60,
+      "height": 60
+    },
+    "129": {
+      "src": "/assets/images/129.png",
+      "width": 42,
+      "height": 42
+    },
+    "883": {
+      "src": "/assets/images/883.png",
+      "width": 330,
+      "height": 450
+    },
+    "673": {
+      "src": "/assets/images/673.png",
+      "width": 127,
+      "height": 158
+    },
+    "115": {
+      "src": "/assets/images/115.png",
+      "width": 42,
+      "height": 42
+    },
+    "1481": {
+      "src": "/assets/images/1481.png",
+      "width": 113,
+      "height": 54
+    },
+    "1495": {
+      "src": "/assets/images/1495.png",
+      "width": 241,
+      "height": 53
+    },
+    "101": {
+      "src": "/assets/images/101.png",
+      "width": 42,
+      "height": 42
+    },
+    "667": {
+      "src": "/assets/images/667.png",
+      "width": 73,
+      "height": 57
+    },
+    "854": {
+      "src": "/assets/images/854.png",
+      "width": 36,
+      "height": 34
+    },
+    "698": {
+      "src": "/assets/images/698.png",
+      "width": 229,
+      "height": 182
+    },
+    "1330": {
+      "src": "/assets/images/1330.png",
+      "width": 229,
+      "height": 308
+    },
+    "1293": {
+      "src": "/assets/images/1293.png",
+      "width": 15,
+      "height": 17
+    },
+    "1287": {
+      "src": "/assets/images/1287.png",
+      "width": 15,
+      "height": 17
+    },
+    "item25": {
+      "src": "/assets/images/80_item25.png",
+      "width": 34,
+      "height": 34
+    },
+    "1522": {
+      "src": "/assets/images/1522.png",
+      "width": 201,
+      "height": 62
+    },
+    "511": {
+      "src": "/assets/images/511.png",
+      "width": 47,
+      "height": 55
+    },
+    "277": {
+      "src": "/assets/images/277.png",
+      "width": 38,
+      "height": 40
+    },
+    "288": {
+      "src": "/assets/images/288.png",
+      "width": 38,
+      "height": 40
+    },
+    "1052": {
+      "src": "/assets/images/1052.png",
+      "width": 100,
+      "height": 50
+    },
+    "713": {
+      "src": "/assets/images/713.jpg",
+      "width": 640,
+      "height": 273
+    },
+    "1046": {
+      "src": "/assets/images/1046.png",
+      "width": 100,
+      "height": 50
+    },
+    "262": {
+      "src": "/assets/images/262.png",
+      "width": 38,
+      "height": 40
+    },
+    "504": {
+      "src": "/assets/images/504.png",
+      "width": 40,
+      "height": 43
+    },
+    "1537": {
+      "src": "/assets/images/1537.png",
+      "width": 556,
+      "height": 450
+    },
+    "935": {
+      "src": "/assets/images/935.png",
+      "width": 11,
+      "height": 13
+    },
+    "1279": {
+      "src": "/assets/images/1279.png",
+      "width": 15,
+      "height": 17
+    },
+    "712": {
+      "src": "/assets/images/712.png",
+      "width": 275,
+      "height": 199
+    },
+    "706": {
+      "src": "/assets/images/706.png",
+      "width": 112,
+      "height": 112
+    },
+    "1457": {
+      "src": "/assets/images/1457.png",
+      "width": 9,
+      "height": 11
+    },
+    "1443": {
+      "src": "/assets/images/1443.png",
+      "width": 9,
+      "height": 11
+    },
+    "1319": {
+      "src": "/assets/images/1319.png",
+      "width": 120,
+      "height": 30
+    },
+    "464": {
+      "src": "/assets/images/464.png",
+      "width": 24,
+      "height": 9
+    },
+    "302": {
+      "src": "/assets/images/302.png",
+      "width": 15,
+      "height": 17
+    },
+    "316": {
+      "src": "/assets/images/316.png",
+      "width": 60,
+      "height": 60
+    },
+    "470": {
+      "src": "/assets/images/470.png",
+      "width": 24,
+      "height": 9
+    },
+    "458": {
+      "src": "/assets/images/458.png",
+      "width": 39,
+      "height": 27
+    },
+    "328": {
+      "src": "/assets/images/328.png",
+      "width": 60,
+      "height": 60
+    },
+    "300": {
+      "src": "/assets/images/300.png",
+      "width": 29,
+      "height": 19
+    },
+    "466": {
+      "src": "/assets/images/466.png",
+      "width": 24,
+      "height": 9
+    },
+    "472": {
+      "src": "/assets/images/472.png",
+      "width": 24,
+      "height": 9
+    },
+    "314": {
+      "src": "/assets/images/314.png",
+      "width": 60,
+      "height": 60
+    },
+    "1496": {
+      "src": "/assets/images/1496.png",
+      "width": 183,
+      "height": 43
+    },
+    "1455": {
+      "src": "/assets/images/1455.png",
+      "width": 9,
+      "height": 11
+    },
+    "1441": {
+      "src": "/assets/images/1441.png",
+      "width": 9,
+      "height": 11
+    },
+    "738": {
+      "src": "/assets/images/738.png",
+      "width": 193,
+      "height": 142
+    },
+    "937": {
+      "src": "/assets/images/937.png",
+      "width": 3,
+      "height": 11
+    },
+    "1253": {
+      "src": "/assets/images/1253.png",
+      "width": 112,
+      "height": 70
+    },
+    "248": {
+      "src": "/assets/images/248.png",
+      "width": 91,
+      "height": 89
+    },
+    "item42": {
+      "src": "/assets/images/75_item42.png",
+      "width": 34,
+      "height": 34
+    },
+    "506": {
+      "src": "/assets/images/506.png",
+      "width": 16,
+      "height": 22
+    },
+    "1050": {
+      "src": "/assets/images/1050.png",
+      "width": 100,
+      "height": 50
+    },
+    "1044": {
+      "src": "/assets/images/1044.png",
+      "width": 100,
+      "height": 50
+    },
+    "275": {
+      "src": "/assets/images/275.png",
+      "width": 38,
+      "height": 40
+    },
+    "513": {
+      "src": "/assets/images/513.png",
+      "width": 29,
+      "height": 21
+    },
+    "1246": {
+      "src": "/assets/images/1246.png",
+      "width": 84,
+      "height": 54
+    },
+    "1520": {
+      "src": "/assets/images/1520.png",
+      "width": 201,
+      "height": 62
+    },
+    "922": {
+      "src": "/assets/images/922.png",
+      "width": 34,
+      "height": 34
+    },
+    "1291": {
+      "src": "/assets/images/1291.png",
+      "width": 15,
+      "height": 17
+    },
+    "1285": {
+      "src": "/assets/images/1285.png",
+      "width": 15,
+      "height": 17
+    },
+    "item52": {
+      "src": "/assets/images/70_item52.png",
+      "width": 34,
+      "height": 34
+    },
+    "1326": {
+      "src": "/assets/images/1326.png",
+      "width": 59,
+      "height": 17
+    },
+    "842": {
+      "src": "/assets/images/842.png",
+      "width": 36,
+      "height": 34
+    },
+    "117": {
+      "src": "/assets/images/117.png",
+      "width": 42,
+      "height": 42
+    },
+    "671": {
+      "src": "/assets/images/671.png",
+      "width": 122,
+      "height": 149
+    },
+    "665": {
+      "src": "/assets/images/665.png",
+      "width": 85,
+      "height": 59
+    },
+    "103": {
+      "src": "/assets/images/103.png",
+      "width": 42,
+      "height": 42
+    },
+    "test1": {
+      "src": "/assets/images/38_test1.png",
+      "width": 20,
+      "height": 45
+    },
+    "1487": {
+      "src": "/assets/images/1487.jpg",
+      "width": 1024,
+      "height": 768
+    },
+    "107": {
+      "src": "/assets/images/107.png",
+      "width": 42,
+      "height": 42
+    },
+    "1646": {
+      "src": "/assets/images/1646.jpg",
+      "width": 640,
+      "height": 480
+    },
+    "675": {
+      "src": "/assets/images/675.png",
+      "width": 90,
+      "height": 77
+    },
+    "113": {
+      "src": "/assets/images/113.png",
+      "width": 42,
+      "height": 42
+    },
+    "885": {
+      "src": "/assets/images/885.png",
+      "width": 330,
+      "height": 450
+    },
+    "846": {
+      "src": "/assets/images/846.png",
+      "width": 36,
+      "height": 34
+    },
+    "1478": {
+      "src": "/assets/images/1478.png",
+      "width": 52,
+      "height": 53
+    },
+    "1281": {
+      "src": "/assets/images/1281.png",
+      "width": 15,
+      "height": 17
+    },
+    "715": {
+      "src": "/assets/images/715.png",
+      "width": 640,
+      "height": 480
+    },
+    "1295": {
+      "src": "/assets/images/1295.png",
+      "width": 15,
+      "height": 17
+    },
+    "932": {
+      "src": "/assets/images/932.png",
+      "width": 83,
+      "height": 26
+    },
+    "517": {
+      "src": "/assets/images/517.png",
+      "width": 29,
+      "height": 21
+    },
+    "271": {
+      "src": "/assets/images/271.png",
+      "width": 40,
+      "height": 38
+    },
+    "1040": {
+      "src": "/assets/images/1040.png",
+      "width": 100,
+      "height": 50
+    },
+    "item12": {
+      "src": "/assets/images/46_item12.png",
+      "width": 30,
+      "height": 23
+    },
+    "1054": {
+      "src": "/assets/images/1054.png",
+      "width": 100,
+      "height": 50
+    },
+    "714": {
+      "src": "/assets/images/714.jpg",
+      "width": 640,
+      "height": 274
+    },
+    "258": {
+      "src": "/assets/images/258.png",
+      "width": 87,
+      "height": 79
+    },
+    "264": {
+      "src": "/assets/images/264.png",
+      "width": 38,
+      "height": 40
+    },
+    "502": {
+      "src": "/assets/images/502.png",
+      "width": 32,
+      "height": 29
+    },
+    "927": {
+      "src": "/assets/images/927.png",
+      "width": 39,
+      "height": 36
+    },
+    "1525": {
+      "src": "/assets/images/1525.png",
+      "width": 640,
+      "height": 480
+    },
+    "728": {
+      "src": "/assets/images/728.png",
+      "width": 42,
+      "height": 23
+    },
+    "700": {
+      "src": "/assets/images/700.png",
+      "width": 112,
+      "height": 112
+    },
+    "1445": {
+      "src": "/assets/images/1445.png",
+      "width": 9,
+      "height": 11
+    },
+    "1451": {
+      "src": "/assets/images/1451.png",
+      "width": 9,
+      "height": 11
+    },
+    "1653": {
+      "src": "/assets/images/1653.png",
+      "width": 211,
+      "height": 21
+    },
+    "338": {
+      "src": "/assets/images/338.png",
+      "width": 60,
+      "height": 60
+    },
+    "310": {
+      "src": "/assets/images/310.png",
+      "width": 60,
+      "height": 60
+    },
+    "item53": {
+      "src": "/assets/images/69_item53.png",
+      "width": 34,
+      "height": 34
+    },
+    "462": {
+      "src": "/assets/images/462.png",
+      "width": 26,
+      "height": 24
+    },
+    "312": {
+      "src": "/assets/images/312.png",
+      "width": 60,
+      "height": 60
+    },
+    "306": {
+      "src": "/assets/images/306.png",
+      "width": 60,
+      "height": 60
+    },
+    "448": {
+      "src": "/assets/images/448.png",
+      "width": 39,
+      "height": 33
+    },
+    "1484": {
+      "src": "/assets/images/1484.jpg",
+      "width": 1024,
+      "height": 768
+    },
+    "1447": {
+      "src": "/assets/images/1447.png",
+      "width": 9,
+      "height": 11
+    },
+    "1453": {
+      "src": "/assets/images/1453.png",
+      "width": 9,
+      "height": 11
+    },
+    "item1": {
+      "src": "/assets/images/57_item1.png",
+      "width": 34,
+      "height": 34
+    },
+    "1255": {
+      "src": "/assets/images/1255.png",
+      "width": 52,
+      "height": 30
+    },
+    "1241": {
+      "src": "/assets/images/1241.png",
+      "width": 84,
+      "height": 54
+    },
+    "1527": {
+      "src": "/assets/images/1527.png",
+      "width": 221,
+      "height": 69
+    },
+    "500": {
+      "src": "/assets/images/500.png",
+      "width": 18,
+      "height": 22
+    },
+    "266": {
+      "src": "/assets/images/266.png",
+      "width": 38,
+      "height": 40
+    },
+    "1042": {
+      "src": "/assets/images/1042.png",
+      "width": 100,
+      "height": 50
+    },
+    "529": {
+      "src": "/assets/images/529.png",
+      "width": 37,
+      "height": 33
+    },
+    "515": {
+      "src": "/assets/images/515.png",
+      "width": 29,
+      "height": 21
+    },
+    "924": {
+      "src": "/assets/images/924.png",
+      "width": 38,
+      "height": 38
+    },
+    "1268": {
+      "src": "/assets/images/1268.png",
+      "width": 17,
+      "height": 20
+    },
+    "1254": {
+      "src": "/assets/images/1254.png",
+      "width": 112,
+      "height": 70
+    },
+    "717": {
+      "src": "/assets/images/717.png",
+      "width": 207,
+      "height": 77
+    },
+    "1283": {
+      "src": "/assets/images/1283.png",
+      "width": 15,
+      "height": 17
+    },
+    "1297": {
+      "src": "/assets/images/1297.png",
+      "width": 15,
+      "height": 17
+    },
+    "1308": {
+      "src": "/assets/images/1308.png",
+      "width": 80,
+      "height": 79
+    },
+    "850": {
+      "src": "/assets/images/850.png",
+      "width": 36,
+      "height": 34
+    },
+    "1334": {
+      "src": "/assets/images/1334.png",
+      "width": 88,
+      "height": 14
+    },
+    "139": {
+      "src": "/assets/images/139.png",
+      "width": 42,
+      "height": 42
+    },
+    "663": {
+      "src": "/assets/images/663.png",
+      "width": 133,
+      "height": 74
+    },
+    "105": {
+      "src": "/assets/images/105.png",
+      "width": 42,
+      "height": 42
+    },
+    "1485": {
+      "src": "/assets/images/1485.png",
+      "width": 623,
+      "height": 112
+    },
+    "111": {
+      "src": "/assets/images/111.png",
+      "width": 42,
+      "height": 42
+    },
+    "677": {
+      "src": "/assets/images/677.png",
+      "width": 87,
+      "height": 101
+    },
+    "item7": {
+      "src": "/assets/images/51_item7.png",
+      "width": 34,
+      "height": 34
+    },
+    "item64": {
+      "src": "/assets/images/62_item64.png",
+      "width": 34,
+      "height": 34
+    },
+    "336": {
+      "src": "/assets/images/336.png",
+      "width": 60,
+      "height": 60
+    },
+    "450": {
+      "src": "/assets/images/450.png",
+      "width": 39,
+      "height": 27
+    },
+    "444": {
+      "src": "/assets/images/444.png",
+      "width": 13,
+      "height": 8
+    },
+    "322": {
+      "src": "/assets/images/322.png",
+      "width": 60,
+      "height": 60
+    },
+    "item10": {
+      "src": "/assets/images/48_item10.png",
+      "width": 32,
+      "height": 24
+    },
+    "1311": {
+      "src": "/assets/images/1311.png",
+      "width": 32,
+      "height": 30
+    },
+    "1503": {
+      "src": "/assets/images/1503.png",
+      "width": 368,
+      "height": 76
+    },
+    "242": {
+      "src": "/assets/images/242.png",
+      "width": 39,
+      "height": 38
+    },
+    "tilemap2": {
+      "src": "/assets/images/44_tilemap2.png",
+      "width": 672,
+      "height": 252
+    },
+    "item22": {
+      "src": "/assets/images/83_item22.png",
+      "width": 34,
+      "height": 34
+    },
+    "item62": {
+      "src": "/assets/images/64_item62.png",
+      "width": 34,
+      "height": 34
+    },
+    "256": {
+      "src": "/assets/images/256.png",
+      "width": 81,
+      "height": 87
+    },
+    "1067": {
+      "src": "/assets/images/1067.png",
+      "width": 14,
+      "height": 17
+    },
+    "295": {
+      "src": "/assets/images/295.png",
+      "width": 40,
+      "height": 38
+    },
+    "tutorial2_map": {
+      "src": "/assets/images/35_tutorial2_map.png",
+      "width": 20,
+      "height": 42
+    },
+    "531": {
+      "src": "/assets/images/531.png",
+      "width": 37,
+      "height": 33
+    },
+    "525": {
+      "src": "/assets/images/525.png",
+      "width": 37,
+      "height": 33
+    },
+    "item4": {
+      "src": "/assets/images/54_item4.png",
+      "width": 34,
+      "height": 34
+    },
+    "519": {
+      "src": "/assets/images/519.png",
+      "width": 29,
+      "height": 21
+    },
+    "1264": {
+      "src": "/assets/images/1264.png",
+      "width": 17,
+      "height": 20
+    },
+    "1270": {
+      "src": "/assets/images/1270.png",
+      "width": 17,
+      "height": 20
+    },
+    "1258": {
+      "src": "/assets/images/1258.png",
+      "width": 17,
+      "height": 20
+    },
+    "900": {
+      "src": "/assets/images/900.png",
+      "width": 40,
+      "height": 42
+    },
+    "733": {
+      "src": "/assets/images/733.png",
+      "width": 38,
+      "height": 50
+    },
+    "tilemap3": {
+      "src": "/assets/images/43_tilemap3.png",
+      "width": 672,
+      "height": 252
+    },
+    "item26": {
+      "src": "/assets/images/79_item26.png",
+      "width": 34,
+      "height": 34
+    },
+    "1304": {
+      "src": "/assets/images/1304.png",
+      "width": 87,
+      "height": 84
+    },
+    "1338": {
+      "src": "/assets/images/1338.png",
+      "width": 17,
+      "height": 13
+    },
+    "874": {
+      "src": "/assets/images/874.png",
+      "width": 36,
+      "height": 34
+    },
+    "title": {
+      "src": "/assets/images/37_title.png",
+      "width": 20,
+      "height": 40
+    },
+    "121": {
+      "src": "/assets/images/121.png",
+      "width": 42,
+      "height": 42
+    },
+    "135": {
+      "src": "/assets/images/135.png",
+      "width": 42,
+      "height": 42
+    },
+    "109": {
+      "src": "/assets/images/109.png",
+      "width": 42,
+      "height": 42
+    },
+    "1648": {
+      "src": "/assets/images/1648.png",
+      "width": 210,
+      "height": 34
+    },
+    "1489": {
+      "src": "/assets/images/1489.jpg",
+      "width": 1024,
+      "height": 768
+    },
+    "boss_map": {
+      "src": "/assets/images/45_boss_map.png",
+      "width": 30,
+      "height": 30
+    },
+    "645": {
+      "src": "/assets/images/645.png",
+      "width": 302,
+      "height": 310
+    },
+    "123": {
+      "src": "/assets/images/123.png",
+      "width": 42,
+      "height": 42
+    },
+    "137": {
+      "src": "/assets/images/137.png",
+      "width": 42,
+      "height": 42
+    },
+    "651": {
+      "src": "/assets/images/651.png",
+      "width": 496,
+      "height": 13
+    },
+    "862": {
+      "src": "/assets/images/862.png",
+      "width": 36,
+      "height": 34
+    },
+    "1474": {
+      "src": "/assets/images/1474.png",
+      "width": 34,
+      "height": 38
+    },
+    "1306": {
+      "src": "/assets/images/1306.png",
+      "width": 80,
+      "height": 79
+    },
+    "731": {
+      "src": "/assets/images/731.png",
+      "width": 38,
+      "height": 48
+    },
+    "1266": {
+      "src": "/assets/images/1266.png",
+      "width": 17,
+      "height": 20
+    },
+    "1500": {
+      "src": "/assets/images/1500.png",
+      "width": 368,
+      "height": 76
+    },
+    "1272": {
+      "src": "/assets/images/1272.png",
+      "width": 17,
+      "height": 20
+    },
+    "269": {
+      "src": "/assets/images/269.png",
+      "width": 42,
+      "height": 39
+    },
+    "1514": {
+      "src": "/assets/images/1514.jpg",
+      "width": 640,
+      "height": 273
+    },
+    "533": {
+      "src": "/assets/images/533.png",
+      "width": 37,
+      "height": 33
+    },
+    "527": {
+      "src": "/assets/images/527.png",
+      "width": 37,
+      "height": 33
+    },
+    "stage2_map": {
+      "src": "/assets/images/40_stage2_map.png",
+      "width": 60,
+      "height": 400
+    },
+    "282": {
+      "src": "/assets/images/282.png",
+      "width": 42,
+      "height": 39
+    },
+    "1071": {
+      "src": "/assets/images/1071.png",
+      "width": 14,
+      "height": 17
+    },
+    "item83": {
+      "src": "/assets/images/58_item83.png",
+      "width": 34,
+      "height": 34
+    },
+    "240": {
+      "src": "/assets/images/240.png",
+      "width": 39,
+      "height": 32
+    },
+    "tutorial3_map": {
+      "src": "/assets/images/34_tutorial3_map.png",
+      "width": 20,
+      "height": 45
+    },
+    "724": {
+      "src": "/assets/images/724.png",
+      "width": 207,
+      "height": 53
+    },
+    "item65": {
+      "src": "/assets/images/61_item65.png",
+      "width": 34,
+      "height": 34
+    },
+    "1475": {
+      "src": "/assets/images/1475.png",
+      "width": 163,
+      "height": 38
+    },
+    "1449": {
+      "src": "/assets/images/1449.png",
+      "width": 9,
+      "height": 11
+    },
+    "485": {
+      "src": "/assets/images/485.png",
+      "width": 17,
+      "height": 23
+    },
+    "item28": {
+      "src": "/assets/images/77_item28.png",
+      "width": 34,
+      "height": 34
+    },
+    "452": {
+      "src": "/assets/images/452.png",
+      "width": 39,
+      "height": 27
+    },
+    "334": {
+      "src": "/assets/images/334.png",
+      "width": 60,
+      "height": 60
+    },
+    "320": {
+      "src": "/assets/images/320.png",
+      "width": 60,
+      "height": 60
+    },
+    "308": {
+      "src": "/assets/images/308.png",
+      "width": 60,
+      "height": 60
+    },
+    "442": {
+      "src": "/assets/images/442.png",
+      "width": 13,
+      "height": 8
+    },
+    "324": {
+      "src": "/assets/images/324.png",
+      "width": 60,
+      "height": 60
+    },
+    "330": {
+      "src": "/assets/images/330.png",
+      "width": 60,
+      "height": 60
+    },
+    "456": {
+      "src": "/assets/images/456.png",
+      "width": 39,
+      "height": 27
+    },
+    "318": {
+      "src": "/assets/images/318.png",
+      "width": 60,
+      "height": 60
+    },
+    "640": {
+      "src": "/assets/images/640.png",
+      "width": 96,
+      "height": 69
+    },
+    "1303": {
+      "src": "/assets/images/1303.png",
+      "width": 87,
+      "height": 84
+    },
+    "720": {
+      "src": "/assets/images/720.png",
+      "width": 205,
+      "height": 73
+    },
+    "1048": {
+      "src": "/assets/images/1048.png",
+      "width": 100,
+      "height": 50
+    },
+    "292": {
+      "src": "/assets/images/292.png",
+      "width": 38,
+      "height": 40
+    },
+    "279": {
+      "src": "/assets/images/279.png",
+      "width": 38,
+      "height": 40
+    },
+    "537": {
+      "src": "/assets/images/537.png",
+      "width": 84,
+      "height": 84
+    },
+    "251": {
+      "src": "/assets/images/251.png",
+      "width": 91,
+      "height": 90
+    },
+    "item41": {
+      "src": "/assets/images/76_item41.png",
+      "width": 34,
+      "height": 34
+    },
+    "1276": {
+      "src": "/assets/images/1276.png",
+      "width": 17,
+      "height": 20
+    },
+    "1262": {
+      "src": "/assets/images/1262.png",
+      "width": 17,
+      "height": 20
+    },
+    "1289": {
+      "src": "/assets/images/1289.png",
+      "width": 15,
+      "height": 17
+    },
+    "866": {
+      "src": "/assets/images/866.png",
+      "width": 36,
+      "height": 34
+    },
+    "1302": {
+      "src": "/assets/images/1302.png",
+      "width": 87,
+      "height": 84
+    },
+    "1316": {
+      "src": "/assets/images/1316.png",
+      "width": 32,
+      "height": 30
+    },
+    "669": {
+      "src": "/assets/images/669.png",
+      "width": 90,
+      "height": 77
+    },
+    "133": {
+      "src": "/assets/images/133.png",
+      "width": 42,
+      "height": 42
+    },
+    "127": {
+      "src": "/assets/images/127.png",
+      "width": 42,
+      "height": 42
+    },
+    "stage3_map": {
+      "src": "/assets/images/39_stage3_map.png",
+      "width": 60,
+      "height": 550
+    },
+    "item44": {
+      "src": "/assets/images/73_item44.png",
+      "width": 34,
+      "height": 34
+    },
+    "131": {
+      "src": "/assets/images/131.png",
+      "width": 42,
+      "height": 42
+    },
+    "643": {
+      "src": "/assets/images/643.png",
+      "width": 312,
+      "height": 302
+    },
+    "125": {
+      "src": "/assets/images/125.png",
+      "width": 42,
+      "height": 42
+    },
+    "119": {
+      "src": "/assets/images/119.png",
+      "width": 42,
+      "height": 42
+    },
+    "858": {
+      "src": "/assets/images/858.png",
+      "width": 36,
+      "height": 34
+    },
+    "1314": {
+      "src": "/assets/images/1314.png",
+      "width": 16,
+      "height": 20
+    },
+    "870": {
+      "src": "/assets/images/870.png",
+      "width": 36,
+      "height": 34
+    },
+    "1274": {
+      "src": "/assets/images/1274.png",
+      "width": 17,
+      "height": 20
+    },
+    "1260": {
+      "src": "/assets/images/1260.png",
+      "width": 17,
+      "height": 20
+    },
+    "1506": {
+      "src": "/assets/images/1506.png",
+      "width": 368,
+      "height": 76
+    },
+    "item55": {
+      "src": "/assets/images/67_item55.png",
+      "width": 34,
+      "height": 34
+    },
+    "521": {
+      "src": "/assets/images/521.png",
+      "width": 29,
+      "height": 21
+    },
+    "253": {
+      "src": "/assets/images/253.png",
+      "width": 91,
+      "height": 90
+    },
+    "284": {
+      "src": "/assets/images/284.png",
+      "width": 40,
+      "height": 38
+    },
+    "290": {
+      "src": "/assets/images/290.png",
+      "width": 38,
+      "height": 40
+    },
+    "1062": {
+      "src": "/assets/images/1062.png",
+      "width": 14,
+      "height": 17
+    },
+    "1063": {
+      "src": "/assets/images/1063.png",
+      "width": 47,
+      "height": 36
+    },
+    "1249": {
+      "src": "/assets/images/1249.png",
+      "width": 84,
+      "height": 54
+    },
+    "939": {
+      "src": "/assets/images/939.png",
+      "width": 11,
+      "height": 13
+    },
+    "1329": {
+      "src": "/assets/images/1329.png",
+      "width": 78,
+      "height": 23
+    },
+    "1315": {
+      "src": "/assets/images/1315.png",
+      "width": 41,
+      "height": 40
+    },
+    "item6": {
+      "src": "/assets/images/52_item6.png",
+      "width": 34,
+      "height": 34
+    },
+    "1301": {
+      "src": "/assets/images/1301.png",
+      "width": 18,
+      "height": 19
+    },
+    "tutorial1_map": {
+      "src": "/assets/images/36_tutorial1_map.png",
+      "width": 20,
+      "height": 40
+    },
+    "468": {
+      "src": "/assets/images/468.png",
+      "width": 24,
+      "height": 9
+    },
+    "326": {
+      "src": "/assets/images/326.png",
+      "width": 60,
+      "height": 60
+    },
+    "440": {
+      "src": "/assets/images/440.png",
+      "width": 13,
+      "height": 8
+    },
+    "454": {
+      "src": "/assets/images/454.png",
+      "width": 39,
+      "height": 27
+    },
+    "332": {
+      "src": "/assets/images/332.png",
+      "width": 60,
+      "height": 60
+    },
+    "95": {
+      "src": "/assets/images/95.png",
+      "width": 42,
+      "height": 42
+    },
+    "143": {
+      "src": "/assets/images/143.png",
+      "width": 42,
+      "height": 42
+    },
+    "1428": {
+      "src": "/assets/images/1428.png",
+      "width": 400,
+      "height": 400
+    },
+    "1400": {
+      "src": "/assets/images/1400.png",
+      "width": 400,
+      "height": 400
+    },
+    "item9": {
+      "src": "/assets/images/49_item9.png",
+      "width": 34,
+      "height": 34
+    },
+    "180": {
+      "src": "/assets/images/180.png",
+      "width": 18,
+      "height": 16
+    },
+    "1414": {
+      "src": "/assets/images/1414.png",
+      "width": 400,
+      "height": 400
+    },
+    "779": {
+      "src": "/assets/images/779.png",
+      "width": 300,
+      "height": 100
+    },
+    "745": {
+      "src": "/assets/images/745.png",
+      "width": 54,
+      "height": 16
+    },
+    "751": {
+      "src": "/assets/images/751.png",
+      "width": 58,
+      "height": 20
+    },
+    "962": {
+      "src": "/assets/images/962.png",
+      "width": 146,
+      "height": 20
+    },
+    "976": {
+      "src": "/assets/images/976.png",
+      "width": 55,
+      "height": 11
+    },
+    "553": {
+      "src": "/assets/images/553.png",
+      "width": 74,
+      "height": 130
+    },
+    "1038": {
+      "src": "/assets/images/1038.png",
+      "width": 100,
+      "height": 50
+    },
+    "584": {
+      "src": "/assets/images/584.png",
+      "width": 87,
+      "height": 93
+    },
+    "1010": {
+      "src": "/assets/images/1010.png",
+      "width": 100,
+      "height": 50
+    },
+    "1004": {
+      "src": "/assets/images/1004.png",
+      "width": 100,
+      "height": 50
+    },
+    "590": {
+      "src": "/assets/images/590.png",
+      "width": 87,
+      "height": 93
+    },
+    "552": {
+      "src": "/assets/images/552.png",
+      "width": 158,
+      "height": 84
+    },
+    "tilemap": {
+      "src": "/assets/images/42_tilemap.png",
+      "width": 672,
+      "height": 252
+    },
+    "778": {
+      "src": "/assets/images/778.png",
+      "width": 152,
+      "height": 38
+    },
+    "624": {
+      "src": "/assets/images/624.png",
+      "width": 66,
+      "height": 40
+    },
+    "618": {
+      "src": "/assets/images/618.png",
+      "width": 67,
+      "height": 60
+    },
+    "1398": {
+      "src": "/assets/images/1398.png",
+      "width": 400,
+      "height": 400
+    },
+    "383": {
+      "src": "/assets/images/383.png",
+      "width": 31,
+      "height": 22
+    },
+    "397": {
+      "src": "/assets/images/397.png",
+      "width": 40,
+      "height": 32
+    },
+    "340": {
+      "src": "/assets/images/340.png",
+      "width": 60,
+      "height": 60
+    },
+    "354": {
+      "src": "/assets/images/354.png",
+      "width": 60,
+      "height": 60
+    },
+    "368": {
+      "src": "/assets/images/368.png",
+      "width": 60,
+      "height": 60
+    },
+    "342": {
+      "src": "/assets/images/342.png",
+      "width": 60,
+      "height": 60
+    },
+    "356": {
+      "src": "/assets/images/356.png",
+      "width": 60,
+      "height": 60
+    },
+    "item60": {
+      "src": "/assets/images/66_item60.png",
+      "width": 34,
+      "height": 34
+    },
+    "item11": {
+      "src": "/assets/images/47_item11.png",
+      "width": 36,
+      "height": 25
+    },
+    "1371": {
+      "src": "/assets/images/1371.png",
+      "width": 34,
+      "height": 27
+    },
+    "1365": {
+      "src": "/assets/images/1365.png",
+      "width": 118,
+      "height": 94
+    },
+    "791": {
+      "src": "/assets/images/791.png",
+      "width": 20,
+      "height": 20
+    },
+    "949": {
+      "src": "/assets/images/949.png",
+      "width": 11,
+      "height": 12
+    },
+    "236": {
+      "src": "/assets/images/236.png",
+      "width": 81,
+      "height": 87
+    },
+    "544": {
+      "src": "/assets/images/544.png",
+      "width": 100,
+      "height": 38
+    },
+    "1012": {
+      "src": "/assets/images/1012.png",
+      "width": 100,
+      "height": 50
+    },
+    "586": {
+      "src": "/assets/images/586.png",
+      "width": 87,
+      "height": 93
+    },
+    "592": {
+      "src": "/assets/images/592.png",
+      "width": 87,
+      "height": 93
+    },
+    "1006": {
+      "src": "/assets/images/1006.png",
+      "width": 100,
+      "height": 50
+    },
+    "223": {
+      "src": "/assets/images/223.png",
+      "width": 17,
+      "height": 17
+    },
+    "579": {
+      "src": "/assets/images/579.png",
+      "width": 122,
+      "height": 50
+    },
+    "item81": {
+      "src": "/assets/images/60_item81.png",
+      "width": 34,
+      "height": 34
+    },
+    "item8": {
+      "src": "/assets/images/50_item8.png",
+      "width": 34,
+      "height": 34
+    },
+    "974": {
+      "src": "/assets/images/974.png",
+      "width": 89,
+      "height": 29
+    },
+    "753": {
+      "src": "/assets/images/753.png",
+      "width": 65,
+      "height": 28
+    },
+    "196": {
+      "src": "/assets/images/196.png",
+      "width": 318,
+      "height": 21
+    },
+    "1402": {
+      "src": "/assets/images/1402.png",
+      "width": 400,
+      "height": 400
+    },
+    "1416": {
+      "src": "/assets/images/1416.png",
+      "width": 400,
+      "height": 400
+    },
+    "1358": {
+      "src": "/assets/images/1358.png",
+      "width": 72,
+      "height": 20
+    },
+    "800": {
+      "src": "/assets/images/800.png",
+      "width": 143,
+      "height": 110
+    },
+    "141": {
+      "src": "/assets/images/141.png",
+      "width": 42,
+      "height": 42
+    },
+    "627": {
+      "src": "/assets/images/627.png",
+      "width": 50,
+      "height": 28
+    },
+    "97": {
+      "src": "/assets/images/97.png",
+      "width": 42,
+      "height": 42
+    },
+    "419": {
+      "src": "/assets/images/419.png",
+      "width": 13,
+      "height": 14
+    },
+    "item3": {
+      "src": "/assets/images/55_item3.png",
+      "width": 34,
+      "height": 34
+    },
+    "87": {
+      "src": "/assets/images/87.png",
+      "width": 42,
+      "height": 42
+    },
+    "93": {
+      "src": "/assets/images/93.png",
+      "width": 42,
+      "height": 42
+    },
+    "1374": {
+      "src": "/assets/images/1374.png",
+      "width": 46,
+      "height": 67
+    },
+    "1412": {
+      "src": "/assets/images/1412.png",
+      "width": 400,
+      "height": 400
+    },
+    "1406": {
+      "src": "/assets/images/1406.png",
+      "width": 400,
+      "height": 400
+    },
+    "743": {
+      "src": "/assets/images/743.png",
+      "width": 58,
+      "height": 20
+    },
+    "item54": {
+      "src": "/assets/images/68_item54.png",
+      "width": 34,
+      "height": 34
+    },
+    "1228": {
+      "src": "/assets/images/1228.png",
+      "width": 13,
+      "height": 43
+    },
+    "964": {
+      "src": "/assets/images/964.png",
+      "width": 34,
+      "height": 34
+    },
+    "233": {
+      "src": "/assets/images/233.png",
+      "width": 91,
+      "height": 90
+    },
+    "555": {
+      "src": "/assets/images/555.png",
+      "width": 222,
+      "height": 131
+    },
+    "227": {
+      "src": "/assets/images/227.png",
+      "width": 91,
+      "height": 89
+    },
+    "1002": {
+      "src": "/assets/images/1002.png",
+      "width": 100,
+      "height": 50
+    },
+    "596": {
+      "src": "/assets/images/596.png",
+      "width": 87,
+      "height": 93
+    },
+    "1016": {
+      "src": "/assets/images/1016.png",
+      "width": 100,
+      "height": 50
+    },
+    "item51": {
+      "src": "/assets/images/71_item51.png",
+      "width": 34,
+      "height": 34
+    },
+    "item5": {
+      "src": "/assets/images/53_item5.png",
+      "width": 34,
+      "height": 34
+    },
+    "554": {
+      "src": "/assets/images/554.png",
+      "width": 186,
+      "height": 110
+    },
+    "781": {
+      "src": "/assets/images/781.png",
+      "width": 75,
+      "height": 71
+    },
+    "item21": {
+      "src": "/assets/images/84_item21.png",
+      "width": 34,
+      "height": 34
+    },
+    "193": {
+      "src": "/assets/images/193.png",
+      "width": 322,
+      "height": 22
+    },
+    "622": {
+      "src": "/assets/images/622.png",
+      "width": 59,
+      "height": 101
+    },
+    "item24": {
+      "src": "/assets/images/81_item24.png",
+      "width": 34,
+      "height": 34
+    },
+    "391": {
+      "src": "/assets/images/391.png",
+      "width": 28,
+      "height": 7
+    },
+    "385": {
+      "src": "/assets/images/385.png",
+      "width": 28,
+      "height": 7
+    },
+    "408": {
+      "src": "/assets/images/408.png",
+      "width": 40,
+      "height": 27
+    },
+    "434": {
+      "src": "/assets/images/434.png",
+      "width": 18,
+      "height": 23
+    },
+    "352": {
+      "src": "/assets/images/352.png",
+      "width": 60,
+      "height": 60
+    },
+    "346": {
+      "src": "/assets/images/346.png",
+      "width": 60,
+      "height": 60
+    },
+    "350": {
+      "src": "/assets/images/350.png",
+      "width": 60,
+      "height": 60
+    },
+    "185": {
+      "src": "/assets/images/185.jpg",
+      "width": 4,
+      "height": 4
+    },
+    "436": {
+      "src": "/assets/images/436.png",
+      "width": 13,
+      "height": 8
+    },
+    "422": {
+      "src": "/assets/images/422.png",
+      "width": 9,
+      "height": 16
+    },
+    "344": {
+      "src": "/assets/images/344.png",
+      "width": 60,
+      "height": 60
+    },
+    "393": {
+      "src": "/assets/images/393.png",
+      "width": 28,
+      "height": 7
+    },
+    "387": {
+      "src": "/assets/images/387.png",
+      "width": 28,
+      "height": 7
+    },
+    "146": {
+      "src": "/assets/images/146.png",
+      "width": 67,
+      "height": 49
+    },
+    "620": {
+      "src": "/assets/images/620.png",
+      "width": 116,
+      "height": 135
+    },
+    "1363": {
+      "src": "/assets/images/1363.png",
+      "width": 146,
+      "height": 32
+    },
+    "1377": {
+      "src": "/assets/images/1377.png",
+      "width": 43,
+      "height": 37
+    },
+    "1439": {
+      "src": "/assets/images/1439.png",
+      "width": 9,
+      "height": 11
+    },
+    "998": {
+      "src": "/assets/images/998.png",
+      "width": 120,
+      "height": 50
+    },
+    "item63": {
+      "src": "/assets/images/63_item63.png",
+      "width": 34,
+      "height": 34
+    },
+    "783": {
+      "src": "/assets/images/783.png",
+      "width": 75,
+      "height": 71
+    },
+    "581": {
+      "src": "/assets/images/581.png",
+      "width": 122,
+      "height": 50
+    },
+    "1028": {
+      "src": "/assets/images/1028.png",
+      "width": 100,
+      "height": 50
+    },
+    "594": {
+      "src": "/assets/images/594.png",
+      "width": 87,
+      "height": 93
+    },
+    "1014": {
+      "src": "/assets/images/1014.png",
+      "width": 100,
+      "height": 50
+    },
+    "557": {
+      "src": "/assets/images/557.png",
+      "width": 50,
+      "height": 50
+    },
+    "231": {
+      "src": "/assets/images/231.png",
+      "width": 91,
+      "height": 90
+    },
+    "1216": {
+      "src": "/assets/images/1216.png",
+      "width": 14,
+      "height": 213
+    },
+    "stage1_map": {
+      "src": "/assets/images/41_stage1_map.png",
+      "width": 60,
+      "height": 450
+    },
+    "755": {
+      "src": "/assets/images/755.png",
+      "width": 54,
+      "height": 16
+    },
+    "741": {
+      "src": "/assets/images/741.png",
+      "width": 58,
+      "height": 20
+    },
+    "1410": {
+      "src": "/assets/images/1410.png",
+      "width": 400,
+      "height": 400
+    },
+    "1362": {
+      "src": "/assets/images/1362.png",
+      "width": 105,
+      "height": 50
+    },
+    "1404": {
+      "src": "/assets/images/1404.png",
+      "width": 400,
+      "height": 400
+    },
+    "item43": {
+      "src": "/assets/images/74_item43.png",
+      "width": 34,
+      "height": 34
+    },
+    "85": {
+      "src": "/assets/images/85.png",
+      "width": 42,
+      "height": 42
+    },
+    "91": {
+      "src": "/assets/images/91.png",
+      "width": 42,
+      "height": 42
+    },
+    "379": {
+      "src": "/assets/images/379.png",
+      "width": 34,
+      "height": 34
+    },
+    "zh-162": {
+      "src": "/assets/images/zh-162.png",
+      "width": 330,
+      "height": 450
+    },
+    "zh-189": {
+      "src": "/assets/images/zh-189.png",
+      "width": 16,
+      "height": 20
+    },
+    "zh-201": {
+      "src": "/assets/images/zh-201.png",
+      "width": 221,
+      "height": 69
+    },
+    "zh-229": {
+      "src": "/assets/images/zh-229.png",
+      "width": 210,
+      "height": 34
+    },
+    "zh-177": {
+      "src": "/assets/images/zh-177.png",
+      "width": 330,
+      "height": 450
+    },
+    "zh-216": {
+      "src": "/assets/images/zh-216.png",
+      "width": 71,
+      "height": 33
+    },
+    "zh-174": {
+      "src": "/assets/images/zh-174.png",
+      "width": 126,
+      "height": 106
+    },
+    "zh-207": {
+      "src": "/assets/images/zh-207.png",
+      "width": 368,
+      "height": 76
+    },
+    "zh-213": {
+      "src": "/assets/images/zh-213.png",
+      "width": 71,
+      "height": 33
+    },
+    "zh-159": {
+      "src": "/assets/images/zh-159.png",
+      "width": 330,
+      "height": 450
+    },
+    "zh-171": {
+      "src": "/assets/images/zh-171.png",
+      "width": 71,
+      "height": 41
+    },
+    "zh-165": {
+      "src": "/assets/images/zh-165.png",
+      "width": 118,
+      "height": 33
+    },
+    "zh-198": {
+      "src": "/assets/images/zh-198.png",
+      "width": 201,
+      "height": 62
+    },
+    "zh-210": {
+      "src": "/assets/images/zh-210.png",
+      "width": 368,
+      "height": 76
+    },
+    "zh-204": {
+      "src": "/assets/images/zh-204.png",
+      "width": 368,
+      "height": 76
+    },
+    "zh-277": {
+      "src": "/assets/images/zh-277.png",
+      "width": 58,
+      "height": 20
+    },
+    "zh-262": {
+      "src": "/assets/images/zh-262.png",
+      "width": 207,
+      "height": 77
+    },
+    "zh-289": {
+      "src": "/assets/images/zh-289.jpg",
+      "width": 640,
+      "height": 480
+    },
+    "zh-15": {
+      "src": "/assets/images/zh-15.jpg",
+      "width": 72,
+      "height": 25
+    },
+    "zh-274": {
+      "src": "/assets/images/zh-274.png",
+      "width": 83,
+      "height": 26
+    },
+    "zh-12": {
+      "src": "/assets/images/zh-12.jpg",
+      "width": 72,
+      "height": 25
+    },
+    "zh-271": {
+      "src": "/assets/images/zh-271.png",
+      "width": 78,
+      "height": 23
+    },
+    "zh-265": {
+      "src": "/assets/images/zh-265.png",
+      "width": 556,
+      "height": 450
+    },
+    "zh-259": {
+      "src": "/assets/images/zh-259.png",
+      "width": 146,
+      "height": 20
+    },
+    "zh-38": {
+      "src": "/assets/images/zh-38.png",
+      "width": 193,
+      "height": 142
+    },
+    "zh-139": {
+      "src": "/assets/images/zh-139.png",
+      "width": 34,
+      "height": 38
+    },
+    "zh-256": {
+      "src": "/assets/images/zh-256.png",
+      "width": 112,
+      "height": 112
+    },
+    "zh-280": {
+      "src": "/assets/images/zh-280.png",
+      "width": 58,
+      "height": 20
+    },
+    "zh-241": {
+      "src": "/assets/images/zh-241.png",
+      "width": 205,
+      "height": 73
+    },
+    "zh-283": {
+      "src": "/assets/images/zh-283.png",
+      "width": 58,
+      "height": 20
+    },
+    "zh-268": {
+      "src": "/assets/images/zh-268.png",
+      "width": 229,
+      "height": 182
+    },
+    "zh-250": {
+      "src": "/assets/images/zh-250.png",
+      "width": 275,
+      "height": 199
+    },
+    "zh-244": {
+      "src": "/assets/images/zh-244.png",
+      "width": 55,
+      "height": 11
+    },
+    "zh-286": {
+      "src": "/assets/images/zh-286.png",
+      "width": 58,
+      "height": 20
+    },
+    "zh-292": {
+      "src": "/assets/images/zh-292.png",
+      "width": 52,
+      "height": 30
+    },
+    "zh-247": {
+      "src": "/assets/images/zh-247.png",
+      "width": 112,
+      "height": 112
+    },
+    "zh-253": {
+      "src": "/assets/images/zh-253.png",
+      "width": 207,
+      "height": 53
+    },
+    "zh-180": {
+      "src": "/assets/images/zh-180.png",
+      "width": 330,
+      "height": 450
+    },
+    "zh-235": {
+      "src": "/assets/images/zh-235.png",
+      "width": 300,
+      "height": 100
+    },
+    "zh-195": {
+      "src": "/assets/images/zh-195.png",
+      "width": 201,
+      "height": 62
+    },
+    "zh-156": {
+      "src": "/assets/images/zh-156.png",
+      "width": 75,
+      "height": 71
+    },
+    "zh-168": {
+      "src": "/assets/images/zh-168.png",
+      "width": 35,
+      "height": 34
+    },
+    "zh-140": {
+      "src": "/assets/images/zh-140.png",
+      "width": 163,
+      "height": 38
+    },
+    "zh-154": {
+      "src": "/assets/images/zh-154.png",
+      "width": 75,
+      "height": 71
+    },
+    "zh-41": {
+      "src": "/assets/images/zh-41.png",
+      "width": 20,
+      "height": 20
+    },
+    "zh-183": {
+      "src": "/assets/images/zh-183.png",
+      "width": 16,
+      "height": 13
+    },
+    "zh-222": {
+      "src": "/assets/images/zh-222.png",
+      "width": 217,
+      "height": 23
+    },
+    "zh-151": {
+      "src": "/assets/images/zh-151.png",
+      "width": 44,
+      "height": 30
+    },
+    "zh-186": {
+      "src": "/assets/images/zh-186.png",
+      "width": 120,
+      "height": 30
+    },
+    "zh-192": {
+      "src": "/assets/images/zh-192.png",
+      "width": 18,
+      "height": 19
+    },
+    "zh-232": {
+      "src": "/assets/images/zh-232.png",
+      "width": 120,
+      "height": 50
+    },
+    "zh-51": {
+      "src": "/assets/images/zh-51.png",
+      "width": 94,
+      "height": 71
+    },
+    "zh-144": {
+      "src": "/assets/images/zh-144.png",
+      "width": 93,
+      "height": 105
+    },
+    "zh-219": {
+      "src": "/assets/images/zh-219.png",
+      "width": 72,
+      "height": 20
+    },
+    "zh-147": {
+      "src": "/assets/images/zh-147.png",
+      "width": 44,
+      "height": 30
+    },
+    "titleMachineBody": {
+      "src": "/assets/images/zh-250.png",
+      "width": 275,
+      "height": 199
+    },
+    "titleNewGame": {
+      "src": "/assets/images/zh-241.png",
+      "width": 205,
+      "height": 73
+    },
+    "titleContinue": {
+      "src": "/assets/images/zh-253.png",
+      "width": 207,
+      "height": 53
+    },
+    "titleHelp": {
+      "src": "/assets/images/zh-262.png",
+      "width": 207,
+      "height": 77
+    },
+    "titleArtworkChinese": {
+      "src": "/assets/images/zh-289.jpg",
+      "width": 640,
+      "height": 480
+    },
+    "inventoryButtonChinese": {
+      "src": "/assets/images/zh-165.png",
+      "width": 118,
+      "height": 33
+    },
+    "airFrameChinese": {
+      "src": "/assets/images/zh-174.png",
+      "width": 126,
+      "height": 106
+    },
+    "sellLabelChinese": {
+      "src": "/assets/images/zh-147.png",
+      "width": 44,
+      "height": 30
+    },
+    "saveLabelChinese": {
+      "src": "/assets/images/zh-219.png",
+      "width": 72,
+      "height": 20
+    },
+    "scrollPanelChinese": {
+      "src": "/assets/images/zh-159.png",
+      "width": 330,
+      "height": 450
+    },
+    "helpChinese": {
+      "src": "/assets/images/zh-265.png",
+      "width": 556,
+      "height": 450
+    },
+    "sky1": {
+      "src": "/assets/images/1484.jpg",
+      "width": 1024,
+      "height": 768
+    },
+    "sky2": {
+      "src": "/assets/images/1487.jpg",
+      "width": 1024,
+      "height": 768
+    },
+    "sky3": {
+      "src": "/assets/images/1489.jpg",
+      "width": 1024,
+      "height": 768
+    },
+    "surfaceHills": {
+      "src": "/assets/images/1485.png",
+      "width": 623,
+      "height": 112
+    },
+    "titleBackdrop": {
+      "src": "/assets/images/715.png",
+      "width": 640,
+      "height": 480
+    },
+    "titleArtwork": {
+      "src": "/assets/images/1646.jpg",
+      "width": 640,
+      "height": 480
+    },
+    "gameOverBackdrop": {
+      "src": "/assets/images/1525.png",
+      "width": 640,
+      "height": 480
+    },
+    "inventoryPanel": {
+      "src": "/assets/images/956.png",
+      "width": 328,
+      "height": 452
+    },
+    "shopPanel": {
+      "src": "/assets/images/1343.png",
+      "width": 400,
+      "height": 452
+    },
+    "hudPanel": {
+      "src": "/assets/images/1330.png",
+      "width": 229,
+      "height": 308
+    },
+    "scrollPanel": {
+      "src": "/assets/images/836.png",
+      "width": 330,
+      "height": 450
+    },
+    "menuTop": {
+      "src": "/assets/images/713.jpg",
+      "width": 640,
+      "height": 273
+    },
+    "menuBottom": {
+      "src": "/assets/images/714.jpg",
+      "width": 640,
+      "height": 274
+    }
+  },
+  "sprites": {
+    "player": {
+      "states": {
+        "idle": {
+          "frames": [
+            "/assets/animations/player/idle/00.png",
+            "/assets/animations/player/idle/01.png",
+            "/assets/animations/player/idle/02.png",
+            "/assets/animations/player/idle/03.png",
+            "/assets/animations/player/idle/04.png",
+            "/assets/animations/player/idle/05.png",
+            "/assets/animations/player/idle/06.png",
+            "/assets/animations/player/idle/07.png",
+            "/assets/animations/player/idle/08.png",
+            "/assets/animations/player/idle/09.png",
+            "/assets/animations/player/idle/10.png",
+            "/assets/animations/player/idle/11.png"
+          ],
+          "width": 42,
+          "height": 62,
+          "anchor": {
+            "x": 19,
+            "y": 62
+          },
+          "fps": 30
+        },
+        "walk": {
+          "frames": [
+            "/assets/animations/player/walk/00.png",
+            "/assets/animations/player/walk/01.png",
+            "/assets/animations/player/walk/02.png",
+            "/assets/animations/player/walk/03.png",
+            "/assets/animations/player/walk/04.png",
+            "/assets/animations/player/walk/05.png",
+            "/assets/animations/player/walk/06.png",
+            "/assets/animations/player/walk/07.png",
+            "/assets/animations/player/walk/08.png",
+            "/assets/animations/player/walk/09.png",
+            "/assets/animations/player/walk/10.png",
+            "/assets/animations/player/walk/11.png"
+          ],
+          "width": 39,
+          "height": 54,
+          "anchor": {
+            "x": 20,
+            "y": 53
+          },
+          "fps": 30
+        },
+        "run": {
+          "frames": [
+            "/assets/animations/player/run/00.png",
+            "/assets/animations/player/run/01.png",
+            "/assets/animations/player/run/02.png",
+            "/assets/animations/player/run/03.png",
+            "/assets/animations/player/run/04.png",
+            "/assets/animations/player/run/05.png",
+            "/assets/animations/player/run/06.png",
+            "/assets/animations/player/run/07.png",
+            "/assets/animations/player/run/08.png",
+            "/assets/animations/player/run/09.png",
+            "/assets/animations/player/run/10.png",
+            "/assets/animations/player/run/11.png"
+          ],
+          "width": 39,
+          "height": 54,
+          "anchor": {
+            "x": 20,
+            "y": 53
+          },
+          "fps": 30
+        },
+        "digDown": {
+          "frames": [
+            "/assets/animations/player/digDown/00.png",
+            "/assets/animations/player/digDown/01.png",
+            "/assets/animations/player/digDown/02.png",
+            "/assets/animations/player/digDown/03.png",
+            "/assets/animations/player/digDown/04.png",
+            "/assets/animations/player/digDown/05.png",
+            "/assets/animations/player/digDown/06.png",
+            "/assets/animations/player/digDown/07.png",
+            "/assets/animations/player/digDown/08.png",
+            "/assets/animations/player/digDown/09.png",
+            "/assets/animations/player/digDown/10.png",
+            "/assets/animations/player/digDown/11.png"
+          ],
+          "width": 42,
+          "height": 68,
+          "anchor": {
+            "x": 20,
+            "y": 63
+          },
+          "fps": 30
+        },
+        "digLeft": {
+          "frames": [
+            "/assets/animations/player/digLeft/00.png",
+            "/assets/animations/player/digLeft/01.png",
+            "/assets/animations/player/digLeft/02.png",
+            "/assets/animations/player/digLeft/03.png",
+            "/assets/animations/player/digLeft/04.png",
+            "/assets/animations/player/digLeft/05.png",
+            "/assets/animations/player/digLeft/06.png",
+            "/assets/animations/player/digLeft/07.png",
+            "/assets/animations/player/digLeft/08.png",
+            "/assets/animations/player/digLeft/09.png",
+            "/assets/animations/player/digLeft/10.png",
+            "/assets/animations/player/digLeft/11.png"
+          ],
+          "width": 49,
+          "height": 53,
+          "anchor": {
+            "x": 23,
+            "y": 52
+          },
+          "fps": 30
+        },
+        "digSide": {
+          "frames": [
+            "/assets/animations/player/digSide/00.png",
+            "/assets/animations/player/digSide/01.png",
+            "/assets/animations/player/digSide/02.png",
+            "/assets/animations/player/digSide/03.png",
+            "/assets/animations/player/digSide/04.png",
+            "/assets/animations/player/digSide/05.png",
+            "/assets/animations/player/digSide/06.png",
+            "/assets/animations/player/digSide/07.png",
+            "/assets/animations/player/digSide/08.png",
+            "/assets/animations/player/digSide/09.png",
+            "/assets/animations/player/digSide/10.png",
+            "/assets/animations/player/digSide/11.png"
+          ],
+          "width": 49,
+          "height": 53,
+          "anchor": {
+            "x": 26,
+            "y": 52
+          },
+          "fps": 30
+        },
+        "boost": {
+          "frames": [
+            "/assets/animations/player/boost/00.png",
+            "/assets/animations/player/boost/01.png",
+            "/assets/animations/player/boost/02.png",
+            "/assets/animations/player/boost/03.png",
+            "/assets/animations/player/boost/04.png",
+            "/assets/animations/player/boost/05.png",
+            "/assets/animations/player/boost/06.png",
+            "/assets/animations/player/boost/07.png",
+            "/assets/animations/player/boost/08.png",
+            "/assets/animations/player/boost/09.png",
+            "/assets/animations/player/boost/10.png",
+            "/assets/animations/player/boost/11.png"
+          ],
+          "width": 65,
+          "height": 89,
+          "anchor": {
+            "x": 31,
+            "y": 68
+          },
+          "fps": 30
+        },
+        "dead": {
+          "frames": [
+            "/assets/animations/player/dead/00.png",
+            "/assets/animations/player/dead/01.png",
+            "/assets/animations/player/dead/02.png",
+            "/assets/animations/player/dead/03.png",
+            "/assets/animations/player/dead/04.png",
+            "/assets/animations/player/dead/05.png",
+            "/assets/animations/player/dead/06.png",
+            "/assets/animations/player/dead/07.png",
+            "/assets/animations/player/dead/08.png",
+            "/assets/animations/player/dead/09.png",
+            "/assets/animations/player/dead/10.png",
+            "/assets/animations/player/dead/11.png"
+          ],
+          "width": 51,
+          "height": 89,
+          "anchor": {
+            "x": 20,
+            "y": 92
+          },
+          "fps": 30
+        },
+        "hurt": {
+          "frames": [
+            "/assets/animations/player/hurt/00.png",
+            "/assets/animations/player/hurt/01.png",
+            "/assets/animations/player/hurt/02.png",
+            "/assets/animations/player/hurt/03.png",
+            "/assets/animations/player/hurt/04.png",
+            "/assets/animations/player/hurt/05.png",
+            "/assets/animations/player/hurt/06.png",
+            "/assets/animations/player/hurt/07.png",
+            "/assets/animations/player/hurt/08.png",
+            "/assets/animations/player/hurt/09.png",
+            "/assets/animations/player/hurt/10.png",
+            "/assets/animations/player/hurt/11.png"
+          ],
+          "width": 47,
+          "height": 55,
+          "anchor": {
+            "x": 18,
+            "y": 53
+          },
+          "fps": 30
+        },
+        "revive": {
+          "frames": [
+            "/assets/animations/player/revive/00.png",
+            "/assets/animations/player/revive/01.png",
+            "/assets/animations/player/revive/02.png",
+            "/assets/animations/player/revive/03.png",
+            "/assets/animations/player/revive/04.png",
+            "/assets/animations/player/revive/05.png",
+            "/assets/animations/player/revive/06.png",
+            "/assets/animations/player/revive/07.png",
+            "/assets/animations/player/revive/08.png",
+            "/assets/animations/player/revive/09.png",
+            "/assets/animations/player/revive/10.png",
+            "/assets/animations/player/revive/11.png"
+          ],
+          "width": 80,
+          "height": 104,
+          "anchor": {
+            "x": 37,
+            "y": 89
+          },
+          "fps": 30
+        }
+      },
+      "nativeFacing": "right",
+      "helmetVariants": {
+        "1": {
+          "idle": {
+            "frames": [
+              "/assets/animations/player-helmet1/idle/00.png",
+              "/assets/animations/player-helmet1/idle/01.png",
+              "/assets/animations/player-helmet1/idle/02.png",
+              "/assets/animations/player-helmet1/idle/03.png",
+              "/assets/animations/player-helmet1/idle/04.png",
+              "/assets/animations/player-helmet1/idle/05.png",
+              "/assets/animations/player-helmet1/idle/06.png",
+              "/assets/animations/player-helmet1/idle/07.png",
+              "/assets/animations/player-helmet1/idle/08.png",
+              "/assets/animations/player-helmet1/idle/09.png",
+              "/assets/animations/player-helmet1/idle/10.png",
+              "/assets/animations/player-helmet1/idle/11.png"
+            ],
+            "width": 42,
+            "height": 62,
+            "anchor": {
+              "x": 19,
+              "y": 62
+            },
+            "fps": 30
+          },
+          "walk": {
+            "frames": [
+              "/assets/animations/player-helmet1/walk/00.png",
+              "/assets/animations/player-helmet1/walk/01.png",
+              "/assets/animations/player-helmet1/walk/02.png",
+              "/assets/animations/player-helmet1/walk/03.png",
+              "/assets/animations/player-helmet1/walk/04.png",
+              "/assets/animations/player-helmet1/walk/05.png",
+              "/assets/animations/player-helmet1/walk/06.png",
+              "/assets/animations/player-helmet1/walk/07.png",
+              "/assets/animations/player-helmet1/walk/08.png",
+              "/assets/animations/player-helmet1/walk/09.png",
+              "/assets/animations/player-helmet1/walk/10.png",
+              "/assets/animations/player-helmet1/walk/11.png"
+            ],
+            "width": 39,
+            "height": 54,
+            "anchor": {
+              "x": 20,
+              "y": 53
+            },
+            "fps": 30
+          },
+          "run": {
+            "frames": [
+              "/assets/animations/player-helmet1/run/00.png",
+              "/assets/animations/player-helmet1/run/01.png",
+              "/assets/animations/player-helmet1/run/02.png",
+              "/assets/animations/player-helmet1/run/03.png",
+              "/assets/animations/player-helmet1/run/04.png",
+              "/assets/animations/player-helmet1/run/05.png",
+              "/assets/animations/player-helmet1/run/06.png",
+              "/assets/animations/player-helmet1/run/07.png",
+              "/assets/animations/player-helmet1/run/08.png",
+              "/assets/animations/player-helmet1/run/09.png",
+              "/assets/animations/player-helmet1/run/10.png",
+              "/assets/animations/player-helmet1/run/11.png"
+            ],
+            "width": 39,
+            "height": 54,
+            "anchor": {
+              "x": 20,
+              "y": 53
+            },
+            "fps": 30
+          },
+          "digDown": {
+            "frames": [
+              "/assets/animations/player-helmet1/digDown/00.png",
+              "/assets/animations/player-helmet1/digDown/01.png",
+              "/assets/animations/player-helmet1/digDown/02.png",
+              "/assets/animations/player-helmet1/digDown/03.png",
+              "/assets/animations/player-helmet1/digDown/04.png",
+              "/assets/animations/player-helmet1/digDown/05.png",
+              "/assets/animations/player-helmet1/digDown/06.png",
+              "/assets/animations/player-helmet1/digDown/07.png",
+              "/assets/animations/player-helmet1/digDown/08.png",
+              "/assets/animations/player-helmet1/digDown/09.png",
+              "/assets/animations/player-helmet1/digDown/10.png",
+              "/assets/animations/player-helmet1/digDown/11.png"
+            ],
+            "width": 42,
+            "height": 68,
+            "anchor": {
+              "x": 20,
+              "y": 63
+            },
+            "fps": 30
+          },
+          "digLeft": {
+            "frames": [
+              "/assets/animations/player-helmet1/digLeft/00.png",
+              "/assets/animations/player-helmet1/digLeft/01.png",
+              "/assets/animations/player-helmet1/digLeft/02.png",
+              "/assets/animations/player-helmet1/digLeft/03.png",
+              "/assets/animations/player-helmet1/digLeft/04.png",
+              "/assets/animations/player-helmet1/digLeft/05.png",
+              "/assets/animations/player-helmet1/digLeft/06.png",
+              "/assets/animations/player-helmet1/digLeft/07.png",
+              "/assets/animations/player-helmet1/digLeft/08.png",
+              "/assets/animations/player-helmet1/digLeft/09.png",
+              "/assets/animations/player-helmet1/digLeft/10.png",
+              "/assets/animations/player-helmet1/digLeft/11.png"
+            ],
+            "width": 49,
+            "height": 53,
+            "anchor": {
+              "x": 23,
+              "y": 52
+            },
+            "fps": 30
+          },
+          "digSide": {
+            "frames": [
+              "/assets/animations/player-helmet1/digSide/00.png",
+              "/assets/animations/player-helmet1/digSide/01.png",
+              "/assets/animations/player-helmet1/digSide/02.png",
+              "/assets/animations/player-helmet1/digSide/03.png",
+              "/assets/animations/player-helmet1/digSide/04.png",
+              "/assets/animations/player-helmet1/digSide/05.png",
+              "/assets/animations/player-helmet1/digSide/06.png",
+              "/assets/animations/player-helmet1/digSide/07.png",
+              "/assets/animations/player-helmet1/digSide/08.png",
+              "/assets/animations/player-helmet1/digSide/09.png",
+              "/assets/animations/player-helmet1/digSide/10.png",
+              "/assets/animations/player-helmet1/digSide/11.png"
+            ],
+            "width": 49,
+            "height": 53,
+            "anchor": {
+              "x": 26,
+              "y": 52
+            },
+            "fps": 30
+          },
+          "boost": {
+            "frames": [
+              "/assets/animations/player-helmet1/boost/00.png",
+              "/assets/animations/player-helmet1/boost/01.png",
+              "/assets/animations/player-helmet1/boost/02.png",
+              "/assets/animations/player-helmet1/boost/03.png",
+              "/assets/animations/player-helmet1/boost/04.png",
+              "/assets/animations/player-helmet1/boost/05.png",
+              "/assets/animations/player-helmet1/boost/06.png",
+              "/assets/animations/player-helmet1/boost/07.png",
+              "/assets/animations/player-helmet1/boost/08.png",
+              "/assets/animations/player-helmet1/boost/09.png",
+              "/assets/animations/player-helmet1/boost/10.png",
+              "/assets/animations/player-helmet1/boost/11.png"
+            ],
+            "width": 65,
+            "height": 89,
+            "anchor": {
+              "x": 31,
+              "y": 68
+            },
+            "fps": 30
+          },
+          "dead": {
+            "frames": [
+              "/assets/animations/player-helmet1/dead/00.png",
+              "/assets/animations/player-helmet1/dead/01.png",
+              "/assets/animations/player-helmet1/dead/02.png",
+              "/assets/animations/player-helmet1/dead/03.png",
+              "/assets/animations/player-helmet1/dead/04.png",
+              "/assets/animations/player-helmet1/dead/05.png",
+              "/assets/animations/player-helmet1/dead/06.png",
+              "/assets/animations/player-helmet1/dead/07.png",
+              "/assets/animations/player-helmet1/dead/08.png",
+              "/assets/animations/player-helmet1/dead/09.png",
+              "/assets/animations/player-helmet1/dead/10.png",
+              "/assets/animations/player-helmet1/dead/11.png"
+            ],
+            "width": 51,
+            "height": 89,
+            "anchor": {
+              "x": 20,
+              "y": 92
+            },
+            "fps": 30
+          },
+          "hurt": {
+            "frames": [
+              "/assets/animations/player-helmet1/hurt/00.png",
+              "/assets/animations/player-helmet1/hurt/01.png",
+              "/assets/animations/player-helmet1/hurt/02.png",
+              "/assets/animations/player-helmet1/hurt/03.png",
+              "/assets/animations/player-helmet1/hurt/04.png",
+              "/assets/animations/player-helmet1/hurt/05.png",
+              "/assets/animations/player-helmet1/hurt/06.png",
+              "/assets/animations/player-helmet1/hurt/07.png",
+              "/assets/animations/player-helmet1/hurt/08.png",
+              "/assets/animations/player-helmet1/hurt/09.png",
+              "/assets/animations/player-helmet1/hurt/10.png",
+              "/assets/animations/player-helmet1/hurt/11.png"
+            ],
+            "width": 47,
+            "height": 55,
+            "anchor": {
+              "x": 18,
+              "y": 53
+            },
+            "fps": 30
+          },
+          "revive": {
+            "frames": [
+              "/assets/animations/player-helmet1/revive/00.png",
+              "/assets/animations/player-helmet1/revive/01.png",
+              "/assets/animations/player-helmet1/revive/02.png",
+              "/assets/animations/player-helmet1/revive/03.png",
+              "/assets/animations/player-helmet1/revive/04.png",
+              "/assets/animations/player-helmet1/revive/05.png",
+              "/assets/animations/player-helmet1/revive/06.png",
+              "/assets/animations/player-helmet1/revive/07.png",
+              "/assets/animations/player-helmet1/revive/08.png",
+              "/assets/animations/player-helmet1/revive/09.png",
+              "/assets/animations/player-helmet1/revive/10.png",
+              "/assets/animations/player-helmet1/revive/11.png"
+            ],
+            "width": 80,
+            "height": 104,
+            "anchor": {
+              "x": 37,
+              "y": 89
+            },
+            "fps": 30
+          }
+        },
+        "2": {
+          "idle": {
+            "frames": [
+              "/assets/animations/player-helmet2/idle/00.png",
+              "/assets/animations/player-helmet2/idle/01.png",
+              "/assets/animations/player-helmet2/idle/02.png",
+              "/assets/animations/player-helmet2/idle/03.png",
+              "/assets/animations/player-helmet2/idle/04.png",
+              "/assets/animations/player-helmet2/idle/05.png",
+              "/assets/animations/player-helmet2/idle/06.png",
+              "/assets/animations/player-helmet2/idle/07.png",
+              "/assets/animations/player-helmet2/idle/08.png",
+              "/assets/animations/player-helmet2/idle/09.png",
+              "/assets/animations/player-helmet2/idle/10.png",
+              "/assets/animations/player-helmet2/idle/11.png"
+            ],
+            "width": 42,
+            "height": 62,
+            "anchor": {
+              "x": 19,
+              "y": 62
+            },
+            "fps": 30
+          },
+          "walk": {
+            "frames": [
+              "/assets/animations/player-helmet2/walk/00.png",
+              "/assets/animations/player-helmet2/walk/01.png",
+              "/assets/animations/player-helmet2/walk/02.png",
+              "/assets/animations/player-helmet2/walk/03.png",
+              "/assets/animations/player-helmet2/walk/04.png",
+              "/assets/animations/player-helmet2/walk/05.png",
+              "/assets/animations/player-helmet2/walk/06.png",
+              "/assets/animations/player-helmet2/walk/07.png",
+              "/assets/animations/player-helmet2/walk/08.png",
+              "/assets/animations/player-helmet2/walk/09.png",
+              "/assets/animations/player-helmet2/walk/10.png",
+              "/assets/animations/player-helmet2/walk/11.png"
+            ],
+            "width": 39,
+            "height": 54,
+            "anchor": {
+              "x": 20,
+              "y": 53
+            },
+            "fps": 30
+          },
+          "run": {
+            "frames": [
+              "/assets/animations/player-helmet2/run/00.png",
+              "/assets/animations/player-helmet2/run/01.png",
+              "/assets/animations/player-helmet2/run/02.png",
+              "/assets/animations/player-helmet2/run/03.png",
+              "/assets/animations/player-helmet2/run/04.png",
+              "/assets/animations/player-helmet2/run/05.png",
+              "/assets/animations/player-helmet2/run/06.png",
+              "/assets/animations/player-helmet2/run/07.png",
+              "/assets/animations/player-helmet2/run/08.png",
+              "/assets/animations/player-helmet2/run/09.png",
+              "/assets/animations/player-helmet2/run/10.png",
+              "/assets/animations/player-helmet2/run/11.png"
+            ],
+            "width": 39,
+            "height": 54,
+            "anchor": {
+              "x": 20,
+              "y": 53
+            },
+            "fps": 30
+          },
+          "digDown": {
+            "frames": [
+              "/assets/animations/player-helmet2/digDown/00.png",
+              "/assets/animations/player-helmet2/digDown/01.png",
+              "/assets/animations/player-helmet2/digDown/02.png",
+              "/assets/animations/player-helmet2/digDown/03.png",
+              "/assets/animations/player-helmet2/digDown/04.png",
+              "/assets/animations/player-helmet2/digDown/05.png",
+              "/assets/animations/player-helmet2/digDown/06.png",
+              "/assets/animations/player-helmet2/digDown/07.png",
+              "/assets/animations/player-helmet2/digDown/08.png",
+              "/assets/animations/player-helmet2/digDown/09.png",
+              "/assets/animations/player-helmet2/digDown/10.png",
+              "/assets/animations/player-helmet2/digDown/11.png"
+            ],
+            "width": 42,
+            "height": 68,
+            "anchor": {
+              "x": 20,
+              "y": 63
+            },
+            "fps": 30
+          },
+          "digLeft": {
+            "frames": [
+              "/assets/animations/player-helmet2/digLeft/00.png",
+              "/assets/animations/player-helmet2/digLeft/01.png",
+              "/assets/animations/player-helmet2/digLeft/02.png",
+              "/assets/animations/player-helmet2/digLeft/03.png",
+              "/assets/animations/player-helmet2/digLeft/04.png",
+              "/assets/animations/player-helmet2/digLeft/05.png",
+              "/assets/animations/player-helmet2/digLeft/06.png",
+              "/assets/animations/player-helmet2/digLeft/07.png",
+              "/assets/animations/player-helmet2/digLeft/08.png",
+              "/assets/animations/player-helmet2/digLeft/09.png",
+              "/assets/animations/player-helmet2/digLeft/10.png",
+              "/assets/animations/player-helmet2/digLeft/11.png"
+            ],
+            "width": 49,
+            "height": 53,
+            "anchor": {
+              "x": 23,
+              "y": 52
+            },
+            "fps": 30
+          },
+          "digSide": {
+            "frames": [
+              "/assets/animations/player-helmet2/digSide/00.png",
+              "/assets/animations/player-helmet2/digSide/01.png",
+              "/assets/animations/player-helmet2/digSide/02.png",
+              "/assets/animations/player-helmet2/digSide/03.png",
+              "/assets/animations/player-helmet2/digSide/04.png",
+              "/assets/animations/player-helmet2/digSide/05.png",
+              "/assets/animations/player-helmet2/digSide/06.png",
+              "/assets/animations/player-helmet2/digSide/07.png",
+              "/assets/animations/player-helmet2/digSide/08.png",
+              "/assets/animations/player-helmet2/digSide/09.png",
+              "/assets/animations/player-helmet2/digSide/10.png",
+              "/assets/animations/player-helmet2/digSide/11.png"
+            ],
+            "width": 49,
+            "height": 53,
+            "anchor": {
+              "x": 26,
+              "y": 52
+            },
+            "fps": 30
+          },
+          "boost": {
+            "frames": [
+              "/assets/animations/player-helmet2/boost/00.png",
+              "/assets/animations/player-helmet2/boost/01.png",
+              "/assets/animations/player-helmet2/boost/02.png",
+              "/assets/animations/player-helmet2/boost/03.png",
+              "/assets/animations/player-helmet2/boost/04.png",
+              "/assets/animations/player-helmet2/boost/05.png",
+              "/assets/animations/player-helmet2/boost/06.png",
+              "/assets/animations/player-helmet2/boost/07.png",
+              "/assets/animations/player-helmet2/boost/08.png",
+              "/assets/animations/player-helmet2/boost/09.png",
+              "/assets/animations/player-helmet2/boost/10.png",
+              "/assets/animations/player-helmet2/boost/11.png"
+            ],
+            "width": 65,
+            "height": 89,
+            "anchor": {
+              "x": 31,
+              "y": 68
+            },
+            "fps": 30
+          },
+          "dead": {
+            "frames": [
+              "/assets/animations/player-helmet2/dead/00.png",
+              "/assets/animations/player-helmet2/dead/01.png",
+              "/assets/animations/player-helmet2/dead/02.png",
+              "/assets/animations/player-helmet2/dead/03.png",
+              "/assets/animations/player-helmet2/dead/04.png",
+              "/assets/animations/player-helmet2/dead/05.png",
+              "/assets/animations/player-helmet2/dead/06.png",
+              "/assets/animations/player-helmet2/dead/07.png",
+              "/assets/animations/player-helmet2/dead/08.png",
+              "/assets/animations/player-helmet2/dead/09.png",
+              "/assets/animations/player-helmet2/dead/10.png",
+              "/assets/animations/player-helmet2/dead/11.png"
+            ],
+            "width": 51,
+            "height": 89,
+            "anchor": {
+              "x": 20,
+              "y": 92
+            },
+            "fps": 30
+          },
+          "hurt": {
+            "frames": [
+              "/assets/animations/player-helmet2/hurt/00.png",
+              "/assets/animations/player-helmet2/hurt/01.png",
+              "/assets/animations/player-helmet2/hurt/02.png",
+              "/assets/animations/player-helmet2/hurt/03.png",
+              "/assets/animations/player-helmet2/hurt/04.png",
+              "/assets/animations/player-helmet2/hurt/05.png",
+              "/assets/animations/player-helmet2/hurt/06.png",
+              "/assets/animations/player-helmet2/hurt/07.png",
+              "/assets/animations/player-helmet2/hurt/08.png",
+              "/assets/animations/player-helmet2/hurt/09.png",
+              "/assets/animations/player-helmet2/hurt/10.png",
+              "/assets/animations/player-helmet2/hurt/11.png"
+            ],
+            "width": 47,
+            "height": 55,
+            "anchor": {
+              "x": 18,
+              "y": 53
+            },
+            "fps": 30
+          },
+          "revive": {
+            "frames": [
+              "/assets/animations/player-helmet2/revive/00.png",
+              "/assets/animations/player-helmet2/revive/01.png",
+              "/assets/animations/player-helmet2/revive/02.png",
+              "/assets/animations/player-helmet2/revive/03.png",
+              "/assets/animations/player-helmet2/revive/04.png",
+              "/assets/animations/player-helmet2/revive/05.png",
+              "/assets/animations/player-helmet2/revive/06.png",
+              "/assets/animations/player-helmet2/revive/07.png",
+              "/assets/animations/player-helmet2/revive/08.png",
+              "/assets/animations/player-helmet2/revive/09.png",
+              "/assets/animations/player-helmet2/revive/10.png",
+              "/assets/animations/player-helmet2/revive/11.png"
+            ],
+            "width": 80,
+            "height": 104,
+            "anchor": {
+              "x": 37,
+              "y": 89
+            },
+            "fps": 30
+          }
+        },
+        "3": {
+          "idle": {
+            "frames": [
+              "/assets/animations/player-helmet3/idle/00.png",
+              "/assets/animations/player-helmet3/idle/01.png",
+              "/assets/animations/player-helmet3/idle/02.png",
+              "/assets/animations/player-helmet3/idle/03.png",
+              "/assets/animations/player-helmet3/idle/04.png",
+              "/assets/animations/player-helmet3/idle/05.png",
+              "/assets/animations/player-helmet3/idle/06.png",
+              "/assets/animations/player-helmet3/idle/07.png",
+              "/assets/animations/player-helmet3/idle/08.png",
+              "/assets/animations/player-helmet3/idle/09.png",
+              "/assets/animations/player-helmet3/idle/10.png",
+              "/assets/animations/player-helmet3/idle/11.png"
+            ],
+            "width": 42,
+            "height": 62,
+            "anchor": {
+              "x": 19,
+              "y": 62
+            },
+            "fps": 30
+          },
+          "walk": {
+            "frames": [
+              "/assets/animations/player-helmet3/walk/00.png",
+              "/assets/animations/player-helmet3/walk/01.png",
+              "/assets/animations/player-helmet3/walk/02.png",
+              "/assets/animations/player-helmet3/walk/03.png",
+              "/assets/animations/player-helmet3/walk/04.png",
+              "/assets/animations/player-helmet3/walk/05.png",
+              "/assets/animations/player-helmet3/walk/06.png",
+              "/assets/animations/player-helmet3/walk/07.png",
+              "/assets/animations/player-helmet3/walk/08.png",
+              "/assets/animations/player-helmet3/walk/09.png",
+              "/assets/animations/player-helmet3/walk/10.png",
+              "/assets/animations/player-helmet3/walk/11.png"
+            ],
+            "width": 39,
+            "height": 54,
+            "anchor": {
+              "x": 20,
+              "y": 53
+            },
+            "fps": 30
+          },
+          "run": {
+            "frames": [
+              "/assets/animations/player-helmet3/run/00.png",
+              "/assets/animations/player-helmet3/run/01.png",
+              "/assets/animations/player-helmet3/run/02.png",
+              "/assets/animations/player-helmet3/run/03.png",
+              "/assets/animations/player-helmet3/run/04.png",
+              "/assets/animations/player-helmet3/run/05.png",
+              "/assets/animations/player-helmet3/run/06.png",
+              "/assets/animations/player-helmet3/run/07.png",
+              "/assets/animations/player-helmet3/run/08.png",
+              "/assets/animations/player-helmet3/run/09.png",
+              "/assets/animations/player-helmet3/run/10.png",
+              "/assets/animations/player-helmet3/run/11.png"
+            ],
+            "width": 39,
+            "height": 54,
+            "anchor": {
+              "x": 20,
+              "y": 53
+            },
+            "fps": 30
+          },
+          "digDown": {
+            "frames": [
+              "/assets/animations/player-helmet3/digDown/00.png",
+              "/assets/animations/player-helmet3/digDown/01.png",
+              "/assets/animations/player-helmet3/digDown/02.png",
+              "/assets/animations/player-helmet3/digDown/03.png",
+              "/assets/animations/player-helmet3/digDown/04.png",
+              "/assets/animations/player-helmet3/digDown/05.png",
+              "/assets/animations/player-helmet3/digDown/06.png",
+              "/assets/animations/player-helmet3/digDown/07.png",
+              "/assets/animations/player-helmet3/digDown/08.png",
+              "/assets/animations/player-helmet3/digDown/09.png",
+              "/assets/animations/player-helmet3/digDown/10.png",
+              "/assets/animations/player-helmet3/digDown/11.png"
+            ],
+            "width": 42,
+            "height": 68,
+            "anchor": {
+              "x": 20,
+              "y": 63
+            },
+            "fps": 30
+          },
+          "digLeft": {
+            "frames": [
+              "/assets/animations/player-helmet3/digLeft/00.png",
+              "/assets/animations/player-helmet3/digLeft/01.png",
+              "/assets/animations/player-helmet3/digLeft/02.png",
+              "/assets/animations/player-helmet3/digLeft/03.png",
+              "/assets/animations/player-helmet3/digLeft/04.png",
+              "/assets/animations/player-helmet3/digLeft/05.png",
+              "/assets/animations/player-helmet3/digLeft/06.png",
+              "/assets/animations/player-helmet3/digLeft/07.png",
+              "/assets/animations/player-helmet3/digLeft/08.png",
+              "/assets/animations/player-helmet3/digLeft/09.png",
+              "/assets/animations/player-helmet3/digLeft/10.png",
+              "/assets/animations/player-helmet3/digLeft/11.png"
+            ],
+            "width": 49,
+            "height": 53,
+            "anchor": {
+              "x": 23,
+              "y": 52
+            },
+            "fps": 30
+          },
+          "digSide": {
+            "frames": [
+              "/assets/animations/player-helmet3/digSide/00.png",
+              "/assets/animations/player-helmet3/digSide/01.png",
+              "/assets/animations/player-helmet3/digSide/02.png",
+              "/assets/animations/player-helmet3/digSide/03.png",
+              "/assets/animations/player-helmet3/digSide/04.png",
+              "/assets/animations/player-helmet3/digSide/05.png",
+              "/assets/animations/player-helmet3/digSide/06.png",
+              "/assets/animations/player-helmet3/digSide/07.png",
+              "/assets/animations/player-helmet3/digSide/08.png",
+              "/assets/animations/player-helmet3/digSide/09.png",
+              "/assets/animations/player-helmet3/digSide/10.png",
+              "/assets/animations/player-helmet3/digSide/11.png"
+            ],
+            "width": 49,
+            "height": 53,
+            "anchor": {
+              "x": 26,
+              "y": 52
+            },
+            "fps": 30
+          },
+          "boost": {
+            "frames": [
+              "/assets/animations/player-helmet3/boost/00.png",
+              "/assets/animations/player-helmet3/boost/01.png",
+              "/assets/animations/player-helmet3/boost/02.png",
+              "/assets/animations/player-helmet3/boost/03.png",
+              "/assets/animations/player-helmet3/boost/04.png",
+              "/assets/animations/player-helmet3/boost/05.png",
+              "/assets/animations/player-helmet3/boost/06.png",
+              "/assets/animations/player-helmet3/boost/07.png",
+              "/assets/animations/player-helmet3/boost/08.png",
+              "/assets/animations/player-helmet3/boost/09.png",
+              "/assets/animations/player-helmet3/boost/10.png",
+              "/assets/animations/player-helmet3/boost/11.png"
+            ],
+            "width": 65,
+            "height": 89,
+            "anchor": {
+              "x": 31,
+              "y": 68
+            },
+            "fps": 30
+          },
+          "dead": {
+            "frames": [
+              "/assets/animations/player-helmet3/dead/00.png",
+              "/assets/animations/player-helmet3/dead/01.png",
+              "/assets/animations/player-helmet3/dead/02.png",
+              "/assets/animations/player-helmet3/dead/03.png",
+              "/assets/animations/player-helmet3/dead/04.png",
+              "/assets/animations/player-helmet3/dead/05.png",
+              "/assets/animations/player-helmet3/dead/06.png",
+              "/assets/animations/player-helmet3/dead/07.png",
+              "/assets/animations/player-helmet3/dead/08.png",
+              "/assets/animations/player-helmet3/dead/09.png",
+              "/assets/animations/player-helmet3/dead/10.png",
+              "/assets/animations/player-helmet3/dead/11.png"
+            ],
+            "width": 51,
+            "height": 89,
+            "anchor": {
+              "x": 20,
+              "y": 92
+            },
+            "fps": 30
+          },
+          "hurt": {
+            "frames": [
+              "/assets/animations/player-helmet3/hurt/00.png",
+              "/assets/animations/player-helmet3/hurt/01.png",
+              "/assets/animations/player-helmet3/hurt/02.png",
+              "/assets/animations/player-helmet3/hurt/03.png",
+              "/assets/animations/player-helmet3/hurt/04.png",
+              "/assets/animations/player-helmet3/hurt/05.png",
+              "/assets/animations/player-helmet3/hurt/06.png",
+              "/assets/animations/player-helmet3/hurt/07.png",
+              "/assets/animations/player-helmet3/hurt/08.png",
+              "/assets/animations/player-helmet3/hurt/09.png",
+              "/assets/animations/player-helmet3/hurt/10.png",
+              "/assets/animations/player-helmet3/hurt/11.png"
+            ],
+            "width": 47,
+            "height": 55,
+            "anchor": {
+              "x": 18,
+              "y": 53
+            },
+            "fps": 30
+          },
+          "revive": {
+            "frames": [
+              "/assets/animations/player-helmet3/revive/00.png",
+              "/assets/animations/player-helmet3/revive/01.png",
+              "/assets/animations/player-helmet3/revive/02.png",
+              "/assets/animations/player-helmet3/revive/03.png",
+              "/assets/animations/player-helmet3/revive/04.png",
+              "/assets/animations/player-helmet3/revive/05.png",
+              "/assets/animations/player-helmet3/revive/06.png",
+              "/assets/animations/player-helmet3/revive/07.png",
+              "/assets/animations/player-helmet3/revive/08.png",
+              "/assets/animations/player-helmet3/revive/09.png",
+              "/assets/animations/player-helmet3/revive/10.png",
+              "/assets/animations/player-helmet3/revive/11.png"
+            ],
+            "width": 80,
+            "height": 104,
+            "anchor": {
+              "x": 37,
+              "y": 89
+            },
+            "fps": 30
+          }
+        },
+        "4": {
+          "idle": {
+            "frames": [
+              "/assets/animations/player-helmet4/idle/00.png",
+              "/assets/animations/player-helmet4/idle/01.png",
+              "/assets/animations/player-helmet4/idle/02.png",
+              "/assets/animations/player-helmet4/idle/03.png",
+              "/assets/animations/player-helmet4/idle/04.png",
+              "/assets/animations/player-helmet4/idle/05.png",
+              "/assets/animations/player-helmet4/idle/06.png",
+              "/assets/animations/player-helmet4/idle/07.png",
+              "/assets/animations/player-helmet4/idle/08.png",
+              "/assets/animations/player-helmet4/idle/09.png",
+              "/assets/animations/player-helmet4/idle/10.png",
+              "/assets/animations/player-helmet4/idle/11.png"
+            ],
+            "width": 42,
+            "height": 62,
+            "anchor": {
+              "x": 19,
+              "y": 62
+            },
+            "fps": 30
+          },
+          "walk": {
+            "frames": [
+              "/assets/animations/player-helmet4/walk/00.png",
+              "/assets/animations/player-helmet4/walk/01.png",
+              "/assets/animations/player-helmet4/walk/02.png",
+              "/assets/animations/player-helmet4/walk/03.png",
+              "/assets/animations/player-helmet4/walk/04.png",
+              "/assets/animations/player-helmet4/walk/05.png",
+              "/assets/animations/player-helmet4/walk/06.png",
+              "/assets/animations/player-helmet4/walk/07.png",
+              "/assets/animations/player-helmet4/walk/08.png",
+              "/assets/animations/player-helmet4/walk/09.png",
+              "/assets/animations/player-helmet4/walk/10.png",
+              "/assets/animations/player-helmet4/walk/11.png"
+            ],
+            "width": 39,
+            "height": 54,
+            "anchor": {
+              "x": 20,
+              "y": 53
+            },
+            "fps": 30
+          },
+          "run": {
+            "frames": [
+              "/assets/animations/player-helmet4/run/00.png",
+              "/assets/animations/player-helmet4/run/01.png",
+              "/assets/animations/player-helmet4/run/02.png",
+              "/assets/animations/player-helmet4/run/03.png",
+              "/assets/animations/player-helmet4/run/04.png",
+              "/assets/animations/player-helmet4/run/05.png",
+              "/assets/animations/player-helmet4/run/06.png",
+              "/assets/animations/player-helmet4/run/07.png",
+              "/assets/animations/player-helmet4/run/08.png",
+              "/assets/animations/player-helmet4/run/09.png",
+              "/assets/animations/player-helmet4/run/10.png",
+              "/assets/animations/player-helmet4/run/11.png"
+            ],
+            "width": 39,
+            "height": 54,
+            "anchor": {
+              "x": 20,
+              "y": 53
+            },
+            "fps": 30
+          },
+          "digDown": {
+            "frames": [
+              "/assets/animations/player-helmet4/digDown/00.png",
+              "/assets/animations/player-helmet4/digDown/01.png",
+              "/assets/animations/player-helmet4/digDown/02.png",
+              "/assets/animations/player-helmet4/digDown/03.png",
+              "/assets/animations/player-helmet4/digDown/04.png",
+              "/assets/animations/player-helmet4/digDown/05.png",
+              "/assets/animations/player-helmet4/digDown/06.png",
+              "/assets/animations/player-helmet4/digDown/07.png",
+              "/assets/animations/player-helmet4/digDown/08.png",
+              "/assets/animations/player-helmet4/digDown/09.png",
+              "/assets/animations/player-helmet4/digDown/10.png",
+              "/assets/animations/player-helmet4/digDown/11.png"
+            ],
+            "width": 42,
+            "height": 68,
+            "anchor": {
+              "x": 20,
+              "y": 63
+            },
+            "fps": 30
+          },
+          "digLeft": {
+            "frames": [
+              "/assets/animations/player-helmet4/digLeft/00.png",
+              "/assets/animations/player-helmet4/digLeft/01.png",
+              "/assets/animations/player-helmet4/digLeft/02.png",
+              "/assets/animations/player-helmet4/digLeft/03.png",
+              "/assets/animations/player-helmet4/digLeft/04.png",
+              "/assets/animations/player-helmet4/digLeft/05.png",
+              "/assets/animations/player-helmet4/digLeft/06.png",
+              "/assets/animations/player-helmet4/digLeft/07.png",
+              "/assets/animations/player-helmet4/digLeft/08.png",
+              "/assets/animations/player-helmet4/digLeft/09.png",
+              "/assets/animations/player-helmet4/digLeft/10.png",
+              "/assets/animations/player-helmet4/digLeft/11.png"
+            ],
+            "width": 49,
+            "height": 53,
+            "anchor": {
+              "x": 23,
+              "y": 52
+            },
+            "fps": 30
+          },
+          "digSide": {
+            "frames": [
+              "/assets/animations/player-helmet4/digSide/00.png",
+              "/assets/animations/player-helmet4/digSide/01.png",
+              "/assets/animations/player-helmet4/digSide/02.png",
+              "/assets/animations/player-helmet4/digSide/03.png",
+              "/assets/animations/player-helmet4/digSide/04.png",
+              "/assets/animations/player-helmet4/digSide/05.png",
+              "/assets/animations/player-helmet4/digSide/06.png",
+              "/assets/animations/player-helmet4/digSide/07.png",
+              "/assets/animations/player-helmet4/digSide/08.png",
+              "/assets/animations/player-helmet4/digSide/09.png",
+              "/assets/animations/player-helmet4/digSide/10.png",
+              "/assets/animations/player-helmet4/digSide/11.png"
+            ],
+            "width": 49,
+            "height": 53,
+            "anchor": {
+              "x": 26,
+              "y": 52
+            },
+            "fps": 30
+          },
+          "boost": {
+            "frames": [
+              "/assets/animations/player-helmet4/boost/00.png",
+              "/assets/animations/player-helmet4/boost/01.png",
+              "/assets/animations/player-helmet4/boost/02.png",
+              "/assets/animations/player-helmet4/boost/03.png",
+              "/assets/animations/player-helmet4/boost/04.png",
+              "/assets/animations/player-helmet4/boost/05.png",
+              "/assets/animations/player-helmet4/boost/06.png",
+              "/assets/animations/player-helmet4/boost/07.png",
+              "/assets/animations/player-helmet4/boost/08.png",
+              "/assets/animations/player-helmet4/boost/09.png",
+              "/assets/animations/player-helmet4/boost/10.png",
+              "/assets/animations/player-helmet4/boost/11.png"
+            ],
+            "width": 65,
+            "height": 89,
+            "anchor": {
+              "x": 31,
+              "y": 68
+            },
+            "fps": 30
+          },
+          "dead": {
+            "frames": [
+              "/assets/animations/player-helmet4/dead/00.png",
+              "/assets/animations/player-helmet4/dead/01.png",
+              "/assets/animations/player-helmet4/dead/02.png",
+              "/assets/animations/player-helmet4/dead/03.png",
+              "/assets/animations/player-helmet4/dead/04.png",
+              "/assets/animations/player-helmet4/dead/05.png",
+              "/assets/animations/player-helmet4/dead/06.png",
+              "/assets/animations/player-helmet4/dead/07.png",
+              "/assets/animations/player-helmet4/dead/08.png",
+              "/assets/animations/player-helmet4/dead/09.png",
+              "/assets/animations/player-helmet4/dead/10.png",
+              "/assets/animations/player-helmet4/dead/11.png"
+            ],
+            "width": 51,
+            "height": 89,
+            "anchor": {
+              "x": 20,
+              "y": 92
+            },
+            "fps": 30
+          },
+          "hurt": {
+            "frames": [
+              "/assets/animations/player-helmet4/hurt/00.png",
+              "/assets/animations/player-helmet4/hurt/01.png",
+              "/assets/animations/player-helmet4/hurt/02.png",
+              "/assets/animations/player-helmet4/hurt/03.png",
+              "/assets/animations/player-helmet4/hurt/04.png",
+              "/assets/animations/player-helmet4/hurt/05.png",
+              "/assets/animations/player-helmet4/hurt/06.png",
+              "/assets/animations/player-helmet4/hurt/07.png",
+              "/assets/animations/player-helmet4/hurt/08.png",
+              "/assets/animations/player-helmet4/hurt/09.png",
+              "/assets/animations/player-helmet4/hurt/10.png",
+              "/assets/animations/player-helmet4/hurt/11.png"
+            ],
+            "width": 47,
+            "height": 55,
+            "anchor": {
+              "x": 18,
+              "y": 53
+            },
+            "fps": 30
+          },
+          "revive": {
+            "frames": [
+              "/assets/animations/player-helmet4/revive/00.png",
+              "/assets/animations/player-helmet4/revive/01.png",
+              "/assets/animations/player-helmet4/revive/02.png",
+              "/assets/animations/player-helmet4/revive/03.png",
+              "/assets/animations/player-helmet4/revive/04.png",
+              "/assets/animations/player-helmet4/revive/05.png",
+              "/assets/animations/player-helmet4/revive/06.png",
+              "/assets/animations/player-helmet4/revive/07.png",
+              "/assets/animations/player-helmet4/revive/08.png",
+              "/assets/animations/player-helmet4/revive/09.png",
+              "/assets/animations/player-helmet4/revive/10.png",
+              "/assets/animations/player-helmet4/revive/11.png"
+            ],
+            "width": 80,
+            "height": 104,
+            "anchor": {
+              "x": 37,
+              "y": 89
+            },
+            "fps": 30
+          }
+        },
+        "5": {
+          "idle": {
+            "frames": [
+              "/assets/animations/player-helmet5/idle/00.png",
+              "/assets/animations/player-helmet5/idle/01.png",
+              "/assets/animations/player-helmet5/idle/02.png",
+              "/assets/animations/player-helmet5/idle/03.png",
+              "/assets/animations/player-helmet5/idle/04.png",
+              "/assets/animations/player-helmet5/idle/05.png",
+              "/assets/animations/player-helmet5/idle/06.png",
+              "/assets/animations/player-helmet5/idle/07.png",
+              "/assets/animations/player-helmet5/idle/08.png",
+              "/assets/animations/player-helmet5/idle/09.png",
+              "/assets/animations/player-helmet5/idle/10.png",
+              "/assets/animations/player-helmet5/idle/11.png"
+            ],
+            "width": 42,
+            "height": 62,
+            "anchor": {
+              "x": 19,
+              "y": 62
+            },
+            "fps": 30
+          },
+          "walk": {
+            "frames": [
+              "/assets/animations/player-helmet5/walk/00.png",
+              "/assets/animations/player-helmet5/walk/01.png",
+              "/assets/animations/player-helmet5/walk/02.png",
+              "/assets/animations/player-helmet5/walk/03.png",
+              "/assets/animations/player-helmet5/walk/04.png",
+              "/assets/animations/player-helmet5/walk/05.png",
+              "/assets/animations/player-helmet5/walk/06.png",
+              "/assets/animations/player-helmet5/walk/07.png",
+              "/assets/animations/player-helmet5/walk/08.png",
+              "/assets/animations/player-helmet5/walk/09.png",
+              "/assets/animations/player-helmet5/walk/10.png",
+              "/assets/animations/player-helmet5/walk/11.png"
+            ],
+            "width": 39,
+            "height": 54,
+            "anchor": {
+              "x": 20,
+              "y": 53
+            },
+            "fps": 30
+          },
+          "run": {
+            "frames": [
+              "/assets/animations/player-helmet5/run/00.png",
+              "/assets/animations/player-helmet5/run/01.png",
+              "/assets/animations/player-helmet5/run/02.png",
+              "/assets/animations/player-helmet5/run/03.png",
+              "/assets/animations/player-helmet5/run/04.png",
+              "/assets/animations/player-helmet5/run/05.png",
+              "/assets/animations/player-helmet5/run/06.png",
+              "/assets/animations/player-helmet5/run/07.png",
+              "/assets/animations/player-helmet5/run/08.png",
+              "/assets/animations/player-helmet5/run/09.png",
+              "/assets/animations/player-helmet5/run/10.png",
+              "/assets/animations/player-helmet5/run/11.png"
+            ],
+            "width": 39,
+            "height": 54,
+            "anchor": {
+              "x": 20,
+              "y": 53
+            },
+            "fps": 30
+          },
+          "digDown": {
+            "frames": [
+              "/assets/animations/player-helmet5/digDown/00.png",
+              "/assets/animations/player-helmet5/digDown/01.png",
+              "/assets/animations/player-helmet5/digDown/02.png",
+              "/assets/animations/player-helmet5/digDown/03.png",
+              "/assets/animations/player-helmet5/digDown/04.png",
+              "/assets/animations/player-helmet5/digDown/05.png",
+              "/assets/animations/player-helmet5/digDown/06.png",
+              "/assets/animations/player-helmet5/digDown/07.png",
+              "/assets/animations/player-helmet5/digDown/08.png",
+              "/assets/animations/player-helmet5/digDown/09.png",
+              "/assets/animations/player-helmet5/digDown/10.png",
+              "/assets/animations/player-helmet5/digDown/11.png"
+            ],
+            "width": 42,
+            "height": 68,
+            "anchor": {
+              "x": 20,
+              "y": 63
+            },
+            "fps": 30
+          },
+          "digLeft": {
+            "frames": [
+              "/assets/animations/player-helmet5/digLeft/00.png",
+              "/assets/animations/player-helmet5/digLeft/01.png",
+              "/assets/animations/player-helmet5/digLeft/02.png",
+              "/assets/animations/player-helmet5/digLeft/03.png",
+              "/assets/animations/player-helmet5/digLeft/04.png",
+              "/assets/animations/player-helmet5/digLeft/05.png",
+              "/assets/animations/player-helmet5/digLeft/06.png",
+              "/assets/animations/player-helmet5/digLeft/07.png",
+              "/assets/animations/player-helmet5/digLeft/08.png",
+              "/assets/animations/player-helmet5/digLeft/09.png",
+              "/assets/animations/player-helmet5/digLeft/10.png",
+              "/assets/animations/player-helmet5/digLeft/11.png"
+            ],
+            "width": 49,
+            "height": 53,
+            "anchor": {
+              "x": 23,
+              "y": 52
+            },
+            "fps": 30
+          },
+          "digSide": {
+            "frames": [
+              "/assets/animations/player-helmet5/digSide/00.png",
+              "/assets/animations/player-helmet5/digSide/01.png",
+              "/assets/animations/player-helmet5/digSide/02.png",
+              "/assets/animations/player-helmet5/digSide/03.png",
+              "/assets/animations/player-helmet5/digSide/04.png",
+              "/assets/animations/player-helmet5/digSide/05.png",
+              "/assets/animations/player-helmet5/digSide/06.png",
+              "/assets/animations/player-helmet5/digSide/07.png",
+              "/assets/animations/player-helmet5/digSide/08.png",
+              "/assets/animations/player-helmet5/digSide/09.png",
+              "/assets/animations/player-helmet5/digSide/10.png",
+              "/assets/animations/player-helmet5/digSide/11.png"
+            ],
+            "width": 49,
+            "height": 53,
+            "anchor": {
+              "x": 26,
+              "y": 52
+            },
+            "fps": 30
+          },
+          "boost": {
+            "frames": [
+              "/assets/animations/player-helmet5/boost/00.png",
+              "/assets/animations/player-helmet5/boost/01.png",
+              "/assets/animations/player-helmet5/boost/02.png",
+              "/assets/animations/player-helmet5/boost/03.png",
+              "/assets/animations/player-helmet5/boost/04.png",
+              "/assets/animations/player-helmet5/boost/05.png",
+              "/assets/animations/player-helmet5/boost/06.png",
+              "/assets/animations/player-helmet5/boost/07.png",
+              "/assets/animations/player-helmet5/boost/08.png",
+              "/assets/animations/player-helmet5/boost/09.png",
+              "/assets/animations/player-helmet5/boost/10.png",
+              "/assets/animations/player-helmet5/boost/11.png"
+            ],
+            "width": 65,
+            "height": 89,
+            "anchor": {
+              "x": 31,
+              "y": 68
+            },
+            "fps": 30
+          },
+          "dead": {
+            "frames": [
+              "/assets/animations/player-helmet5/dead/00.png",
+              "/assets/animations/player-helmet5/dead/01.png",
+              "/assets/animations/player-helmet5/dead/02.png",
+              "/assets/animations/player-helmet5/dead/03.png",
+              "/assets/animations/player-helmet5/dead/04.png",
+              "/assets/animations/player-helmet5/dead/05.png",
+              "/assets/animations/player-helmet5/dead/06.png",
+              "/assets/animations/player-helmet5/dead/07.png",
+              "/assets/animations/player-helmet5/dead/08.png",
+              "/assets/animations/player-helmet5/dead/09.png",
+              "/assets/animations/player-helmet5/dead/10.png",
+              "/assets/animations/player-helmet5/dead/11.png"
+            ],
+            "width": 51,
+            "height": 89,
+            "anchor": {
+              "x": 20,
+              "y": 92
+            },
+            "fps": 30
+          },
+          "hurt": {
+            "frames": [
+              "/assets/animations/player-helmet5/hurt/00.png",
+              "/assets/animations/player-helmet5/hurt/01.png",
+              "/assets/animations/player-helmet5/hurt/02.png",
+              "/assets/animations/player-helmet5/hurt/03.png",
+              "/assets/animations/player-helmet5/hurt/04.png",
+              "/assets/animations/player-helmet5/hurt/05.png",
+              "/assets/animations/player-helmet5/hurt/06.png",
+              "/assets/animations/player-helmet5/hurt/07.png",
+              "/assets/animations/player-helmet5/hurt/08.png",
+              "/assets/animations/player-helmet5/hurt/09.png",
+              "/assets/animations/player-helmet5/hurt/10.png",
+              "/assets/animations/player-helmet5/hurt/11.png"
+            ],
+            "width": 47,
+            "height": 55,
+            "anchor": {
+              "x": 18,
+              "y": 53
+            },
+            "fps": 30
+          },
+          "revive": {
+            "frames": [
+              "/assets/animations/player-helmet5/revive/00.png",
+              "/assets/animations/player-helmet5/revive/01.png",
+              "/assets/animations/player-helmet5/revive/02.png",
+              "/assets/animations/player-helmet5/revive/03.png",
+              "/assets/animations/player-helmet5/revive/04.png",
+              "/assets/animations/player-helmet5/revive/05.png",
+              "/assets/animations/player-helmet5/revive/06.png",
+              "/assets/animations/player-helmet5/revive/07.png",
+              "/assets/animations/player-helmet5/revive/08.png",
+              "/assets/animations/player-helmet5/revive/09.png",
+              "/assets/animations/player-helmet5/revive/10.png",
+              "/assets/animations/player-helmet5/revive/11.png"
+            ],
+            "width": 80,
+            "height": 104,
+            "anchor": {
+              "x": 37,
+              "y": 89
+            },
+            "fps": 30
+          }
+        }
+      }
+    },
+    "portal": {
+      "frames": [
+        "/assets/animations/portal/idle/00.png",
+        "/assets/animations/portal/idle/01.png",
+        "/assets/animations/portal/idle/02.png",
+        "/assets/animations/portal/idle/03.png",
+        "/assets/animations/portal/idle/04.png",
+        "/assets/animations/portal/idle/05.png",
+        "/assets/animations/portal/idle/06.png",
+        "/assets/animations/portal/idle/07.png",
+        "/assets/animations/portal/idle/08.png",
+        "/assets/animations/portal/idle/09.png",
+        "/assets/animations/portal/idle/10.png",
+        "/assets/animations/portal/idle/11.png"
+      ],
+      "width": 67,
+      "height": 49,
+      "anchor": {
+        "x": 34.1,
+        "y": 47.25
+      },
+      "fps": 30,
+      "states": {
+        "idle": {
+          "frames": [
+            "/assets/animations/portal/idle/00.png",
+            "/assets/animations/portal/idle/01.png",
+            "/assets/animations/portal/idle/02.png",
+            "/assets/animations/portal/idle/03.png",
+            "/assets/animations/portal/idle/04.png",
+            "/assets/animations/portal/idle/05.png",
+            "/assets/animations/portal/idle/06.png",
+            "/assets/animations/portal/idle/07.png",
+            "/assets/animations/portal/idle/08.png",
+            "/assets/animations/portal/idle/09.png",
+            "/assets/animations/portal/idle/10.png",
+            "/assets/animations/portal/idle/11.png"
+          ],
+          "width": 67,
+          "height": 49,
+          "anchor": {
+            "x": 34.1,
+            "y": 47.25
+          },
+          "fps": 30
+        }
+      }
+    },
+    "airStation": {
+      "frames": [
+        "/assets/animations/airStation/00.png",
+        "/assets/animations/airStation/01.png",
+        "/assets/animations/airStation/02.png",
+        "/assets/animations/airStation/03.png",
+        "/assets/animations/airStation/04.png",
+        "/assets/animations/airStation/05.png",
+        "/assets/animations/airStation/06.png",
+        "/assets/animations/airStation/07.png",
+        "/assets/animations/airStation/08.png",
+        "/assets/animations/airStation/09.png",
+        "/assets/animations/airStation/10.png",
+        "/assets/animations/airStation/11.png"
+      ],
+      "width": 160,
+      "height": 106,
+      "anchor": {
+        "x": 80.0,
+        "y": 106
+      },
+      "fps": 30
+    },
+    "bonusBox": {
+      "frames": [
+        "/assets/animations/bonusBox/00.png",
+        "/assets/animations/bonusBox/01.png"
+      ],
+      "width": 35,
+      "height": 34,
+      "anchor": {
+        "x": 17.5,
+        "y": 34
+      },
+      "fps": 30
+    },
+    "dragon": {
+      "frames": [
+        "/assets/animations/dragon/idle/00.png",
+        "/assets/animations/dragon/idle/01.png",
+        "/assets/animations/dragon/idle/02.png",
+        "/assets/animations/dragon/idle/03.png",
+        "/assets/animations/dragon/idle/04.png",
+        "/assets/animations/dragon/idle/05.png",
+        "/assets/animations/dragon/idle/06.png",
+        "/assets/animations/dragon/idle/07.png",
+        "/assets/animations/dragon/idle/08.png",
+        "/assets/animations/dragon/idle/09.png",
+        "/assets/animations/dragon/idle/10.png",
+        "/assets/animations/dragon/idle/11.png"
+      ],
+      "width": 38,
+      "height": 40,
+      "anchor": {
+        "x": 19.85,
+        "y": 42.1
+      },
+      "fps": 30,
+      "states": {
+        "idle": {
+          "frames": [
+            "/assets/animations/dragon/idle/00.png",
+            "/assets/animations/dragon/idle/01.png",
+            "/assets/animations/dragon/idle/02.png",
+            "/assets/animations/dragon/idle/03.png",
+            "/assets/animations/dragon/idle/04.png",
+            "/assets/animations/dragon/idle/05.png",
+            "/assets/animations/dragon/idle/06.png",
+            "/assets/animations/dragon/idle/07.png",
+            "/assets/animations/dragon/idle/08.png",
+            "/assets/animations/dragon/idle/09.png",
+            "/assets/animations/dragon/idle/10.png",
+            "/assets/animations/dragon/idle/11.png"
+          ],
+          "width": 38,
+          "height": 40,
+          "anchor": {
+            "x": 19.85,
+            "y": 42.1
+          },
+          "fps": 30
+        },
+        "move": {
+          "frames": [
+            "/assets/animations/dragon/move/00.png",
+            "/assets/animations/dragon/move/01.png",
+            "/assets/animations/dragon/move/02.png",
+            "/assets/animations/dragon/move/03.png",
+            "/assets/animations/dragon/move/04.png",
+            "/assets/animations/dragon/move/05.png",
+            "/assets/animations/dragon/move/06.png",
+            "/assets/animations/dragon/move/07.png",
+            "/assets/animations/dragon/move/08.png",
+            "/assets/animations/dragon/move/09.png",
+            "/assets/animations/dragon/move/10.png",
+            "/assets/animations/dragon/move/11.png"
+          ],
+          "width": 38,
+          "height": 40,
+          "anchor": {
+            "x": 18.85,
+            "y": 42.1
+          },
+          "fps": 30
+        },
+        "dead": {
+          "frames": [
+            "/assets/animations/dragon/dead/00.png",
+            "/assets/animations/dragon/dead/01.png",
+            "/assets/animations/dragon/dead/02.png",
+            "/assets/animations/dragon/dead/03.png",
+            "/assets/animations/dragon/dead/04.png",
+            "/assets/animations/dragon/dead/05.png",
+            "/assets/animations/dragon/dead/06.png",
+            "/assets/animations/dragon/dead/07.png",
+            "/assets/animations/dragon/dead/08.png",
+            "/assets/animations/dragon/dead/09.png",
+            "/assets/animations/dragon/dead/10.png",
+            "/assets/animations/dragon/dead/11.png"
+          ],
+          "width": 43,
+          "height": 39,
+          "anchor": {
+            "x": 20.85,
+            "y": 40.1
+          },
+          "fps": 30
+        }
+      }
+    },
+    "dragon2": {
+      "frames": [
+        "/assets/animations/dragon2/idle/00.png",
+        "/assets/animations/dragon2/idle/01.png",
+        "/assets/animations/dragon2/idle/02.png",
+        "/assets/animations/dragon2/idle/03.png",
+        "/assets/animations/dragon2/idle/04.png",
+        "/assets/animations/dragon2/idle/05.png",
+        "/assets/animations/dragon2/idle/06.png",
+        "/assets/animations/dragon2/idle/07.png",
+        "/assets/animations/dragon2/idle/08.png",
+        "/assets/animations/dragon2/idle/09.png",
+        "/assets/animations/dragon2/idle/10.png",
+        "/assets/animations/dragon2/idle/11.png"
+      ],
+      "width": 38,
+      "height": 40,
+      "anchor": {
+        "x": 20.3,
+        "y": 42.0
+      },
+      "fps": 30,
+      "states": {
+        "idle": {
+          "frames": [
+            "/assets/animations/dragon2/idle/00.png",
+            "/assets/animations/dragon2/idle/01.png",
+            "/assets/animations/dragon2/idle/02.png",
+            "/assets/animations/dragon2/idle/03.png",
+            "/assets/animations/dragon2/idle/04.png",
+            "/assets/animations/dragon2/idle/05.png",
+            "/assets/animations/dragon2/idle/06.png",
+            "/assets/animations/dragon2/idle/07.png",
+            "/assets/animations/dragon2/idle/08.png",
+            "/assets/animations/dragon2/idle/09.png",
+            "/assets/animations/dragon2/idle/10.png",
+            "/assets/animations/dragon2/idle/11.png"
+          ],
+          "width": 38,
+          "height": 40,
+          "anchor": {
+            "x": 20.3,
+            "y": 42.0
+          },
+          "fps": 30
+        },
+        "move": {
+          "frames": [
+            "/assets/animations/dragon2/move/00.png",
+            "/assets/animations/dragon2/move/01.png",
+            "/assets/animations/dragon2/move/02.png",
+            "/assets/animations/dragon2/move/03.png",
+            "/assets/animations/dragon2/move/04.png",
+            "/assets/animations/dragon2/move/05.png",
+            "/assets/animations/dragon2/move/06.png",
+            "/assets/animations/dragon2/move/07.png",
+            "/assets/animations/dragon2/move/08.png",
+            "/assets/animations/dragon2/move/09.png",
+            "/assets/animations/dragon2/move/10.png",
+            "/assets/animations/dragon2/move/11.png"
+          ],
+          "width": 38,
+          "height": 40,
+          "anchor": {
+            "x": 19.3,
+            "y": 42.0
+          },
+          "fps": 30
+        },
+        "dead": {
+          "frames": [
+            "/assets/animations/dragon2/dead/00.png",
+            "/assets/animations/dragon2/dead/01.png",
+            "/assets/animations/dragon2/dead/02.png",
+            "/assets/animations/dragon2/dead/03.png",
+            "/assets/animations/dragon2/dead/04.png",
+            "/assets/animations/dragon2/dead/05.png",
+            "/assets/animations/dragon2/dead/06.png",
+            "/assets/animations/dragon2/dead/07.png",
+            "/assets/animations/dragon2/dead/08.png",
+            "/assets/animations/dragon2/dead/09.png",
+            "/assets/animations/dragon2/dead/10.png",
+            "/assets/animations/dragon2/dead/11.png"
+          ],
+          "width": 42,
+          "height": 39,
+          "anchor": {
+            "x": 20.3,
+            "y": 40.0
+          },
+          "fps": 30
+        }
+      }
+    },
+    "dragon3": {
+      "frames": [
+        "/assets/animations/dragon3/idle/00.png",
+        "/assets/animations/dragon3/idle/01.png",
+        "/assets/animations/dragon3/idle/02.png",
+        "/assets/animations/dragon3/idle/03.png",
+        "/assets/animations/dragon3/idle/04.png",
+        "/assets/animations/dragon3/idle/05.png",
+        "/assets/animations/dragon3/idle/06.png",
+        "/assets/animations/dragon3/idle/07.png",
+        "/assets/animations/dragon3/idle/08.png",
+        "/assets/animations/dragon3/idle/09.png",
+        "/assets/animations/dragon3/idle/10.png",
+        "/assets/animations/dragon3/idle/11.png"
+      ],
+      "width": 38,
+      "height": 40,
+      "anchor": {
+        "x": 20.3,
+        "y": 42.0
+      },
+      "fps": 30,
+      "states": {
+        "idle": {
+          "frames": [
+            "/assets/animations/dragon3/idle/00.png",
+            "/assets/animations/dragon3/idle/01.png",
+            "/assets/animations/dragon3/idle/02.png",
+            "/assets/animations/dragon3/idle/03.png",
+            "/assets/animations/dragon3/idle/04.png",
+            "/assets/animations/dragon3/idle/05.png",
+            "/assets/animations/dragon3/idle/06.png",
+            "/assets/animations/dragon3/idle/07.png",
+            "/assets/animations/dragon3/idle/08.png",
+            "/assets/animations/dragon3/idle/09.png",
+            "/assets/animations/dragon3/idle/10.png",
+            "/assets/animations/dragon3/idle/11.png"
+          ],
+          "width": 38,
+          "height": 40,
+          "anchor": {
+            "x": 20.3,
+            "y": 42.0
+          },
+          "fps": 30
+        },
+        "move": {
+          "frames": [
+            "/assets/animations/dragon3/move/00.png",
+            "/assets/animations/dragon3/move/01.png",
+            "/assets/animations/dragon3/move/02.png",
+            "/assets/animations/dragon3/move/03.png",
+            "/assets/animations/dragon3/move/04.png",
+            "/assets/animations/dragon3/move/05.png",
+            "/assets/animations/dragon3/move/06.png",
+            "/assets/animations/dragon3/move/07.png",
+            "/assets/animations/dragon3/move/08.png",
+            "/assets/animations/dragon3/move/09.png",
+            "/assets/animations/dragon3/move/10.png",
+            "/assets/animations/dragon3/move/11.png"
+          ],
+          "width": 38,
+          "height": 40,
+          "anchor": {
+            "x": 19.3,
+            "y": 42.0
+          },
+          "fps": 30
+        },
+        "dead": {
+          "frames": [
+            "/assets/animations/dragon3/dead/00.png",
+            "/assets/animations/dragon3/dead/01.png",
+            "/assets/animations/dragon3/dead/02.png",
+            "/assets/animations/dragon3/dead/03.png",
+            "/assets/animations/dragon3/dead/04.png",
+            "/assets/animations/dragon3/dead/05.png",
+            "/assets/animations/dragon3/dead/06.png",
+            "/assets/animations/dragon3/dead/07.png",
+            "/assets/animations/dragon3/dead/08.png",
+            "/assets/animations/dragon3/dead/09.png",
+            "/assets/animations/dragon3/dead/10.png",
+            "/assets/animations/dragon3/dead/11.png"
+          ],
+          "width": 42,
+          "height": 39,
+          "anchor": {
+            "x": 20.3,
+            "y": 40.0
+          },
+          "fps": 30
+        }
+      }
+    },
+    "bigDragon": {
+      "frames": [
+        "/assets/animations/bigDragon/idle/00.png",
+        "/assets/animations/bigDragon/idle/01.png",
+        "/assets/animations/bigDragon/idle/02.png",
+        "/assets/animations/bigDragon/idle/03.png",
+        "/assets/animations/bigDragon/idle/04.png",
+        "/assets/animations/bigDragon/idle/05.png",
+        "/assets/animations/bigDragon/idle/06.png",
+        "/assets/animations/bigDragon/idle/07.png",
+        "/assets/animations/bigDragon/idle/08.png",
+        "/assets/animations/bigDragon/idle/09.png",
+        "/assets/animations/bigDragon/idle/10.png",
+        "/assets/animations/bigDragon/idle/11.png"
+      ],
+      "width": 91,
+      "height": 89,
+      "anchor": {
+        "x": 43.85,
+        "y": 92.15
+      },
+      "fps": 30,
+      "states": {
+        "idle": {
+          "frames": [
+            "/assets/animations/bigDragon/idle/00.png",
+            "/assets/animations/bigDragon/idle/01.png",
+            "/assets/animations/bigDragon/idle/02.png",
+            "/assets/animations/bigDragon/idle/03.png",
+            "/assets/animations/bigDragon/idle/04.png",
+            "/assets/animations/bigDragon/idle/05.png",
+            "/assets/animations/bigDragon/idle/06.png",
+            "/assets/animations/bigDragon/idle/07.png",
+            "/assets/animations/bigDragon/idle/08.png",
+            "/assets/animations/bigDragon/idle/09.png",
+            "/assets/animations/bigDragon/idle/10.png",
+            "/assets/animations/bigDragon/idle/11.png"
+          ],
+          "width": 91,
+          "height": 89,
+          "anchor": {
+            "x": 43.85,
+            "y": 92.15
+          },
+          "fps": 30
+        },
+        "move": {
+          "frames": [
+            "/assets/animations/bigDragon/move/00.png",
+            "/assets/animations/bigDragon/move/01.png",
+            "/assets/animations/bigDragon/move/02.png",
+            "/assets/animations/bigDragon/move/03.png",
+            "/assets/animations/bigDragon/move/04.png",
+            "/assets/animations/bigDragon/move/05.png",
+            "/assets/animations/bigDragon/move/06.png",
+            "/assets/animations/bigDragon/move/07.png",
+            "/assets/animations/bigDragon/move/08.png",
+            "/assets/animations/bigDragon/move/09.png",
+            "/assets/animations/bigDragon/move/10.png",
+            "/assets/animations/bigDragon/move/11.png"
+          ],
+          "width": 90,
+          "height": 93,
+          "anchor": {
+            "x": 43.85,
+            "y": 92.15
+          },
+          "fps": 30
+        },
+        "dead": {
+          "frames": [
+            "/assets/animations/bigDragon/dead/00.png",
+            "/assets/animations/bigDragon/dead/01.png",
+            "/assets/animations/bigDragon/dead/02.png",
+            "/assets/animations/bigDragon/dead/03.png",
+            "/assets/animations/bigDragon/dead/04.png",
+            "/assets/animations/bigDragon/dead/05.png",
+            "/assets/animations/bigDragon/dead/06.png",
+            "/assets/animations/bigDragon/dead/07.png",
+            "/assets/animations/bigDragon/dead/08.png",
+            "/assets/animations/bigDragon/dead/09.png",
+            "/assets/animations/bigDragon/dead/10.png",
+            "/assets/animations/bigDragon/dead/11.png"
+          ],
+          "width": 95,
+          "height": 100,
+          "anchor": {
+            "x": 63.85,
+            "y": 80.15
+          },
+          "fps": 30
+        }
+      }
+    },
+    "bigDragon2": {
+      "frames": [
+        "/assets/animations/bigDragon2/idle/00.png",
+        "/assets/animations/bigDragon2/idle/01.png",
+        "/assets/animations/bigDragon2/idle/02.png",
+        "/assets/animations/bigDragon2/idle/03.png",
+        "/assets/animations/bigDragon2/idle/04.png",
+        "/assets/animations/bigDragon2/idle/05.png",
+        "/assets/animations/bigDragon2/idle/06.png",
+        "/assets/animations/bigDragon2/idle/07.png",
+        "/assets/animations/bigDragon2/idle/08.png",
+        "/assets/animations/bigDragon2/idle/09.png",
+        "/assets/animations/bigDragon2/idle/10.png",
+        "/assets/animations/bigDragon2/idle/11.png"
+      ],
+      "width": 91,
+      "height": 89,
+      "anchor": {
+        "x": 43.85,
+        "y": 92.15
+      },
+      "fps": 30,
+      "states": {
+        "idle": {
+          "frames": [
+            "/assets/animations/bigDragon2/idle/00.png",
+            "/assets/animations/bigDragon2/idle/01.png",
+            "/assets/animations/bigDragon2/idle/02.png",
+            "/assets/animations/bigDragon2/idle/03.png",
+            "/assets/animations/bigDragon2/idle/04.png",
+            "/assets/animations/bigDragon2/idle/05.png",
+            "/assets/animations/bigDragon2/idle/06.png",
+            "/assets/animations/bigDragon2/idle/07.png",
+            "/assets/animations/bigDragon2/idle/08.png",
+            "/assets/animations/bigDragon2/idle/09.png",
+            "/assets/animations/bigDragon2/idle/10.png",
+            "/assets/animations/bigDragon2/idle/11.png"
+          ],
+          "width": 91,
+          "height": 89,
+          "anchor": {
+            "x": 43.85,
+            "y": 92.15
+          },
+          "fps": 30
+        },
+        "move": {
+          "frames": [
+            "/assets/animations/bigDragon2/move/00.png",
+            "/assets/animations/bigDragon2/move/01.png",
+            "/assets/animations/bigDragon2/move/02.png",
+            "/assets/animations/bigDragon2/move/03.png",
+            "/assets/animations/bigDragon2/move/04.png",
+            "/assets/animations/bigDragon2/move/05.png",
+            "/assets/animations/bigDragon2/move/06.png",
+            "/assets/animations/bigDragon2/move/07.png",
+            "/assets/animations/bigDragon2/move/08.png",
+            "/assets/animations/bigDragon2/move/09.png",
+            "/assets/animations/bigDragon2/move/10.png",
+            "/assets/animations/bigDragon2/move/11.png"
+          ],
+          "width": 90,
+          "height": 93,
+          "anchor": {
+            "x": 43.85,
+            "y": 92.15
+          },
+          "fps": 30
+        },
+        "dead": {
+          "frames": [
+            "/assets/animations/bigDragon2/dead/00.png",
+            "/assets/animations/bigDragon2/dead/01.png",
+            "/assets/animations/bigDragon2/dead/02.png",
+            "/assets/animations/bigDragon2/dead/03.png",
+            "/assets/animations/bigDragon2/dead/04.png",
+            "/assets/animations/bigDragon2/dead/05.png",
+            "/assets/animations/bigDragon2/dead/06.png",
+            "/assets/animations/bigDragon2/dead/07.png",
+            "/assets/animations/bigDragon2/dead/08.png",
+            "/assets/animations/bigDragon2/dead/09.png",
+            "/assets/animations/bigDragon2/dead/10.png",
+            "/assets/animations/bigDragon2/dead/11.png"
+          ],
+          "width": 95,
+          "height": 100,
+          "anchor": {
+            "x": 63.85,
+            "y": 80.15
+          },
+          "fps": 30
+        }
+      }
+    },
+    "boss": {
+      "frames": [
+        "/assets/animations/boss/idle/00.png",
+        "/assets/animations/boss/idle/01.png",
+        "/assets/animations/boss/idle/02.png",
+        "/assets/animations/boss/idle/03.png",
+        "/assets/animations/boss/idle/04.png",
+        "/assets/animations/boss/idle/05.png",
+        "/assets/animations/boss/idle/06.png",
+        "/assets/animations/boss/idle/07.png",
+        "/assets/animations/boss/idle/08.png",
+        "/assets/animations/boss/idle/09.png",
+        "/assets/animations/boss/idle/10.png",
+        "/assets/animations/boss/idle/11.png"
+      ],
+      "width": 272,
+      "height": 245,
+      "anchor": {
+        "x": 154.35,
+        "y": 247.0
+      },
+      "fps": 30,
+      "states": {
+        "move": {
+          "frames": [
+            "/assets/animations/boss/move/00.png",
+            "/assets/animations/boss/move/01.png",
+            "/assets/animations/boss/move/02.png",
+            "/assets/animations/boss/move/03.png",
+            "/assets/animations/boss/move/04.png",
+            "/assets/animations/boss/move/05.png",
+            "/assets/animations/boss/move/06.png",
+            "/assets/animations/boss/move/07.png",
+            "/assets/animations/boss/move/08.png",
+            "/assets/animations/boss/move/09.png",
+            "/assets/animations/boss/move/10.png",
+            "/assets/animations/boss/move/11.png"
+          ],
+          "width": 287,
+          "height": 255,
+          "anchor": {
+            "x": 152.35,
+            "y": 256.0
+          },
+          "fps": 30
+        },
+        "dead": {
+          "frames": [
+            "/assets/animations/boss/dead/00.png",
+            "/assets/animations/boss/dead/01.png",
+            "/assets/animations/boss/dead/02.png",
+            "/assets/animations/boss/dead/03.png",
+            "/assets/animations/boss/dead/04.png",
+            "/assets/animations/boss/dead/05.png",
+            "/assets/animations/boss/dead/06.png",
+            "/assets/animations/boss/dead/07.png",
+            "/assets/animations/boss/dead/08.png",
+            "/assets/animations/boss/dead/09.png",
+            "/assets/animations/boss/dead/10.png",
+            "/assets/animations/boss/dead/11.png"
+          ],
+          "width": 309,
+          "height": 263,
+          "anchor": {
+            "x": 169.35,
+            "y": 251.0
+          },
+          "fps": 30
+        },
+        "idle": {
+          "frames": [
+            "/assets/animations/boss/idle/00.png",
+            "/assets/animations/boss/idle/01.png",
+            "/assets/animations/boss/idle/02.png",
+            "/assets/animations/boss/idle/03.png",
+            "/assets/animations/boss/idle/04.png",
+            "/assets/animations/boss/idle/05.png",
+            "/assets/animations/boss/idle/06.png",
+            "/assets/animations/boss/idle/07.png",
+            "/assets/animations/boss/idle/08.png",
+            "/assets/animations/boss/idle/09.png",
+            "/assets/animations/boss/idle/10.png",
+            "/assets/animations/boss/idle/11.png"
+          ],
+          "width": 272,
+          "height": 245,
+          "anchor": {
+            "x": 154.35,
+            "y": 247.0
+          },
+          "fps": 30
+        },
+        "jump": {
+          "frames": [
+            "/assets/animations/boss/jump/00.png",
+            "/assets/animations/boss/jump/01.png",
+            "/assets/animations/boss/jump/02.png",
+            "/assets/animations/boss/jump/03.png",
+            "/assets/animations/boss/jump/04.png",
+            "/assets/animations/boss/jump/05.png",
+            "/assets/animations/boss/jump/06.png",
+            "/assets/animations/boss/jump/07.png",
+            "/assets/animations/boss/jump/08.png",
+            "/assets/animations/boss/jump/09.png",
+            "/assets/animations/boss/jump/10.png",
+            "/assets/animations/boss/jump/11.png"
+          ],
+          "width": 296,
+          "height": 303,
+          "anchor": {
+            "x": 161.35,
+            "y": 284.0
+          },
+          "fps": 30
+        },
+        "attack": {
+          "frames": [
+            "/assets/animations/boss/attack/00.png",
+            "/assets/animations/boss/attack/01.png",
+            "/assets/animations/boss/attack/02.png",
+            "/assets/animations/boss/attack/03.png",
+            "/assets/animations/boss/attack/04.png",
+            "/assets/animations/boss/attack/05.png",
+            "/assets/animations/boss/attack/06.png",
+            "/assets/animations/boss/attack/07.png",
+            "/assets/animations/boss/attack/08.png",
+            "/assets/animations/boss/attack/09.png",
+            "/assets/animations/boss/attack/10.png",
+            "/assets/animations/boss/attack/11.png"
+          ],
+          "width": 287,
+          "height": 261,
+          "anchor": {
+            "x": 149.35,
+            "y": 262.0
+          },
+          "fps": 30
+        },
+        "summon": {
+          "frames": [
+            "/assets/animations/boss/summon/00.png",
+            "/assets/animations/boss/summon/01.png",
+            "/assets/animations/boss/summon/02.png",
+            "/assets/animations/boss/summon/03.png",
+            "/assets/animations/boss/summon/04.png",
+            "/assets/animations/boss/summon/05.png",
+            "/assets/animations/boss/summon/06.png",
+            "/assets/animations/boss/summon/07.png",
+            "/assets/animations/boss/summon/08.png",
+            "/assets/animations/boss/summon/09.png",
+            "/assets/animations/boss/summon/10.png",
+            "/assets/animations/boss/summon/11.png"
+          ],
+          "width": 392,
+          "height": 245,
+          "anchor": {
+            "x": 224.35,
+            "y": 247.0
+          },
+          "fps": 30
+        }
+      }
+    },
+    "subBoss": {
+      "frames": [
+        "/assets/animations/subBoss/idle/00.png",
+        "/assets/animations/subBoss/idle/01.png",
+        "/assets/animations/subBoss/idle/02.png",
+        "/assets/animations/subBoss/idle/03.png",
+        "/assets/animations/subBoss/idle/04.png",
+        "/assets/animations/subBoss/idle/05.png",
+        "/assets/animations/subBoss/idle/06.png",
+        "/assets/animations/subBoss/idle/07.png",
+        "/assets/animations/subBoss/idle/08.png",
+        "/assets/animations/subBoss/idle/09.png",
+        "/assets/animations/subBoss/idle/10.png",
+        "/assets/animations/subBoss/idle/11.png"
+      ],
+      "width": 184,
+      "height": 210,
+      "anchor": {
+        "x": 83.20000000000005,
+        "y": 211.79999999999995
+      },
+      "fps": 30,
+      "states": {
+        "move": {
+          "frames": [
+            "/assets/animations/subBoss/move/00.png",
+            "/assets/animations/subBoss/move/01.png",
+            "/assets/animations/subBoss/move/02.png",
+            "/assets/animations/subBoss/move/03.png",
+            "/assets/animations/subBoss/move/04.png",
+            "/assets/animations/subBoss/move/05.png",
+            "/assets/animations/subBoss/move/06.png",
+            "/assets/animations/subBoss/move/07.png",
+            "/assets/animations/subBoss/move/08.png",
+            "/assets/animations/subBoss/move/09.png",
+            "/assets/animations/subBoss/move/10.png",
+            "/assets/animations/subBoss/move/11.png"
+          ],
+          "width": 184,
+          "height": 210,
+          "anchor": {
+            "x": 83.20000000000005,
+            "y": 211.79999999999995
+          },
+          "fps": 30
+        },
+        "dead": {
+          "frames": [
+            "/assets/animations/subBoss/dead/00.png",
+            "/assets/animations/subBoss/dead/01.png",
+            "/assets/animations/subBoss/dead/02.png",
+            "/assets/animations/subBoss/dead/03.png",
+            "/assets/animations/subBoss/dead/04.png",
+            "/assets/animations/subBoss/dead/05.png",
+            "/assets/animations/subBoss/dead/06.png",
+            "/assets/animations/subBoss/dead/07.png",
+            "/assets/animations/subBoss/dead/08.png",
+            "/assets/animations/subBoss/dead/09.png",
+            "/assets/animations/subBoss/dead/10.png",
+            "/assets/animations/subBoss/dead/11.png"
+          ],
+          "width": 308,
+          "height": 234,
+          "anchor": {
+            "x": 166.20000000000005,
+            "y": 216.79999999999995
+          },
+          "fps": 30
+        },
+        "idle": {
+          "frames": [
+            "/assets/animations/subBoss/idle/00.png",
+            "/assets/animations/subBoss/idle/01.png",
+            "/assets/animations/subBoss/idle/02.png",
+            "/assets/animations/subBoss/idle/03.png",
+            "/assets/animations/subBoss/idle/04.png",
+            "/assets/animations/subBoss/idle/05.png",
+            "/assets/animations/subBoss/idle/06.png",
+            "/assets/animations/subBoss/idle/07.png",
+            "/assets/animations/subBoss/idle/08.png",
+            "/assets/animations/subBoss/idle/09.png",
+            "/assets/animations/subBoss/idle/10.png",
+            "/assets/animations/subBoss/idle/11.png"
+          ],
+          "width": 184,
+          "height": 210,
+          "anchor": {
+            "x": 83.20000000000005,
+            "y": 211.79999999999995
+          },
+          "fps": 30
+        },
+        "jump": {
+          "frames": [
+            "/assets/animations/subBoss/jump/00.png",
+            "/assets/animations/subBoss/jump/01.png",
+            "/assets/animations/subBoss/jump/02.png",
+            "/assets/animations/subBoss/jump/03.png",
+            "/assets/animations/subBoss/jump/04.png",
+            "/assets/animations/subBoss/jump/05.png",
+            "/assets/animations/subBoss/jump/06.png",
+            "/assets/animations/subBoss/jump/07.png",
+            "/assets/animations/subBoss/jump/08.png",
+            "/assets/animations/subBoss/jump/09.png",
+            "/assets/animations/subBoss/jump/10.png",
+            "/assets/animations/subBoss/jump/11.png"
+          ],
+          "width": 197,
+          "height": 213,
+          "anchor": {
+            "x": 86.20000000000005,
+            "y": 214.79999999999995
+          },
+          "fps": 30
+        },
+        "attack": {
+          "frames": [
+            "/assets/animations/subBoss/attack/00.png",
+            "/assets/animations/subBoss/attack/01.png",
+            "/assets/animations/subBoss/attack/02.png",
+            "/assets/animations/subBoss/attack/03.png",
+            "/assets/animations/subBoss/attack/04.png",
+            "/assets/animations/subBoss/attack/05.png",
+            "/assets/animations/subBoss/attack/06.png",
+            "/assets/animations/subBoss/attack/07.png",
+            "/assets/animations/subBoss/attack/08.png",
+            "/assets/animations/subBoss/attack/09.png",
+            "/assets/animations/subBoss/attack/10.png",
+            "/assets/animations/subBoss/attack/11.png"
+          ],
+          "width": 219,
+          "height": 209,
+          "anchor": {
+            "x": 83.20000000000005,
+            "y": 211.79999999999995
+          },
+          "fps": 30
+        },
+        "summon": {
+          "frames": [
+            "/assets/animations/subBoss/summon/00.png",
+            "/assets/animations/subBoss/summon/01.png",
+            "/assets/animations/subBoss/summon/02.png",
+            "/assets/animations/subBoss/summon/03.png",
+            "/assets/animations/subBoss/summon/04.png",
+            "/assets/animations/subBoss/summon/05.png",
+            "/assets/animations/subBoss/summon/06.png",
+            "/assets/animations/subBoss/summon/07.png",
+            "/assets/animations/subBoss/summon/08.png",
+            "/assets/animations/subBoss/summon/09.png",
+            "/assets/animations/subBoss/summon/10.png",
+            "/assets/animations/subBoss/summon/11.png"
+          ],
+          "width": 184,
+          "height": 209,
+          "anchor": {
+            "x": 83.20000000000005,
+            "y": 211.79999999999995
+          },
+          "fps": 30
+        }
+      }
+    },
+    "bossArm": {
+      "frames": [
+        "/assets/animations/bossArm/00.png",
+        "/assets/animations/bossArm/01.png",
+        "/assets/animations/bossArm/02.png"
+      ],
+      "width": 138,
+      "height": 60,
+      "anchor": {
+        "x": 69.0,
+        "y": 60
+      },
+      "fps": 30
+    },
+    "bossRoom": {
+      "frames": [
+        "/assets/animations/bossRoom/00.png"
+      ],
+      "width": 139,
+      "height": 106,
+      "anchor": {
+        "x": 69.5,
+        "y": 106
+      },
+      "fps": 30
+    },
+    "bomb": {
+      "frames": [
+        "/assets/animations/bomb/00.png",
+        "/assets/animations/bomb/01.png",
+        "/assets/animations/bomb/02.png",
+        "/assets/animations/bomb/03.png",
+        "/assets/animations/bomb/04.png",
+        "/assets/animations/bomb/05.png",
+        "/assets/animations/bomb/06.png",
+        "/assets/animations/bomb/07.png",
+        "/assets/animations/bomb/08.png",
+        "/assets/animations/bomb/09.png",
+        "/assets/animations/bomb/10.png",
+        "/assets/animations/bomb/11.png",
+        "/assets/animations/bomb/12.png",
+        "/assets/animations/bomb/13.png",
+        "/assets/animations/bomb/14.png",
+        "/assets/animations/bomb/15.png",
+        "/assets/animations/bomb/16.png",
+        "/assets/animations/bomb/17.png",
+        "/assets/animations/bomb/18.png",
+        "/assets/animations/bomb/19.png",
+        "/assets/animations/bomb/20.png",
+        "/assets/animations/bomb/21.png",
+        "/assets/animations/bomb/22.png",
+        "/assets/animations/bomb/23.png",
+        "/assets/animations/bomb/24.png",
+        "/assets/animations/bomb/25.png",
+        "/assets/animations/bomb/26.png",
+        "/assets/animations/bomb/27.png",
+        "/assets/animations/bomb/28.png",
+        "/assets/animations/bomb/29.png",
+        "/assets/animations/bomb/30.png",
+        "/assets/animations/bomb/31.png",
+        "/assets/animations/bomb/32.png",
+        "/assets/animations/bomb/33.png",
+        "/assets/animations/bomb/34.png",
+        "/assets/animations/bomb/35.png",
+        "/assets/animations/bomb/36.png",
+        "/assets/animations/bomb/37.png",
+        "/assets/animations/bomb/38.png",
+        "/assets/animations/bomb/39.png",
+        "/assets/animations/bomb/40.png",
+        "/assets/animations/bomb/41.png",
+        "/assets/animations/bomb/42.png",
+        "/assets/animations/bomb/43.png",
+        "/assets/animations/bomb/44.png",
+        "/assets/animations/bomb/45.png",
+        "/assets/animations/bomb/46.png",
+        "/assets/animations/bomb/47.png",
+        "/assets/animations/bomb/48.png"
+      ],
+      "width": 38,
+      "height": 33,
+      "anchor": {
+        "x": 19.0,
+        "y": 33
+      },
+      "fps": 30
+    },
+    "dynamite": {
+      "frames": [
+        "/assets/animations/dynamite/00.png",
+        "/assets/animations/dynamite/01.png",
+        "/assets/animations/dynamite/02.png",
+        "/assets/animations/dynamite/03.png",
+        "/assets/animations/dynamite/04.png",
+        "/assets/animations/dynamite/05.png",
+        "/assets/animations/dynamite/06.png",
+        "/assets/animations/dynamite/07.png",
+        "/assets/animations/dynamite/08.png",
+        "/assets/animations/dynamite/09.png",
+        "/assets/animations/dynamite/10.png",
+        "/assets/animations/dynamite/11.png",
+        "/assets/animations/dynamite/12.png",
+        "/assets/animations/dynamite/13.png",
+        "/assets/animations/dynamite/14.png",
+        "/assets/animations/dynamite/15.png",
+        "/assets/animations/dynamite/16.png",
+        "/assets/animations/dynamite/17.png",
+        "/assets/animations/dynamite/18.png",
+        "/assets/animations/dynamite/19.png",
+        "/assets/animations/dynamite/20.png",
+        "/assets/animations/dynamite/21.png",
+        "/assets/animations/dynamite/22.png",
+        "/assets/animations/dynamite/23.png",
+        "/assets/animations/dynamite/24.png",
+        "/assets/animations/dynamite/25.png",
+        "/assets/animations/dynamite/26.png",
+        "/assets/animations/dynamite/27.png",
+        "/assets/animations/dynamite/28.png",
+        "/assets/animations/dynamite/29.png",
+        "/assets/animations/dynamite/30.png",
+        "/assets/animations/dynamite/31.png",
+        "/assets/animations/dynamite/32.png",
+        "/assets/animations/dynamite/33.png",
+        "/assets/animations/dynamite/34.png",
+        "/assets/animations/dynamite/35.png",
+        "/assets/animations/dynamite/36.png",
+        "/assets/animations/dynamite/37.png",
+        "/assets/animations/dynamite/38.png",
+        "/assets/animations/dynamite/39.png",
+        "/assets/animations/dynamite/40.png",
+        "/assets/animations/dynamite/41.png"
+      ],
+      "width": 39,
+      "height": 32,
+      "anchor": {
+        "x": 19.5,
+        "y": 32
+      },
+      "fps": 30
+    },
+    "superBomb": {
+      "frames": [
+        "/assets/animations/superBomb/00.png",
+        "/assets/animations/superBomb/01.png",
+        "/assets/animations/superBomb/02.png",
+        "/assets/animations/superBomb/03.png",
+        "/assets/animations/superBomb/04.png",
+        "/assets/animations/superBomb/05.png",
+        "/assets/animations/superBomb/06.png",
+        "/assets/animations/superBomb/07.png",
+        "/assets/animations/superBomb/08.png",
+        "/assets/animations/superBomb/09.png",
+        "/assets/animations/superBomb/10.png",
+        "/assets/animations/superBomb/11.png",
+        "/assets/animations/superBomb/12.png",
+        "/assets/animations/superBomb/13.png",
+        "/assets/animations/superBomb/14.png",
+        "/assets/animations/superBomb/15.png",
+        "/assets/animations/superBomb/16.png",
+        "/assets/animations/superBomb/17.png",
+        "/assets/animations/superBomb/18.png",
+        "/assets/animations/superBomb/19.png",
+        "/assets/animations/superBomb/20.png",
+        "/assets/animations/superBomb/21.png",
+        "/assets/animations/superBomb/22.png",
+        "/assets/animations/superBomb/23.png",
+        "/assets/animations/superBomb/24.png",
+        "/assets/animations/superBomb/25.png",
+        "/assets/animations/superBomb/26.png",
+        "/assets/animations/superBomb/27.png",
+        "/assets/animations/superBomb/28.png",
+        "/assets/animations/superBomb/29.png",
+        "/assets/animations/superBomb/30.png",
+        "/assets/animations/superBomb/31.png",
+        "/assets/animations/superBomb/32.png",
+        "/assets/animations/superBomb/33.png",
+        "/assets/animations/superBomb/34.png",
+        "/assets/animations/superBomb/35.png",
+        "/assets/animations/superBomb/36.png",
+        "/assets/animations/superBomb/37.png",
+        "/assets/animations/superBomb/38.png",
+        "/assets/animations/superBomb/39.png",
+        "/assets/animations/superBomb/40.png",
+        "/assets/animations/superBomb/41.png",
+        "/assets/animations/superBomb/42.png",
+        "/assets/animations/superBomb/43.png",
+        "/assets/animations/superBomb/44.png",
+        "/assets/animations/superBomb/45.png",
+        "/assets/animations/superBomb/46.png",
+        "/assets/animations/superBomb/47.png",
+        "/assets/animations/superBomb/48.png"
+      ],
+      "width": 36,
+      "height": 41,
+      "anchor": {
+        "x": 18.0,
+        "y": 41
+      },
+      "fps": 30
+    },
+    "explosion": {
+      "frames": [
+        "/assets/animations/explosion/00.png",
+        "/assets/animations/explosion/01.png",
+        "/assets/animations/explosion/02.png",
+        "/assets/animations/explosion/03.png",
+        "/assets/animations/explosion/04.png",
+        "/assets/animations/explosion/05.png",
+        "/assets/animations/explosion/06.png",
+        "/assets/animations/explosion/07.png",
+        "/assets/animations/explosion/08.png",
+        "/assets/animations/explosion/09.png",
+        "/assets/animations/explosion/10.png",
+        "/assets/animations/explosion/11.png",
+        "/assets/animations/explosion/12.png",
+        "/assets/animations/explosion/13.png",
+        "/assets/animations/explosion/14.png",
+        "/assets/animations/explosion/15.png",
+        "/assets/animations/explosion/16.png",
+        "/assets/animations/explosion/17.png",
+        "/assets/animations/explosion/18.png",
+        "/assets/animations/explosion/19.png",
+        "/assets/animations/explosion/20.png",
+        "/assets/animations/explosion/21.png",
+        "/assets/animations/explosion/22.png",
+        "/assets/animations/explosion/23.png",
+        "/assets/animations/explosion/24.png",
+        "/assets/animations/explosion/25.png",
+        "/assets/animations/explosion/26.png",
+        "/assets/animations/explosion/27.png",
+        "/assets/animations/explosion/28.png",
+        "/assets/animations/explosion/29.png",
+        "/assets/animations/explosion/30.png",
+        "/assets/animations/explosion/31.png",
+        "/assets/animations/explosion/32.png",
+        "/assets/animations/explosion/33.png"
+      ],
+      "width": 60,
+      "height": 59,
+      "anchor": {
+        "x": 30.0,
+        "y": 59
+      },
+      "fps": 30
+    },
+    "rockExplosion": {
+      "frames": [
+        "/assets/animations/rockExplosion/00.png",
+        "/assets/animations/rockExplosion/01.png",
+        "/assets/animations/rockExplosion/02.png",
+        "/assets/animations/rockExplosion/03.png",
+        "/assets/animations/rockExplosion/04.png",
+        "/assets/animations/rockExplosion/05.png",
+        "/assets/animations/rockExplosion/06.png",
+        "/assets/animations/rockExplosion/07.png",
+        "/assets/animations/rockExplosion/08.png",
+        "/assets/animations/rockExplosion/09.png",
+        "/assets/animations/rockExplosion/10.png",
+        "/assets/animations/rockExplosion/11.png",
+        "/assets/animations/rockExplosion/12.png",
+        "/assets/animations/rockExplosion/13.png",
+        "/assets/animations/rockExplosion/14.png",
+        "/assets/animations/rockExplosion/15.png",
+        "/assets/animations/rockExplosion/16.png",
+        "/assets/animations/rockExplosion/17.png",
+        "/assets/animations/rockExplosion/18.png",
+        "/assets/animations/rockExplosion/19.png",
+        "/assets/animations/rockExplosion/20.png",
+        "/assets/animations/rockExplosion/21.png",
+        "/assets/animations/rockExplosion/22.png",
+        "/assets/animations/rockExplosion/23.png",
+        "/assets/animations/rockExplosion/24.png",
+        "/assets/animations/rockExplosion/25.png",
+        "/assets/animations/rockExplosion/26.png",
+        "/assets/animations/rockExplosion/27.png",
+        "/assets/animations/rockExplosion/28.png",
+        "/assets/animations/rockExplosion/29.png",
+        "/assets/animations/rockExplosion/30.png",
+        "/assets/animations/rockExplosion/31.png",
+        "/assets/animations/rockExplosion/32.png",
+        "/assets/animations/rockExplosion/33.png"
+      ],
+      "width": 60,
+      "height": 59,
+      "anchor": {
+        "x": 30.0,
+        "y": 59
+      },
+      "fps": 30
+    },
+    "shop": {
+      "frames": [
+        "/assets/animations/shop/00.png",
+        "/assets/animations/shop/01.png",
+        "/assets/animations/shop/02.png",
+        "/assets/animations/shop/03.png",
+        "/assets/animations/shop/04.png",
+        "/assets/animations/shop/05.png",
+        "/assets/animations/shop/06.png",
+        "/assets/animations/shop/07.png",
+        "/assets/animations/shop/08.png",
+        "/assets/animations/shop/09.png",
+        "/assets/animations/shop/10.png",
+        "/assets/animations/shop/11.png"
+      ],
+      "width": 261,
+      "height": 234,
+      "anchor": {
+        "x": 130.5,
+        "y": 234
+      },
+      "fps": 30
+    },
+    "doctor": {
+      "frames": [
+        "/assets/animations/doctor/00.png",
+        "/assets/animations/doctor/01.png",
+        "/assets/animations/doctor/02.png",
+        "/assets/animations/doctor/03.png",
+        "/assets/animations/doctor/04.png",
+        "/assets/animations/doctor/05.png",
+        "/assets/animations/doctor/06.png",
+        "/assets/animations/doctor/07.png",
+        "/assets/animations/doctor/08.png",
+        "/assets/animations/doctor/09.png"
+      ],
+      "width": 38,
+      "height": 50,
+      "anchor": {
+        "x": 19.0,
+        "y": 50
+      },
+      "fps": 30
+    },
+    "girlfriend": {
+      "frames": [
+        "/assets/animations/girlfriend/00.png",
+        "/assets/animations/girlfriend/01.png",
+        "/assets/animations/girlfriend/02.png",
+        "/assets/animations/girlfriend/03.png",
+        "/assets/animations/girlfriend/04.png",
+        "/assets/animations/girlfriend/05.png",
+        "/assets/animations/girlfriend/06.png",
+        "/assets/animations/girlfriend/07.png",
+        "/assets/animations/girlfriend/08.png",
+        "/assets/animations/girlfriend/09.png"
+      ],
+      "width": 35,
+      "height": 51,
+      "anchor": {
+        "x": 17.5,
+        "y": 51
+      },
+      "fps": 30
+    },
+    "titleMachine": {
+      "frames": [
+        "/assets/animations/titleMachine/00.png",
+        "/assets/animations/titleMachine/01.png",
+        "/assets/animations/titleMachine/02.png",
+        "/assets/animations/titleMachine/03.png",
+        "/assets/animations/titleMachine/04.png",
+        "/assets/animations/titleMachine/05.png",
+        "/assets/animations/titleMachine/06.png",
+        "/assets/animations/titleMachine/07.png",
+        "/assets/animations/titleMachine/08.png",
+        "/assets/animations/titleMachine/09.png",
+        "/assets/animations/titleMachine/10.png",
+        "/assets/animations/titleMachine/11.png"
+      ],
+      "width": 275,
+      "height": 235,
+      "anchor": {
+        "x": 137.5,
+        "y": 235
+      },
+      "fps": 30
+    },
+    "originalMenu": {
+      "frames": [
+        "/assets/animations/originalMenu/00.png"
+      ],
+      "width": 640,
+      "height": 868,
+      "anchor": {
+        "x": 320.0,
+        "y": 868
+      },
+      "fps": 30
+    },
+    "originalHud": {
+      "frames": [
+        "/assets/animations/originalHud/00.png"
+      ],
+      "width": 781,
+      "height": 376,
+      "anchor": {
+        "x": 390.5,
+        "y": 376
+      },
+      "fps": 30
+    },
+    "originalInventory": {
+      "frames": [
+        "/assets/animations/originalInventory/00.png"
+      ],
+      "width": 390,
+      "height": 432,
+      "anchor": {
+        "x": 195.0,
+        "y": 432
+      },
+      "fps": 30
+    }
+  },
+  "sounds": {
+    "failquest": "/assets/sounds/failquest.mp3",
+    "airup": "/assets/sounds/airup.mp3",
+    "bombinstall": "/assets/sounds/bombinstall.mp3",
+    "nextquest": "/assets/sounds/nextquest.mp3",
+    "questbgm": "/assets/sounds/questbgm.mp3",
+    "drill": "/assets/sounds/drill.mp3",
+    "portal": "/assets/sounds/portal.mp3",
+    "error": "/assets/sounds/error.mp3",
+    "invenopen": "/assets/sounds/invenopen.mp3",
+    "playerdie": "/assets/sounds/playerdie.mp3",
+    "mineral": "/assets/sounds/mineral.mp3",
+    "bomb1": "/assets/sounds/bomb1.mp3",
+    "bossbgm": "/assets/sounds/bossbgm.mp3",
+    "bomb2": "/assets/sounds/bomb2.mp3",
+    "rebirth": "/assets/sounds/rebirth.mp3",
+    "warning": "/assets/sounds/warning.mp3",
+    "hit": "/assets/sounds/hit.mp3",
+    "jumpend": "/assets/sounds/jumpend.mp3",
+    "boost": "/assets/sounds/boost.mp3",
+    "successquest": "/assets/sounds/successquest.mp3",
+    "exchange": "/assets/sounds/exchange.mp3",
+    "buyitem": "/assets/sounds/buyitem.mp3",
+    "event": "/assets/sounds/event.mp3",
+    "gameover": "/assets/sounds/gameover.mp3",
+    "shopbgm": "/assets/sounds/shopbgm.mp3",
+    "introbgm": "/assets/sounds/introbgm.mp3",
+    "airgage": "/assets/sounds/airgage.mp3",
+    "special": "/assets/sounds/special.mp3",
+    "startMenu": "/assets/sounds/startMenu.mp3",
+    "normalbgm": "/assets/sounds/normalbgm.mp3",
+    "invenclose": "/assets/sounds/invenclose.mp3",
+    "medicbox": "/assets/sounds/medicbox.mp3",
+    "enemydie": "/assets/sounds/enemydie.mp3"
+  },
+  "cutscenes": {
+    "quest6": [
+      {
+        "src": "/assets/cutscenes/quest6/350.png",
+        "width": 640,
+        "height": 480
+      }
+    ],
+    "quest1": [
+      {
+        "src": "/assets/cutscenes/quest1/100.png",
+        "width": 640,
+        "height": 480
+      }
+    ],
+    "ending_not": [
+      {
+        "src": "/assets/cutscenes/ending_not/400.png",
+        "width": 640,
+        "height": 480
+      },
+      {
+        "src": "/assets/cutscenes/ending_not/800.png",
+        "width": 640,
+        "height": 480
+      }
+    ],
+    "quest7": [
+      {
+        "src": "/assets/cutscenes/quest7/120.png",
+        "width": 640,
+        "height": 480
+      }
+    ],
+    "opening": [
+      {
+        "src": "/assets/cutscenes/opening/1200.png",
+        "width": 640,
+        "height": 480
+      },
+      {
+        "src": "/assets/cutscenes/opening/300.png",
+        "width": 640,
+        "height": 480
+      },
+      {
+        "src": "/assets/cutscenes/opening/700.png",
+        "width": 640,
+        "height": 480
+      }
+    ],
+    "quest2": [
+      {
+        "src": "/assets/cutscenes/quest2/200.png",
+        "width": 640,
+        "height": 480
+      }
+    ],
+    "quest5": [
+      {
+        "src": "/assets/cutscenes/quest5/200.png",
+        "width": 640,
+        "height": 480
+      }
+    ],
+    "quest4": [
+      {
+        "src": "/assets/cutscenes/quest4/100.png",
+        "width": 640,
+        "height": 480
+      }
+    ],
+    "quest3": [
+      {
+        "src": "/assets/cutscenes/quest3/200.png",
+        "width": 640,
+        "height": 480
+      }
+    ],
+    "ending_happy": [
+      {
+        "src": "/assets/cutscenes/ending_happy/150.png",
+        "width": 640,
+        "height": 480
+      },
+      {
+        "src": "/assets/cutscenes/ending_happy/300.png",
+        "width": 640,
+        "height": 480
+      }
+    ]
+  }
+}

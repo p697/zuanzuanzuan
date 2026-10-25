@@ -1,0 +1,104 @@
+
+> digger-boy-native@0.1.0 test
+> node --test test/*.test.mjs
+
+TAP version 13
+# Subtest: 原始地图数据完整、主矿区与守门怪位置可靠
+ok 1 - 原始地图数据完整、主矿区与守门怪位置可靠
+  ---
+  duration_ms: 2.046042
+  type: 'test'
+  ...
+# Subtest: 真实输入能挖穿教程土层并收集两块煤，喷气可以原路返回
+ok 2 - 真实输入能挖穿教程土层并收集两块煤，喷气可以原路返回
+  ---
+  duration_ms: 5.113541
+  type: 'test'
+  ...
+# Subtest: 矿物每五个占一格，背包满时不销毁尚未采集的矿物
+ok 3 - 矿物每五个占一格，背包满时不销毁尚未采集的矿物
+  ---
+  duration_ms: 1.07675
+  type: 'test'
+  ...
+# Subtest: 商店交易原价扣款、购买即装备且禁止降级；特殊矿石不可出售
+ok 4 - 商店交易原价扣款、购买即装备且禁止降级；特殊矿石不可出售
+  ---
+  duration_ms: 0.73525
+  type: 'test'
+  ...
+# Subtest: 喷气与挖掘分别遵循27ms规则、原始装备加成
+ok 5 - 喷气与挖掘分别遵循27ms规则、原始装备加成
+  ---
+  duration_ms: 0.194334
+  type: 'test'
+  ...
+# Subtest: 地面补氧、深度与挖掘增加耗氧，氧气归零持续损血
+ok 6 - 地面补氧、深度与挖掘增加耗氧，氧气归零持续损血
+  ---
+  duration_ms: 0.642834
+  type: 'test'
+  ...
+# Subtest: 炸弹引信不受渲染帧率影响，不自伤，一次只命中一个敌人
+ok 7 - 炸弹引信不受渲染帧率影响，不自伤，一次只命中一个敌人
+  ---
+  duration_ms: 0.369583
+  type: 'test'
+  ...
+# Subtest: 超威力炸弹只能破脚下岩石，不破边界
+ok 8 - 超威力炸弹只能破脚下岩石，不破边界
+  ---
+  duration_ms: 0.214083
+  type: 'test'
+  ...
+# Subtest: 钥匙可靠掉落，满背包可稍后拾取，Boss重试不重复收费
+ok 9 - 钥匙可靠掉落，满背包可稍后拾取，Boss重试不重复收费
+  ---
+  duration_ms: 0.606042
+  type: 'test'
+  ...
+# Subtest: Boss房氧气站提供可持续炸弹补给，避免弹药耗尽软锁
+ok 10 - Boss房氧气站提供可持续炸弹补给，避免弹药耗尽软锁
+  ---
+  duration_ms: 0.519083
+  type: 'test'
+  ...
+# Subtest: 完整关键流程：教程→矿区1→守关Boss→矿区2→矿区3→圆满结局
+ok 11 - 完整关键流程：教程→矿区1→守关Boss→矿区2→矿区3→圆满结局
+  ---
+  duration_ms: 1.117834
+  type: 'test'
+  ...
+# Subtest: 缺少特殊矿石时保留普通结局分支
+ok 12 - 缺少特殊矿石时保留普通结局分支
+  ---
+  duration_ms: 0.178208
+  type: 'test'
+  ...
+# Subtest: 真实逻辑时钟下使用有限炸弹与急救箱可击败最终Boss，没有无敌或直接扣Boss血
+ok 13 - 真实逻辑时钟下使用有限炸弹与急救箱可击败最终Boss，没有无敌或直接扣Boss血
+  ---
+  duration_ms: 33.439916
+  type: 'test'
+  ...
+# Subtest: 保存恢复保留已挖地图、敌人、道具、特殊矿和位置；损坏存档原子拒绝
+ok 14 - 保存恢复保留已挖地图、敌人、道具、特殊矿和位置；损坏存档原子拒绝
+  ---
+  duration_ms: 3.167958
+  type: 'test'
+  ...
+# Subtest: 救援只奖励一次，所有物品表至少具备中文与韩文数据
+ok 15 - 救援只奖励一次，所有物品表至少具备中文与韩文数据
+  ---
+  duration_ms: 0.443708
+  type: 'test'
+  ...
+1..15
+# tests 15
+# suites 0
+# pass 15
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 104.493958

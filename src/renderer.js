@@ -1,0 +1,560 @@
+import { TILE, clamp } from "./core.js";
+export class Assets {
+  constructor(manifest) {
+    this.manifest = manifest;
+    this.images = new Map();
+    this.pending = new Map();
+  }
+  ensure(src) {
+    if (!src) return;
+    const ready = this.images.get(src);
+    if (ready) return ready;
+    if (!this.pending.has(src)) {
+      const im = new Image();
+      this.pending.set(src, im);
+      im.onload = () => this.images.set(src, im);
+      im.src = src;
+    }
+    return undefined;
+  }
+  loadHelmet(level) {
+    const states = this.manifest.sprites.player.helmetVariants?.[level];
+    if (states)
+      for (const a of Object.values(states))
+        a.frames.forEach((src) => this.ensure(src));
+  }
+  async load(onProgress) {
+    const urls = new Set();
+    const visit = (v) => {
+      if (typeof v === "string" && /\.(png|jpg|jpeg|webp)$/.test(v))
+        urls.add(v);
+      else if (v && typeof v === "object")
+        Object.entries(v).forEach(([k, value]) => {
+          if (k !== "helmetVariants") visit(value);
+        });
+    };
+    visit(this.manifest.sprites);
+    visit(this.manifest.cutscenes);
+    for (const [key, v] of Object.entries(this.manifest.images))
+      if (
+        /^(item\d|tilemap|sky|title|inventoryPanel|shopPanel|hudPanel)/.test(
+          key,
+        )
+      )
+        visit(v);
+    let done = 0;
+    await Promise.all(
+      [...urls].map(
+        (src) =>
+          new Promise((resolve, reject) => {
+            const image = new Image();
+            image.onload = () => {
+              this.images.set(src, image);
+              onProgress(++done / urls.size);
+              resolve();
+            };
+            image.onerror = () => reject(new Error(`无法加载 ${src}`));
+            image.src = src;
+          }),
+      ),
+    );
+  }
+  image(key) {
+    const entry = this.manifest.images[key];
+    return this.ensure(entry ? entry.src : key);
+  }
+  sprite(key, state) {
+    const s = this.manifest.sprites[key];
+    return state && s?.states?.[state] ? s.states[state] : s;
+  }
+}
+export class Renderer {
+  constructor(canvas, assets) {
+    this.canvas = canvas;
+    this.ctx = canvas.getContext("2d", { alpha: false });
+    this.assets = assets;
+    this.camera = { x: 0, y: 0 };
+    this.particles = [];
+    this.floating = [];
+    this.flashes = [];
+    this.shake = 0;
+    this.time = 0;
+    this.mapCache = null;
+    this.motion = true;
+  }
+  reset(engine) {
+    this.camera = {
+      x: engine.s.p.x - 320,
+      y: engine.s.p.y - (engine.s.map === "boss_map" ? 340 : 270),
+    };
+    this.particles = [];
+    this.floating = [];
+    this.flashes = [];
+  }
+  sprite(
+    key,
+    x,
+    y,
+    {
+      state,
+      time = this.time,
+      face = 1,
+      scale = 1,
+      alpha = 1,
+      helmet = 0,
+      rotation = 0,
+    } = {},
+  ) {
+    const a =
+      key === "player" && helmet
+        ? this.assets.manifest.sprites.player.helmetVariants?.[helmet]?.[
+            state
+          ] || this.assets.sprite(key, state)
+        : this.assets.sprite(key, state);
+    if (!a?.frames?.length) return;
+    const frame = a.frames[Math.floor(time * (a.fps || 30)) % a.frames.length],
+      im = this.assets.ensure(frame);
+    if (!im) return;
+    const c = this.ctx;
+    c.save();
+    c.translate(Math.round(x), Math.round(y));
+    c.rotate(rotation);
+    c.scale(face * scale, scale);
+    c.globalAlpha = alpha;
+    c.drawImage(im, -a.anchor.x, -a.anchor.y);
+    c.restore();
+  }
+  title(time) {
+    const c = this.ctx;
+    c.setTransform(2, 0, 0, 2, 0, 0);
+    c.fillStyle = "#18251b";
+    c.fillRect(0, 0, 640, 480);
+    const bg = this.assets.image("titleBackdrop");
+    if (bg) c.drawImage(bg, 0, 0, 640, 480);
+    this.time = time;
+    this.sprite("titleMachine", 320, 302, { time });
+    this.sprite("player", 130, 302, { state: "idle", time });
+    this.sprite("girlfriend", 510, 302, { time });
+    const shade = c.createLinearGradient(0, 0, 0, 480);
+    shade.addColorStop(0, "#08140f45");
+    shade.addColorStop(0.45, "transparent");
+    shade.addColorStop(1, "#091a15b0");
+    c.fillStyle = shade;
+    c.fillRect(0, 0, 640, 480);
+  }
+  draw(engine, time, delta) {
+    this.time = time;
+    const c = this.ctx,
+      s = engine.s,
+      p = s.p,
+      m = engine.source,
+      cam = this.camera;
+    const tx = clamp(p.x - 320, 0, Math.max(0, m.width * TILE - 640)),
+      ty = clamp(
+        p.y - (s.map === "boss_map" ? 340 : 275),
+        0,
+        Math.max(0, m.height * TILE - 420),
+      );
+    const lerp = 1 - Math.exp(-delta * 12);
+    cam.x += (tx - cam.x) * lerp;
+    cam.y += (ty - cam.y) * lerp;
+    c.setTransform(2, 0, 0, 2, 0, 0);
+    c.fillStyle = "#57442c";
+    c.fillRect(0, 0, 640, 480);
+    const shake = this.motion ? this.shake : 0;
+    this.shake *= 0.8;
+    c.save();
+    c.translate(
+      shake ? Math.sin(time * 91) * shake : 0,
+      shake ? Math.cos(time * 73) * shake * 0.5 : 0,
+    );
+    const sky =
+      this.assets.image(`sky${Math.max(1, s.stage)}`) ||
+      this.assets.image("sky1");
+    const surface = (m.start.y + 1) * TILE - cam.y;
+    if (surface > 0 && sky)
+      c.drawImage(
+        sky,
+        0,
+        0,
+        sky.width,
+        sky.height,
+        -(cam.x * 0.08) % 640,
+        Math.min(-30, surface - 500),
+        750,
+        550,
+      );
+    const baseColors =
+      s.stage === 2
+        ? ["#35474a", "#29383b"]
+        : s.stage === 3
+          ? ["#433c39", "#322726"]
+          : ["#796648", "#56472e"];
+    const gradient = c.createLinearGradient(0, 0, 0, 480);
+    gradient.addColorStop(0, baseColors[0]);
+    gradient.addColorStop(1, baseColors[1]);
+    c.fillStyle = gradient;
+    c.fillRect(0, Math.max(0, surface), 640, 480);
+    const startX = Math.max(0, Math.floor(cam.x / TILE)),
+      endX = Math.min(m.width - 1, Math.ceil((cam.x + 640) / TILE)),
+      startY = Math.max(0, Math.floor(cam.y / TILE)),
+      endY = Math.min(m.height - 1, Math.ceil((cam.y + 420) / TILE));
+    const atlas = this.assets.image(
+      s.stage === 2 ? "tilemap2" : s.stage === 3 ? "tilemap3" : "tilemap",
+    );
+    for (let y = startY; y <= endY; y++)
+      for (let x = startX; x <= endX; x++) {
+        const t = engine.tile(x, y),
+          px = Math.round(x * TILE - cam.x),
+          py = Math.round(y * TILE - cam.y);
+        if (t.prop1 === 30 && t.tile === 0) continue;
+        let tile = t.tile;
+        if (engine.world.changes[t.index] && t.prop1 === 20)
+          tile = this.edgeTile(engine, x, y);
+        if (engine.dig?.index === t.index)
+          tile = 73 + Math.min(5, Math.floor(engine.dig.progress * 6));
+        if (atlas && tile < 96)
+          c.drawImage(
+            atlas,
+            (tile % 16) * TILE,
+            Math.floor(tile / 16) * TILE,
+            TILE,
+            TILE,
+            px,
+            py,
+            TILE,
+            TILE,
+          );
+        if (y >= 150) {
+          c.fillStyle = y >= 300 ? "#0006" : "#0003";
+          c.fillRect(px, py, TILE, TILE);
+        }
+        if (
+          s.stage > 0 &&
+          engine.world.special === t.index &&
+          !s.special[s.stage - 1]
+        ) {
+          const icon = this.assets.image(`item${s.stage + 9}`);
+          if (icon) {
+            c.save();
+            c.globalAlpha = 0.7 + 0.2 * Math.sin(time * 3);
+            c.shadowColor = "#e9d36f";
+            c.shadowBlur = 8;
+            c.drawImage(icon, px + 9, py + 11, 25, 25);
+            c.restore();
+          }
+        }
+      }
+    const buildings = m.runtimeEntities || m.entities;
+    for (const e of buildings) {
+      const x = e.x * TILE + 21 - cam.x,
+        y = (e.y + 1) * TILE - cam.y;
+      if (x < -200 || x > 840 || y < -50 || y > 700) continue;
+      const key =
+        e.type === "Shop"
+          ? "shop"
+          : e.type === "AirStation"
+            ? "airStation"
+            : e.type === "BossRoom"
+              ? "bossRoom"
+              : e.code === 20
+                ? "doctor"
+                : e.code === 21
+                  ? "girlfriend"
+                  : null;
+      if (key) {
+        this.sprite(key, x, y);
+        if (e.code === 20 || e.type === "Shop" || e.type === "BossRoom") {
+          const near =
+            Math.hypot(e.x * TILE + 21 - p.x, (e.y + 1) * TILE - p.y) < 120;
+          if (near) {
+            c.fillStyle = "#ffe4a5";
+            c.font = "bold 11px system-ui";
+            c.textAlign = "center";
+            c.fillText(
+              "E",
+              x,
+              y - (key === "shop" ? 235 : key === "bossRoom" ? 110 : 62),
+            );
+          }
+        }
+      }
+    }
+    if (engine.world.portal) {
+      const a = engine.world.portal;
+      this.sprite("portal", a.x - cam.x, a.y - cam.y);
+      const st = m.start;
+      this.sprite(
+        "portal",
+        st.x * TILE + 21 - cam.x,
+        (st.y + 1) * TILE - cam.y,
+      );
+    }
+    for (const e of engine.world.entities) {
+      if (e.dead || Math.abs(e.y - p.y) > 650) continue;
+      const key = e.kind[0].toLowerCase() + e.kind.slice(1),
+        boss = e.kind.includes("Boss");
+      const assetKey = e.kind === "ItemDragon" ? "bigDragon2" : key;
+      this.sprite(assetKey, e.x - cam.x, e.y - cam.y, {
+        face: e.face,
+        state: boss
+          ? e.attacking
+            ? e.summoning
+              ? "summon"
+              : "attack"
+            : Math.abs(e.x - p.x) > 50
+              ? "move"
+              : "idle"
+          : "walk",
+        alpha: s.tick - e.hitAt < 5 ? 0.5 : 1,
+      });
+      if (!boss && e.hp < e.maxHp) {
+        c.fillStyle = "#18221c";
+        c.fillRect(e.x - cam.x - 18, e.y - cam.y - 55, 36, 4);
+        c.fillStyle = "#cf7864";
+        c.fillRect(
+          e.x - cam.x - 18,
+          e.y - cam.y - 55,
+          (36 * e.hp) / e.maxHp,
+          4,
+        );
+      }
+      if (boss && e.phase % 162 > 101 && e.phase % 162 < 115) {
+        c.fillStyle = "#ef715844";
+        c.fillRect(e.x - cam.x - 90, e.y - cam.y - 12, 180, 12);
+        c.strokeStyle = "#ffb37d";
+        c.strokeRect(e.x - cam.x - 90, e.y - cam.y - 12, 180, 12);
+      }
+    }
+    for (const d of engine.world.drops) {
+      const im = this.assets.image(`item${d.code}`);
+      if (im) {
+        c.save();
+        c.shadowColor = "#ffeab2";
+        c.shadowBlur = 6;
+        c.drawImage(
+          im,
+          d.x - cam.x - 14,
+          d.y - cam.y - 31 + Math.sin(time * 4) * 3,
+          28,
+          28,
+        );
+        c.restore();
+      }
+    }
+    for (const b of engine.world.bombs)
+      this.sprite(
+        b.code === 22 ? "superBomb" : b.code === 23 ? "dynamite" : "bomb",
+        b.x - cam.x,
+        b.y - cam.y,
+        { time: (80 - b.ttl) * 0.027 },
+      );
+    for (const a of engine.world.projectiles || [])
+      this.sprite("bossArm", a.x - cam.x, a.y - cam.y, { rotation: a.angle });
+    {
+      const state =
+        {
+          digside: "digSide",
+          digdown: "digDown",
+          run: "run",
+          boost: "boost",
+          idle: "idle",
+        }[p.anim] || "idle";
+      this.sprite("player", p.x - cam.x, p.y - cam.y, {
+        state,
+        face: p.face,
+        helmet: s.gear.head,
+        alpha: p.invulnerable > 0 && Math.floor(s.tick / 3) % 2 ? 0.4 : 1,
+      });
+    }
+    if (p.anim === "boost") {
+      c.fillStyle = "#eacb8555";
+      c.beginPath();
+      c.moveTo(p.x - cam.x - 7, p.y - cam.y);
+      c.lineTo(p.x - cam.x, p.y - cam.y + 12 + Math.sin(time * 60) * 6);
+      c.lineTo(p.x - cam.x + 7, p.y - cam.y);
+      c.fill();
+    }
+    this.effects(delta, cam);
+    const boss = engine.world.entities.find(
+      (e) => !e.dead && e.kind.includes("Boss"),
+    );
+    if (boss) {
+      c.fillStyle = "#17221de8";
+      c.fillRect(110, 370, 420, 27);
+      c.strokeStyle = "#a58953";
+      c.strokeRect(110, 370, 420, 27);
+      c.fillStyle = "#8f3f39";
+      c.fillRect(115, 385, 410 * clamp(boss.hp / boss.maxHp, 0, 1), 7);
+      c.font = "11px system-ui";
+      c.fillStyle = "#e9d6a6";
+      c.textAlign = "center";
+      c.fillText(
+        `${boss.kind === "Boss" ? "魔兽帝王" : "守关巨兽"}  ${Math.ceil(Math.max(0, boss.hp))} / ${boss.maxHp}`,
+        320,
+        381,
+      );
+    }
+    if (s.ap < this.maxWarning(engine) && surface < 0) {
+      const v = c.createRadialGradient(320, 240, 150, 320, 240, 410);
+      v.addColorStop(0, "transparent");
+      v.addColorStop(1, `rgba(130,35,28,${0.25 + 0.1 * Math.sin(time * 4)})`);
+      c.fillStyle = v;
+      c.fillRect(0, 0, 640, 420);
+    }
+    c.restore();
+  }
+  maxWarning(engine) {
+    return Math.min(25, engine.maxAp * 0.15);
+  }
+  edgeTile(engine, x, y) {
+    const patterns = engine.data.digPatterns;
+    if (!patterns) return 45;
+    const offsets = [
+      [-1, -1],
+      [0, -1],
+      [1, -1],
+      [-1, 0],
+      [1, 0],
+      [-1, 1],
+      [0, 1],
+      [1, 1],
+    ];
+    const values = offsets.map(([dx, dy]) =>
+      engine.solid(x + dx, y + dy) ? 1 : 0,
+    );
+    let tile = 45;
+    for (const p of patterns)
+      if (p.neighbors.every((n, i) => n === 2 || n === values[i]))
+        tile = p.tile;
+    return tile;
+  }
+  event(e) {
+    if (e.type === "dust") {
+      for (let i = 0; i < 8; i++)
+        this.particles.push({
+          x: e.x,
+          y: e.y,
+          vx: (Math.random() - 0.5) * 90,
+          vy: -Math.random() * 80,
+          life: 0.5,
+          size: 2 + Math.random() * 2,
+          color: "#c4a573",
+        });
+    }
+    if (e.type === "explosion") {
+      this.shake = 6;
+      this.flashes.push({ x: e.x, y: e.y, age: 0, life: 0.6 });
+    }
+    if (e.type === "slam") {
+      this.shake = 8;
+      for (let i = 0; i < 18; i++)
+        this.particles.push({
+          x: e.x + (Math.random() - 0.5) * 300,
+          y: e.y,
+          vx: (Math.random() - 0.5) * 180,
+          vy: -Math.random() * 180,
+          life: 0.7,
+          size: 3,
+          color: "#d5b087",
+        });
+    }
+    if (e.type === "damage") this.shake = 3;
+  }
+  text(text, x, y, color = "#e7d084") {
+    this.floating.push({ text, x, y, color, life: 1.5 });
+  }
+  effects(dt, cam) {
+    const c = this.ctx;
+    for (const p of this.particles) {
+      p.life -= dt;
+      p.x += p.vx * dt;
+      p.y += p.vy * dt;
+      p.vy += 200 * dt;
+      c.globalAlpha = Math.min(1, p.life * 2);
+      c.fillStyle = p.color;
+      c.fillRect(p.x - cam.x, p.y - cam.y, p.size, p.size);
+    }
+    c.globalAlpha = 1;
+    this.particles = this.particles.filter((p) => p.life > 0);
+    for (const f of this.flashes) {
+      f.life -= dt;
+      f.age += dt;
+      this.sprite("explosion", f.x - cam.x, f.y - cam.y, {
+        time: f.age,
+        scale: 1.6,
+        alpha: Math.min(1, f.life * 3),
+      });
+    }
+    this.flashes = this.flashes.filter((f) => f.life > 0);
+    c.font = "bold 12px system-ui";
+    c.textAlign = "center";
+    for (const f of this.floating) {
+      f.life -= dt;
+      f.y -= 24 * dt;
+      c.globalAlpha = Math.min(1, f.life);
+      c.fillStyle = "#1a2119";
+      c.fillText(f.text, f.x - cam.x + 1, f.y - cam.y + 1);
+      c.fillStyle = f.color;
+      c.fillText(f.text, f.x - cam.x, f.y - cam.y);
+    }
+    c.globalAlpha = 1;
+    this.floating = this.floating.filter((f) => f.life > 0);
+  }
+  drawMap(canvas, engine) {
+    const m = engine.source,
+      scale = 4,
+      c = canvas.getContext("2d");
+    canvas.width = m.width * scale;
+    canvas.height = m.height * scale;
+    c.fillStyle = "#0b1511";
+    c.fillRect(0, 0, canvas.width, canvas.height);
+    for (let i = 0; i < m.tiles.length; i++) {
+      if (!engine.world.discovered[i] && m.prop1[i] !== 30) continue;
+      const x = i % m.width,
+        y = Math.floor(i / m.width),
+        t = engine.tile(x, y);
+      c.fillStyle =
+        t.prop1 === 30
+          ? "#4c8590"
+          : t.prop1 >= 20
+            ? "#b6a27d"
+            : t.tile === 16
+              ? "#77796e"
+              : t.tile >= 80
+                ? "#e6be6b"
+                : "#4c5035";
+      c.fillRect(x * scale, y * scale, scale, scale);
+    }
+    for (const e of m.entities) {
+      if (
+        ["Shop", "BossRoom", "AirStation"].includes(e.type) ||
+        e.code === 20
+      ) {
+        c.fillStyle = e.type === "AirStation" ? "#7be0d0" : "#f0bf59";
+        c.fillRect(e.x * scale - 2, e.y * scale - 2, 8, 8);
+      }
+    }
+    if (
+      engine.world.special >= 0 &&
+      !engine.s.special[engine.s.stage - 1] &&
+      engine.s.stage > 0
+    ) {
+      const i = engine.world.special;
+      c.fillStyle = "#fff099";
+      c.beginPath();
+      c.moveTo((i % m.width) * scale, Math.floor(i / m.width) * scale - 5);
+      c.lineTo((i % m.width) * scale + 5, Math.floor(i / m.width) * scale);
+      c.lineTo((i % m.width) * scale, Math.floor(i / m.width) * scale + 5);
+      c.lineTo((i % m.width) * scale - 5, Math.floor(i / m.width) * scale);
+      c.fill();
+    }
+    c.fillStyle = "#ff7272";
+    const x = (engine.s.p.x / TILE) * scale,
+      y = (engine.s.p.y / TILE) * scale;
+    c.beginPath();
+    c.arc(x, y, 4, 0, 7);
+    c.fill();
+    return y;
+  }
+}
